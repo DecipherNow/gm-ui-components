@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 export const Wrapper = styled.section`
   width: 100%;
@@ -16,5 +16,4 @@ export const Wrapper = styled.section`
 `;
 
 Wrapper.defaultProps = {
-  theme: keen
 };

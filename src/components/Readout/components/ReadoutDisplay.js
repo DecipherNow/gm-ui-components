@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PropTypes } from "prop-types";
 
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const ReadoutDisplay = styled.div`
   color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
@@ -51,8 +51,7 @@ ReadoutDisplay.propTypes = {
 };
 
 ReadoutDisplay.defaultProps = {
-  color: "transparent",
-  theme: keen
+  color: "transparent"
 };
 
 export default ReadoutDisplay;

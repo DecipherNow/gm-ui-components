@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const TAB_WIDTH_BASE = "1%";
 
@@ -40,7 +40,6 @@ const Wrap = styled.div`
 `;
 
 Wrap.defaultProps = {
-  theme: keen
 };
 
 export default Wrap;

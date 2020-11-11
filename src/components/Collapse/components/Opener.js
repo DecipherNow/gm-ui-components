@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { transparentize } from "polished";
 
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 import { spacingScale } from "style/styleFunctions";
 
@@ -30,5 +30,4 @@ export const Opener = styled.div`
 `;
 
 Opener.defaultProps = {
-  theme: keen
 };

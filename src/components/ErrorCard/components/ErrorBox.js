@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const ErrorBox = styled.div`
   align-items: center;
@@ -13,7 +13,6 @@ const ErrorBox = styled.div`
 `;
 
 ErrorBox.defaultProps = {
-  theme: keen
 };
 
 export default ErrorBox;

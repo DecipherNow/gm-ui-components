@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { spacingScale } from "style/styleFunctions";
 import { formInteractionStyles } from "components/util/InputFieldInteractionStyles";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const BORDER_WIDTH = 1;
 const CHEVRON_ICON_DEFAULT = ({ theme }) =>
@@ -48,7 +48,6 @@ const SelectField = styled.select`
 `;
 
 SelectField.defaultProps = {
-  theme: keen
 };
 
 export default SelectField;

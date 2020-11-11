@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 export const Title = styled.div`
   margin-right: auto;
@@ -11,5 +11,4 @@ export const Detail = styled.div`
 `;
 
 Detail.defaultProps = {
-  theme: keen
 };

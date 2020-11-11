@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import StyledSVG from "./components/StyledSVG";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 /**
  * Renders an Icon wrapping a Glyph component with any additional styling props
@@ -88,7 +88,6 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  theme: keen,
   hasBadge: false,
   badgePosition: {
     x: 46,

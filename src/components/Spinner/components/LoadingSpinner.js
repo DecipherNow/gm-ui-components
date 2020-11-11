@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import { spacingScale } from "style/styleFunctions";
 
 import spinGradient from "./spinGradient";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 export const SpinnerSVG = styled.svg`
   animation: ${spinGradient} 16s ease infinite;
@@ -70,8 +70,7 @@ LoadingSpinner.propTypes = {
 };
 
 SpinnerSVG.defaultProps = {
-  orientation: "vertical",
-  theme: keen
+  orientation: "vertical"
 };
 
 LoadingSpinner.displayName = "LoadingSpinner";

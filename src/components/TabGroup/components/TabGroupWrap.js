@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const TabGroupWrap = styled.nav`
   width: 100%;
@@ -14,7 +14,6 @@ const TabGroupWrap = styled.nav`
 `;
 
 TabGroupWrap.defaultProps = {
-  theme: keen
 };
 
 export default TabGroupWrap;

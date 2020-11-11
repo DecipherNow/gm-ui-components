@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
-import { keen, keenDark } from "style/theme";
+import { text, boolean, number } from "@storybook/addon-knobs";
+import { theme, invertColorScheme, setSpacingBase } from "style/theme";
 import { spacingScale } from "style/styleFunctions";
+
+import ConnectedThemeProvider from 'components/ConnectedThemeProvider';
 
 import { IconCog, IconChevronRight } from "components/Glyphs";
 import Breadcrumbs from "components/Breadcrumbs";
@@ -30,7 +33,7 @@ const DemoCols = styled.div`
 const DemoCanvas = styled.div`
   padding: 1rem;
   background-color: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
-  color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
+  /* color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT}; */
 `;
 
 const StyledFieldset = styled(Fieldset)`
@@ -126,7 +129,8 @@ DemoContent.propTypes = {
 
 stories.add(
   "Themes",
-  () => (
+  () => {
+    return (
     <>
       <DocumentationLink>
         <a href="https://github.com/greymatter-io/gm-ui-components#theming">
@@ -135,15 +139,15 @@ stories.add(
         </a>
       </DocumentationLink>
       <DemoCols>
-        <ThemeProvider theme={keen}>
+        <ConnectedThemeProvider theme={theme}>
           <DemoContent themeName="keen" />
-        </ThemeProvider>
-        <ThemeProvider theme={keenDark}>
+        </ConnectedThemeProvider>
+        <ConnectedThemeProvider theme={setSpacingBase(number('spacing', 9), theme)}>
           <DemoContent themeName="keenDark" />
-        </ThemeProvider>
+        </ConnectedThemeProvider>
       </DemoCols>
     </>
-  ),
+  )},
   {
     info: {
       source: false

@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "Body-e0mu8o-0",
+    "isStatic": false,
+    "lastClassName": "jgwquo",
+    "rules": Array [
+      "grid-area:body;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;",
+      [Function],
+    ],
+  },
+  "displayName": "Body",
+  "foldedComponentIds": Array [],
+  "render": [Function],
+  "styledComponentId": "Body-e0mu8o-0",
+  "target": "div",
+  "toString": [Function],
+  "warnTooManyClasses": [Function],
+  "withComponent": [Function],
+}
+`;
+
+exports[` 2`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "Detail-sc-1h8mdse-0",
+    "isStatic": false,
+    "rules": Array [
+      "display:block;grid-area:detail;color:",
+      [Function],
+      ";font-size:",
+      [Function],
+      ";margin:0 0 auto;",
+    ],
+  },
+  "displayName": "Detail",
+  "foldedComponentIds": Array [],
+  "render": [Function],
+  "styledComponentId": "Detail-sc-1h8mdse-0",
+  "target": "span",
+  "toString": [Function],
+  "warnTooManyClasses": [Function],
+  "withComponent": [Function],
+}
+`;
+
+exports[` 3`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "Graphic-sc-1emua2x-0",
+    "isStatic": false,
+    "lastClassName": "dyiQiQ",
+    "rules": Array [
+      "display:flex;align-items:center;justify-content:center;flex:0 0 auto;color:",
+      [Function],
+      ";letter-spacing:unset;svg{letter-spacing:normal;}",
+    ],
+  },
+  "displayName": "Graphic",
+  "foldedComponentIds": Array [],
+  "render": [Function],
+  "styledComponentId": "Graphic-sc-1emua2x-0",
+  "target": "div",
+  "toString": [Function],
+  "warnTooManyClasses": [Function],
+  "withComponent": [Function],
+}
+`;
+
+exports[` 4`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "Message-sc-6slmuq-0",
+    "isStatic": false,
+    "rules": Array [
+      "grid-area:message;line-height:",
+      [Function],
+      ";margin:auto 0 0;display:block;&:last-of-type{margin:auto 0;}",
+    ],
+  },
+  "displayName": "Message",
+  "foldedComponentIds": Array [],
+  "render": [Function],
+  "styledComponentId": "Message-sc-6slmuq-0",
+  "target": "span",
+  "toString": [Function],
+  "warnTooManyClasses": [Function],
+  "withComponent": [Function],
+}
+`;
+
+exports[` 5`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "Wrap-vog3nk-0",
+    "isStatic": false,
+    "lastClassName": "drLxix",
+    "rules": Array [
+      "display:grid;grid-template-areas:\\"graphic body\\";align-items:center;justify-content:center;padding:",
+      "
+    calc(var(--SPACING_BASE) * 2 * 1px)",
+      ";",
+      [Function],
+      " ",
+      [Function],
+    ],
+  },
+  "displayName": "Wrap",
+  "foldedComponentIds": Array [],
+  "render": [Function],
+  "styledComponentId": "Wrap-vog3nk-0",
+  "target": "div",
+  "toString": [Function],
+  "warnTooManyClasses": [Function],
+  "withComponent": [Function],
+}
+`;
+
+exports[`Status matches snapshot 1`] = `
+<Wrap
+  isBlock={false}
+>
+  <Graphic
+    graphicColor={[Function]}
+  >
+    <GraphicStatusIndeterminate
+      isBlock={false}
+    />
+  </Graphic>
+  <Body
+    isBlock={false}
+  />
+</Wrap>
+`;

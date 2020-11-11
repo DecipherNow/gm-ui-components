@@ -1,7 +1,7 @@
 import React from "react";
 
 import ToggleSwitch from "./ToggleSwitch";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 describe("ToggleSwitch", () => {
   it("matches snapshot", () => {

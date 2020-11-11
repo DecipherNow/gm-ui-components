@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 import { spacingScale } from "style/styleFunctions";
 
 const InputWrap = styled.label`
@@ -17,7 +17,6 @@ const InputWrap = styled.label`
 `;
 
 InputWrap.defaultProps = {
-  theme: keen
 };
 
 function getPosition(position) {

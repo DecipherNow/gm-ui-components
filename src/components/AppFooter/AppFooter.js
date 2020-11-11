@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 import { node } from "../util/PropTypes";
 
 import Copyright from "./components/Copyright";
@@ -100,8 +100,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 AppFooter.defaultProps = {
   copyrightText: `TM and \u00A9 ${CURRENT_YEAR} Decipher Technology Studios`,
-  useExternalLinks: true,
-  theme: keen
+  useExternalLinks: true
 };
 
 AppFooter.displayName = "AppFooter";

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 import LoadingSpinnerWrap from "./components/LoadingSpinnerWrap";
 import LoadingMessage from "./components/LoadingMessage";
@@ -14,8 +14,7 @@ Spinner.propTypes = {
 
 Spinner.defaultProps = {
   orientation: "vertical",
-  message: "Loading...",
-  theme: keen
+  message: "Loading..."
 };
 
 Spinner.displayName = "Spinner";

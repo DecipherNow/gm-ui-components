@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 import { spacingScale } from "style/styleFunctions";
 
 const Footer = styled.footer`
@@ -30,7 +30,6 @@ const Footer = styled.footer`
 `;
 
 Footer.defaultProps = {
-  theme: keen
 };
 
 export default Footer;

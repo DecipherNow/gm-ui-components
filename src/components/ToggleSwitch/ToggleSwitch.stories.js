@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { color, text, boolean, select } from "@storybook/addon-knobs";
 import styled from "styled-components";
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 import ToggleSwitch from "./ToggleSwitch";
 
 const Wrap = styled.div`

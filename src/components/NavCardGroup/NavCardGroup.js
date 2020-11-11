@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 
-import { keenDark } from "style/theme";
 import { spacingScale } from "style/styleFunctions";
 
 const TAB_WIDTH_BASE = "1%";
@@ -35,11 +34,9 @@ const NavCardGroupWrap = styled.nav`
   }
 `;
 
-function NavCardGroup({ useContextTheme, children }) {
+function NavCardGroup({ children }) {
   return (
-    <ThemeProvider theme={props => (useContextTheme ? props : keenDark)}>
       <NavCardGroupWrap>{children}</NavCardGroupWrap>
-    </ThemeProvider>
   );
 }
 

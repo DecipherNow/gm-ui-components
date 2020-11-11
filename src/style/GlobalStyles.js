@@ -1,5 +1,5 @@
 import { css, createGlobalStyle } from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 import "inter-ui/inter.css";
 
@@ -475,7 +475,15 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 GlobalStyles.defaultProps = {
-  theme: keen
+  // theme: keen
+};
+
+function len(number) {
+  return `var(--spacing-scale(` + number + `)`;
 };
 
 export default GlobalStyles;
+
+export const ThemeRegionStyles = css`
+  --SPACING_BASE: ${({ theme }) => theme.SPACING_BASE};
+`;

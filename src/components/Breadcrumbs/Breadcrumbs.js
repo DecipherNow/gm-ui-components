@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 import { spacingScale } from "style/styleFunctions";
 
 export const BreadcrumbsWrap = styled.ol`
@@ -19,7 +19,6 @@ export const BreadcrumbsWrap = styled.ol`
 `;
 
 BreadcrumbsWrap.defaultProps = {
-  theme: keen
 };
 
 export const Breadcrumb = styled.li`
@@ -62,7 +61,6 @@ export const Breadcrumb = styled.li`
 `;
 
 Breadcrumb.defaultProps = {
-  theme: keen
 };
 
 function Breadcrumbs({ crumbs, hideDelimiter, ...props }) {
@@ -84,8 +82,7 @@ Breadcrumbs.propTypes = {
 
 Breadcrumbs.defaultProps = {
   crumbs: [],
-  hideDelimiter: false,
-  theme: keen
+  hideDelimiter: false
 };
 
 export default Breadcrumbs;

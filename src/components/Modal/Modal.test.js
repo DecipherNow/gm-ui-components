@@ -2,7 +2,7 @@ import React from "react";
 
 import { theme } from "style/theme";
 
-import Status from "./Status";
+import Status from "./Modal";
 
 import * as components from "./components";
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 export const LoadingMessage = styled.p`
   color: ${({ theme }) => theme.COLOR_CONTENT_MUTED};
@@ -10,7 +10,6 @@ export const LoadingMessage = styled.p`
 `;
 
 LoadingMessage.defaultProps = {
-  theme: keen
 };
 
 export default LoadingMessage;

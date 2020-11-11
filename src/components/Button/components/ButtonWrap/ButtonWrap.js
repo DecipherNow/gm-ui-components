@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import generateButtonOrientation from "./utils/generateButtonOrientation";
 import generateButtonSize from "./utils/generateButtonSize";
 import generateButtonStyle from "./utils/generateButtonStyle";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 // The start of the CSS style output
 const ButtonWrap = styled.button`
@@ -78,7 +78,6 @@ ButtonWrap.propTypes = {
 };
 
 ButtonWrap.defaultProps = {
-  theme: keen,
   active: false,
   orientation: "horizontal",
   outline: false,

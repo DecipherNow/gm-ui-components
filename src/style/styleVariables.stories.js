@@ -8,6 +8,9 @@ import { spacingScale } from "./styleFunctions";
 
 const stories = storiesOf("Overview|Design Tokens", module);
 
+// console.log(env);
+// console.log(process);
+
 const DemoCanvas = styled.div`
   background-color: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
   color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};

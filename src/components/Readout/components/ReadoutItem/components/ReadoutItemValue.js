@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const ReadoutItemValue = styled.span`
   font-size: ${({ theme }) => theme.FONT_SIZE_PAGE_TITLE};
@@ -10,7 +10,6 @@ const ReadoutItemValue = styled.span`
 `;
 
 ReadoutItemValue.defaultProps = {
-  theme: keen
 };
 
 export default ReadoutItemValue;

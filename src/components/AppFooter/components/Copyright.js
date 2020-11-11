@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const Copyright = styled.p`
   font-size: 60%; /* Unique instance of font size. Do not associate with theme variable. */
@@ -27,7 +27,6 @@ const Copyright = styled.p`
 `;
 
 Copyright.defaultProps = {
-  theme: keen
 };
 
 export default Copyright;

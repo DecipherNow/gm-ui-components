@@ -5,7 +5,7 @@ import { IconAlertTriangle } from "../Glyphs";
 import ErrorBox from "./components/ErrorBox";
 import ErrorContent from "./components/ErrorContent";
 import Span from "./components/Span";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 /**Stateless functional React component that renders the error message box
  * Takes an error message and returns error message box
@@ -30,8 +30,7 @@ ErrorCard.propTypes = {
 };
 
 ErrorCard.defaultProps = {
-  errorMsg: "Something went wrong.",
-  theme: keen
+  errorMsg: "Something went wrong."
 };
 
 ErrorCard.displayName = "ErrorCard";

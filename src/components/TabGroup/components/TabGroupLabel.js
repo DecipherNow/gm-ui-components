@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const TabGroupLabel = styled.p`
   padding: 0 ${spacingScale(1)};
@@ -11,7 +11,6 @@ const TabGroupLabel = styled.p`
 `;
 
 TabGroupLabel.defaultProps = {
-  theme: keen
 };
 
 export default TabGroupLabel;

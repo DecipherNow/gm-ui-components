@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const TooltipWrap = styled.div`
   display: inline-block;
@@ -18,7 +18,6 @@ const TooltipWrap = styled.div`
 `;
 
 TooltipWrap.defaultProps = {
-  theme: keen
 };
 
 export default TooltipWrap;

@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { mix, readableColor } from "polished";
 
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const color = css`
   color: ${({ theme }) =>
@@ -27,7 +27,6 @@ const NavCardDetails = styled.dl`
 `;
 
 NavCardDetails.defaultProps = {
-  theme: keen
 };
 
 export default NavCardDetails;

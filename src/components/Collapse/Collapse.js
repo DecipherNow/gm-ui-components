@@ -1,7 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import { IconChevronRight } from "components/Glyphs";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 import { Title, Detail, Wrapper, Header, Opener, Body } from "./components";
 
@@ -124,8 +124,7 @@ class Collapse extends React.Component {
 }
 
 Collapse.defaultProps = {
-  initiallyOpen: false,
-  theme: keen
+  initiallyOpen: false
 };
 
 Collapse.propTypes = {

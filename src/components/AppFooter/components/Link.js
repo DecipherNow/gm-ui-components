@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 import { spacingScale } from "style/styleFunctions";
 
 const Link = styled.a`
@@ -12,7 +12,6 @@ const Link = styled.a`
 `;
 
 Link.defaultProps = {
-  theme: keen
 };
 
 export default Link;

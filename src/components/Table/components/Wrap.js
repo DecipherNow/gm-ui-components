@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const Wrap = styled.table`
   width: 100%;
@@ -13,7 +13,6 @@ const Wrap = styled.table`
 `;
 
 Wrap.defaultProps = {
-  theme: keen
 };
 
 Wrap.displayName = "Wrap";

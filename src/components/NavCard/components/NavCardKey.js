@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const NavCardKey = styled.dt`
   color: ${({ theme }) => theme.COLOR_CONTENT_MUTED};
@@ -10,7 +10,6 @@ const NavCardKey = styled.dt`
 `;
 
 NavCardKey.defaultProps = {
-  theme: keen
 };
 
 export default NavCardKey;

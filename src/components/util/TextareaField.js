@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { spacingScale } from "style/styleFunctions";
 import { formInteractionStyles } from "./InputFieldInteractionStyles";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const BORDER_WIDTH = 1;
 
@@ -33,7 +33,6 @@ const TextareaField = styled.textarea`
 `;
 
 TextareaField.defaultProps = {
-  theme: keen
 };
 
 export default TextareaField;

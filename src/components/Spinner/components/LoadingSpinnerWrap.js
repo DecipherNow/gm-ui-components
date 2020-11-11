@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 export const LoadingSpinnerWrap = styled.div`
   display: flex;
@@ -23,7 +23,6 @@ export const LoadingSpinnerWrap = styled.div`
 `;
 
 LoadingSpinnerWrap.defaultProps = {
-  theme: keen
 };
 
 export default LoadingSpinnerWrap;

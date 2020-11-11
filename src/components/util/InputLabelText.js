@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const InputLabelText = styled.p`
   margin: 0;
@@ -8,7 +8,6 @@ const InputLabelText = styled.p`
 `;
 
 InputLabelText.defaultProps = {
-  theme: keen
 };
 
 export default InputLabelText;

@@ -3,12 +3,13 @@ import { configure, addDecorator, addParameters } from "@storybook/react";
 import { withA11y } from "@storybook/addon-a11y";
 import { withInfo } from "@storybook/addon-info";
 import { withKnobs } from "@storybook/addon-knobs";
-import { withThemesProvider } from "storybook-addon-styled-component-theme";
+// import { withThemesProvider } from "storybook-addon-styled-component-theme";
 import gmTheme from "./gmTheme";
 
 import PropTypesTable from "./PropTypesTable";
 import StoryContainer from "ComponentLibrary/StoryComponents/StoryContainer";
-import { keen, keenDark } from "style/theme";
+// import { keen, keenDark } from "style/theme";
+import { theme } from "style/theme";
 
 const req = require.context("../src/", true, /\.stories\.js$/);
 
@@ -66,9 +67,9 @@ addDecorator(withKnobs);
 
 addDecorator(withA11y);
 
-addDecorator(story => <StoryContainer>{story()}</StoryContainer>);
+addDecorator(story => <StoryContainer theme={theme}>{story()}</StoryContainer>);
 
-const themes = [keen, keenDark];
-addDecorator(withThemesProvider(themes));
+// const themes = [keen, keenDark];
+// addDecorator(withThemesProvider(themes));
 
 configure(loadStories, module);

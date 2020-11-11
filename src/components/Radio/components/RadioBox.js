@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { transparentize, readableColor, darken } from "polished";
 
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 import InputBox from "components/util/InputBox";
 
@@ -66,7 +66,6 @@ const RadioBox = styled(InputBox).attrs(() => ({
 `;
 
 RadioBox.defaultProps = {
-  theme: keen
 };
 
 export default RadioBox;

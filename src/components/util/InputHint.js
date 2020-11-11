@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 export const InputHint = styled.small`
   margin: ${spacingScale(0.5)} 0;
@@ -11,7 +11,6 @@ export const InputHint = styled.small`
 `;
 
 InputHint.defaultProps = {
-  theme: keen
 };
 
 export default InputHint;

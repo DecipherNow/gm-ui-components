@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { transparentize } from "polished";
 
 import { spacingScale } from "style/styleFunctions";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 const activeStyles = css`
   box-shadow: ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT} 0px -2px inset;
@@ -89,7 +89,6 @@ const TabWrap = styled.a`
 `;
 
 TabWrap.defaultProps = {
-  theme: keen
 };
 
 export default TabWrap;

@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 import { columnItemShape } from "../types";
 import TableCell from "./TableCell";
-import { keen } from "style/theme";
+import { theme } from "style/theme";
 
 // Use all of TableCell's styles, but with a <th> element instead of <td>
 const TableHeaderCell = styled(TableCell.withComponent("th"))`
@@ -46,7 +46,6 @@ TableHeader.propTypes = {
 };
 
 TableHeaderCell.defaultProps = {
-  theme: keen
 };
 
 export default TableHeader;

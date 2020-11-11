@@ -48,6 +48,15 @@ const Introduction = styled.div`
 storiesOf(" Overview|Introduction", module).add(
   "Introduction",
   () => {
+
+    // let operatingSystem = 'Not known';
+    //   if (window.navigator.appVersion.indexOf('Win')   !== -1) { operatingSystem = 'Windows OS'; }
+    //   if (window.navigator.appVersion.indexOf('Mac')   !== -1) { operatingSystem = 'MacOS'; }
+    //   if (window.navigator.appVersion.indexOf('X11')   !== -1) { operatingSystem = 'UNIX OS'; }
+    //   if (window.navigator.appVersion.indexOf('Linux') !== -1) { operatingSystem = 'Linux OS'; }
+  
+    // console.log(window);
+    
     return (
       <Introduction>
         <h1>Introduction</h1>
