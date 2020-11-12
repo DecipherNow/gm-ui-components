@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import { transparentize } from "polished";
 
-import { spacingScale } from "style/styleFunctions";
 import {
   FORM_HIGHLIGHT_SIZE,
   formInteractionStyles
@@ -25,8 +24,9 @@ const InputBox = styled.input`
     css`${BORDER_WIDTH}px solid ${theme.brandColor ||
       theme.COLOR_INTENT_HIGHLIGHT}`};
   color: ${({ theme }) => theme.brandColor || theme.COLOR_INTENT_HIGHLIGHT};
-  font-size: ${spacingScale(2)};
-  margin: ${spacingScale(0.25)};
+  font-size: 1.25em;
+  margin-block: 0.25em;
+  margin-inline-end: 0.25em;
   appearance: none;
   flex: 0 0 calc(1em - ${BORDER_WIDTH * 2}px);
   height: calc(1em - ${BORDER_WIDTH * 2}px);

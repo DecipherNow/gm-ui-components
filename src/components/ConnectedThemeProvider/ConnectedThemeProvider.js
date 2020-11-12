@@ -1,6 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeConsumer, ThemeProvider } from 'styled-components';
 
 // Wraps children in the proper theme,
 // and provides the base styles that
@@ -9,12 +8,18 @@ import { ThemeProvider } from 'styled-components';
 const ThemeRegionStyle = styled.div`
   --SPACING_BASE: ${({ theme }) => theme.SPACING_BASE};
   letter-spacing: ${({ theme }) => theme.LETTER_SPACING_DEFAULT};
+  color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
+  background: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
   display: contents;
+  transition:
+    background 1s ease,
+    color 1s ease,
+    letter-spacing 1s ease;
 `;
 
 function ConnectedThemeProvider({ theme, children }) {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} key={theme.THEME_NAME, theme.COLOR_SCHEME}>
       <ThemeRegionStyle>
         {children}
       </ThemeRegionStyle>
@@ -22,4 +27,17 @@ function ConnectedThemeProvider({ theme, children }) {
   )
 }
 
+function ConnectedThemeTransformer({ fn, children }) {
+  if (typeof(fn) === 'function') {
+    return (
+      <ThemeConsumer>
+        {theme => <ConnectedThemeProvider theme={fn(theme)} children={children} />}
+      </ThemeConsumer>
+    )
+  } else {
+    return children
+  }
+}
+
+export { ConnectedThemeTransformer };
 export default ConnectedThemeProvider;

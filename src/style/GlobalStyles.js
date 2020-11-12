@@ -474,13 +474,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-GlobalStyles.defaultProps = {
-  // theme: keen
-};
-
-function len(number) {
-  return `var(--spacing-scale(` + number + `)`;
-};
+GlobalStyles.defaultProps = {};
 
 export default GlobalStyles;
 

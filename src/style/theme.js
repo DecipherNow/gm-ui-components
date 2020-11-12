@@ -1,133 +1,23 @@
-import { setLightness, getLuminance } from "polished";
+import { setLightness, transparentize, mix, saturate, darken, desaturate, lighten, getLuminance } from 'polished';
 
-function addMacOSXInfluence(theme) {
-  return theme = {
-    ...theme,
-      OS_INFLUENCE: 'macOS X',
-      CORNER_RADIUS_SHARP: '2px',
-      CORNER_RADIUS_INPUT: '4px',
-      CORNER_RADIUS_CARD_SM: '5px'
-  }
-}
-
-function addMacOS11Influence(theme) {
-  return theme = {
-    ...theme,
-    OS_INFLUENCE: 'macOS 11',
-    CORNER_RADIUS_SHARP: "3px",
-    CORNER_RADIUS_INPUT: "5px",
-    CORNER_RADIUS_CARD_SM: "7px",
-    CORNER_RADIUS_CARD_DEFAULT: "11px",
-    CORNER_RADIUS_CARD_LG: "17px",
-    CORNER_RADIUS_MAX: "90000px",
-  }
-}
-
-function addWin10Influence(theme) {
-  return theme = {
-    ...theme,
-    OS_INFLUENCE: 'Win10',
-    CORNER_RADIUS_SHARP: "0",
-    CORNER_RADIUS_INPUT: "0",
-    CORNER_RADIUS_CARD_SM: "0",
-    CORNER_RADIUS_CARD_DEFAULT: "0",
-    CORNER_RADIUS_CARD_LG: "0",
-    CORNER_RADIUS_MAX: "0",
-
-    COLOR_INTENT_HIGHLIGHT: "#0078d4",
-    COLOR_INTENT_SUCCESS: "#107c10",
-    COLOR_INTENT_DANGER: "#a80000",
-    COLOR_INTENT_WARNING: "#d83b01",
-    COLOR_INTENT_INFO: "#0078d4",
-  }
-}
+// Offsets = DEFAULT, ONE, TWO, THREE...
+// Sizes = MIN, XS, SM, DEFAULT, LG, XL, MAX
+// Sizes = LOOSE, DEFAULT, TIGHT
+// Strengths (4) = FULL, LIGHT, LIGHTER, LIGHTEST
+// Strengths (5, 7) = LOWEST, LOWER, LOW, MED, HIGH, HIGHER, HIGHEST
 
 
-export function setSpacingBase(size, theme) {
-  return theme = size ? { ...theme, SPACING_BASE: size } : {...theme};
-}
-
-// 
-// Switching Color Schemes
-// 
-
-export function setColorScheme(scheme, theme) {
-
-  let foregroundLightness;
-  let backgroundLightness;
-  let letterSpacing;
-
-  if (scheme === 'light') {
-    foregroundLightness = 0;
-    backgroundLightness = 1;
-    letterSpacing: 'normal';
-  } else if (scheme === 'dark') {
-    foregroundLightness = 1;
-    backgroundLightness = 0;
-    letterSpacing: '0.025ch';
-  }
-
-  return theme = {
-    ...theme,
-    COLOR_SCHEME: scheme,
-    COLOR_CONTENT_CONTRAST: setLightness(foregroundLightness, theme.COLOR_CONTENT_CONTRAST),
-    COLOR_CONTENT_DEFAULT: setLightness(foregroundLightness, theme.COLOR_CONTENT_DEFAULT),
-    COLOR_CONTENT_MUTED: setLightness(foregroundLightness, theme.COLOR_CONTENT_MUTED),
-    COLOR_CONTENT_NONESSENTIAL: setLightness(foregroundLightness, theme.COLOR_CONTENT_NONESSENTIAL),
-
-    COLOR_BACKGROUND_DEFAULT: setLightness(backgroundLightness, theme.COLOR_BACKGROUND_DEFAULT),
-    COLOR_BACKGROUND_TWO: setLightness(backgroundLightness, theme.COLOR_BACKGROUND_TWO),
-    COLOR_BACKGROUND_THREE: setLightness(backgroundLightness, theme.COLOR_BACKGROUND_THREE),
-
-    LETTER_SPACING_DEFAULT: letterSpacing
-  }
-}
-
-export function invertColorScheme(theme) {
-  let scheme;
-  
-  if (getLuminance(theme.COLOR_BACKGROUND_DEFAULT) > 0.5) {
-    scheme = 'dark'
-  } else {
-    scheme = 'light';
-  }
-  
-  return theme = setColorScheme(scheme, theme);
-}
-
-export function setColorSchemeDark(theme) {
-  return theme = setColorScheme('dark', theme);
-}
-
-export function setColorSchemeLight(theme) {
-  return theme = setColorScheme('light', theme);
-}
-
-// let influence = {}
-
-// const userAgent = window.navigator.userAgent;
-
-// if (userAgent.includes('Mac OS X 10_')) {
-//   influence = addMacOSXInfluence;
-// }
-
-// if (userAgent.includes('Mac OS X 11_')) {
-//   influence = addMacOS11Influence;
-// }
-
-// if (userAgent.includes('Win64')) {
-//   influence = addWin10Influence;
-// }
-
-const defaults = {
+const themeBase = {
   THEME_NAME: 'default',
   COLOR_SCHEME: 'light',
   OS_INFLUENCE: 'none',
+  LIGHTNESS_BIAS: 0.075,
+  COLOR_SCHEME_SATURATION_ADJUSTMENT: 0.3,
 
-  OPACITY_FULL: "1",
-  OPACITY_LIGHT: "0.7",
-  OPACITY_LIGHTER: "0.5",
-  OPACITY_LIGHTEST: "0.15",
+  OPACITY_FULL: '1',
+  OPACITY_LIGHT: '0.7',
+  OPACITY_LIGHTER: '0.5',
+  OPACITY_LIGHTEST: '0.15',
 
   LINE_HEIGHT_LOOSE: 1.6,
   LINE_HEIGHT_DEFAULT: 1.4,
@@ -138,142 +28,305 @@ const defaults = {
   FONT_WEIGHT_SEMIBOLD: 600,
   FONT_WEIGHT_BOLD: 700,
 
-  CORNER_RADIUS_SHARP: "2px",
-  CORNER_RADIUS_INPUT: "4px",
-  CORNER_RADIUS_CARD_SM: "4px",
-  CORNER_RADIUS_CARD_DEFAULT: "6px",
-  CORNER_RADIUS_CARD_LG: "8px",
-  CORNER_RADIUS_MAX: "90000px",
+  CORNER_RADIUS_SHARP: '2px',
+  CORNER_RADIUS_INPUT: '4px',
+  CORNER_RADIUS_CARD_SM: '4px',
+  CORNER_RADIUS_CARD_DEFAULT: '6px',
+  CORNER_RADIUS_CARD_LG: '8px',
+  CORNER_RADIUS_MAX: '90000px',
 
-  COLOR_BRAND_PRIMARY: "#00b42b",
-  COLOR_BRAND_SECONDARY: "#00b42b",
+  COLOR_BRAND_PRIMARY: 'rgb(0, 122, 255)',
+  COLOR_BRAND_SECONDARY: '#00b42b',
 
-  COLOR_BACKGROUND_DEFAULT: "hsl(0, 0%, 100%)",
-  COLOR_BACKGROUND_TWO: "#FDFDFE",
-  COLOR_BACKGROUND_THREE: "hsl(0, 0%, 94%)",
+  COLOR_CONTENT: '#000',
+  COLOR_BACKGROUND: '#fff',
+  
+  COLOR_INTENT_HIGHLIGHT: 'rgb(0, 122, 255)',
+  COLOR_INTENT_SUCCESS: '#00b42b',
+  COLOR_INTENT_DANGER: '#D83D22', // WCAG AA+
+  COLOR_INTENT_WARNING: '#F7CD45', // WCAG AA+
+  COLOR_INTENT_INFO: '#1E6DF6', // WCAG AA+
 
-  COLOR_CONTENT_DEFAULT: "hsla(0, 0%, 0%, 0.85)",
-  COLOR_CONTENT_CONTRAST: "hsl(0, 0%, 0%)",
-  COLOR_CONTENT_MUTED: "hsla(0, 0%, 0%, 0.6)",
-  COLOR_CONTENT_NONESSENTIAL: "hsla(0, 0%, 0%, 0.3)",
+  FONT_STACK_DEFAULT: `Inter var, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif`,
+  FONT_STACK_BRAND: `'Metropolis', 'Helvetica Neue', Arial, sans-serif`,
+  FONT_STACK_CODE: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
 
-  COLOR_INTENT_HIGHLIGHT: "#00b42b",
-  COLOR_INTENT_SUCCESS: "#00b42b",
-  COLOR_INTENT_DANGER: "#D83D22", // WCAG AA+
-  COLOR_INTENT_WARNING: "#F7CD45", // WCAG AA+
-  COLOR_INTENT_INFO: "#1E6DF6", // WCAG AA+
+  FONT_SIZE_PAGE_TITLE: '40px',
 
-  COLOR_KEYLINE_DEFAULT: "hsla(0, 0%, 0%, 0.08)",
-  COLOR_KEYLINE_SOLID: "hsl(0, 0%, 92%)",
+  FONT_SIZE_HEADING_LG: '38px',
+  FONT_SIZE_HEADING_DEFAULT: '36px',
+  FONT_SIZE_HEADING_SM: '32px',
 
-  COLOR_CONTENT_DEFAULT: "hsla(0, 0%, 0%, 0.85)",
-  COLOR_CONTENT_CONTRAST: "hsl(0, 0%, 0%)",
-  COLOR_CONTENT_MUTED: "hsla(0, 0%, 0%, 0.6)",
-  COLOR_CONTENT_NONESSENTIAL: "hsla(0, 0%, 0%, 0.3)",
+  FONT_SIZE_SUBHEADING_LG: '18px',
+  FONT_SIZE_SUBHEADING_DEFAULT: '16px',
+  FONT_SIZE_SUBHEADING_SM: '14px',
 
-  // TYPOGRAPHY
-  FONT_STACK_DEFAULT: `Inter var, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif`,
-  FONT_STACK_BRAND: `"Metropolis", "Helvetica Neue", Arial, sans-serif`,
-  FONT_STACK_CODE: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace`,
+  FONT_SIZE_ITEM_TITLE_LG: '16px',
+  FONT_SIZE_ITEM_TITLE_DEFAULT: '14px',
+  FONT_SIZE_ITEM_TITLE_SM: '12px',
 
-  // LAYOUT
+  FONT_SIZE_TEXT_XL: '18px',
+  FONT_SIZE_TEXT_LG: '16px',
+  FONT_SIZE_TEXT_DEFAULT: '14px',
+  FONT_SIZE_TEXT_SM: '12px',
+  FONT_SIZE_TEXT_XS: '10px',
 
-  FONT_SIZE_PAGE_TITLE: "40px",
-
-  FONT_SIZE_HEADING_LG: "38px",
-  FONT_SIZE_HEADING_DEFAULT: "36px",
-  FONT_SIZE_HEADING_SM: "32px",
-
-  FONT_SIZE_SUBHEADING_LG: "18px",
-  FONT_SIZE_SUBHEADING_DEFAULT: "16px",
-  FONT_SIZE_SUBHEADING_SM: "14px",
-
-  FONT_SIZE_ITEM_TITLE_LG: "16px",
-  FONT_SIZE_ITEM_TITLE_DEFAULT: "14px",
-  FONT_SIZE_ITEM_TITLE_SM: "12px",
-
-  FONT_SIZE_TEXT_XL: "18px",
-  FONT_SIZE_TEXT_LG: "16px",
-  FONT_SIZE_TEXT_DEFAULT: "14px",
-  FONT_SIZE_TEXT_SM: "12px",
-  FONT_SIZE_TEXT_XS: "10px",
-
-  LETTER_SPACING_DEFAULT: "normal",
+  LETTER_SPACING_DEFAULT: 'normal',
 
   SPACING_BASE: 8,
 
-  ZINDEX_ABYSS: "-9999",
-  ZINDEX_FLOOR: "1",
-  ZINDEX_DROPDOWN: "1010",
-  ZINDEX_STICKY: "1020",
-  ZINDEX_FIXED: "1030",
-  ZINDEX_SCRIM: "1040",
-  ZINDEX_MODAL: "1050",
-  ZINDEX_POPOVER: "1060",
-  ZINDEX_TOOLTIP: "1070",
+  ZINDEX_ABYSS: '-9999',
+  ZINDEX_FLOOR: '1',
+  ZINDEX_DROPDOWN: '1010',
+  ZINDEX_STICKY: '1020',
+  ZINDEX_FIXED: '1030',
+  ZINDEX_SCRIM: '1040',
+  ZINDEX_MODAL: '1050',
+  ZINDEX_POPOVER: '1060',
+  ZINDEX_TOOLTIP: '1070',
+}
+
+function prepareTheme(theme, content, keyline) {
+
+  const bgScale = 0.05;
+
+  const defaultContent = {
+    contrast: 1,
+    default: 0.85,
+    muted: 0.6,
+    nonessential: 0.3,
+  }
+
+  const defaultKeyline = {
+    default: 0.08,
+    solid: 0.08
+  }
+
+  if (!content) {
+    content = defaultContent
+  }
+
+  if (!keyline) {
+    keyline = defaultKeyline
+  }
+
+  const makeBackgroundLevel = (level) => {
+    if (theme.COLOR_SCHEME === 'dark') {
+      return mix(level * bgScale, theme.COLOR_CONTENT, theme.COLOR_BACKGROUND)
+    } else {
+      return mix(level * bgScale, theme.COLOR_CONTENT, theme.COLOR_BACKGROUND)
+    }
+  }
+
+  return theme = {
+    ...theme,
+    COLOR_CONTENT_CONTRAST: transparentize((1 - content.contrast), theme.COLOR_CONTENT),
+    COLOR_CONTENT_DEFAULT: transparentize((1 - content.default), theme.COLOR_CONTENT),
+    COLOR_CONTENT_MUTED: transparentize((1 - content.muted), theme.COLOR_CONTENT),
+    COLOR_CONTENT_NONESSENTIAL: transparentize((1 - content.muted), theme.COLOR_CONTENT),
+
+    COLOR_KEYLINE_DEFAULT: lighten(theme.LIGHTNESS_BIAS, transparentize((1 - keyline.default), theme.COLOR_CONTENT)),
+    // TODO: Verify _SOLID version
+    COLOR_KEYLINE_SOLID: lighten(theme.LIGHTNESS_BIAS, mix((1 - keyline.solid), theme.COLOR_BACKGROUND, theme.COLOR_CONTENT)),
+
+    // TODO: make these values align to the current color scheme
+    COLOR_BACKGROUND_DEFAULT: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(0)),
+    COLOR_BACKGROUND_TWO: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(1)),
+    COLOR_BACKGROUND_THREE: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(2)),
+    COLOR_BACKGROUND_FOUR: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(3)),
+    COLOR_BACKGROUND_FIVE: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(4)),
+
+    // TODO: Add transparent versions of bg colors
+  }
+}
+
+// const preparedTheme = prepareTheme(themeBase);
+
+
+export const addMacOSXInfluence = (theme) => {
+  return theme = {
+    ...theme,
+      OS_INFLUENCE: 'macOS X',
+      // Rounded corners
+      CORNER_RADIUS_SHARP: '2px',
+      CORNER_RADIUS_INPUT: '4px',
+      CORNER_RADIUS_CARD_SM: '5px',
+      // Apple color palatte
+      COLOR_INTENT_HIGHLIGHT: 'rgb(0,122,255)',
+      COLOR_INTENT_DANGER: 'rgb(255,59,48)',
+      COLOR_INTENT_WARNING: 'rgb(255,149,0)',
+      COLOR_INTENT_INFO: 'rgb(90,200,250)',
+      COLOR_INTENT_SUCCESS: 'rgb(40,205,65)'
+  }
+}
+
+export const addMacOS11Influence = (theme) => {
+  return theme = {
+    ...theme,
+    OS_INFLUENCE: 'macOS 11',
+    // More rounded corners
+    CORNER_RADIUS_SHARP: '3px',
+    CORNER_RADIUS_INPUT: '5px',
+    CORNER_RADIUS_CARD_SM: '7px',
+    CORNER_RADIUS_CARD_DEFAULT: '11px',
+    CORNER_RADIUS_CARD_LG: '17px',
+    CORNER_RADIUS_MAX: '90000px',
+    // Broad padding
+    SPACING_BASE: 10,
+    // Apple color palatte
+    COLOR_INTENT_HIGHLIGHT: 'rgb(0,122,255)',
+    COLOR_INTENT_DANGER: 'rgb(255,59,48)',
+    COLOR_INTENT_WARNING: 'rgb(255,149,0)',
+    COLOR_INTENT_INFO: 'rgb(90,200,250)',
+    COLOR_INTENT_SUCCESS: 'rgb(40,205,65)',
+  }
+}
+
+export const addWin10Influence = (theme) => {
+  return theme = {
+    ...theme,
+    OS_INFLUENCE: 'Win10',
+    // Sharp corners
+    CORNER_RADIUS_SHARP: '0',
+    CORNER_RADIUS_INPUT: '0',
+    CORNER_RADIUS_CARD_SM: '0',
+    CORNER_RADIUS_CARD_DEFAULT: '0',
+    CORNER_RADIUS_CARD_LG: '0',
+    CORNER_RADIUS_MAX: '0',
+    // Windows color palatte
+    COLOR_INTENT_HIGHLIGHT: '#0078d4',
+    COLOR_INTENT_SUCCESS: '#107c10',
+    COLOR_INTENT_DANGER: '#a80000',
+    COLOR_INTENT_WARNING: '#d83b01',
+    COLOR_INTENT_INFO: '#0078d4',
+  }
+}
+
+export const setSpacingBase = (size, theme) => {
+  return theme = size ? { ...theme, SPACING_BASE: size } : {...theme};
+}
+
+export const addHighContrastInfluence = (theme) => {
+  const content = {
+    contrast: 1,
+    default: 0.95,
+    muted: 0.7,
+    nonessential: 0.5,
+  }
+
+  const keyline = {
+    default: 0.2,
+    solid: 0.2
+  }
+
+  return theme = prepareTheme(theme, content, keyline);
+}
+
+export function setColorScheme(scheme, theme) {
+
+  const adjust = theme.COLOR_SCHEME_SATURATION_ADJUSTMENT;
+
+  if (theme.COLOR_SCHEME !== scheme) {
+
+    let adjustments = {}
+    if (scheme === 'light') {
+      adjustments = {
+        LETTER_SPACING_DEFAULT: 'normal',
+        COLOR_INTENT_HIGHLIGHT: saturate(adjust, theme.COLOR_INTENT_HIGHLIGHT),
+        COLOR_INTENT_SUCCESS: saturate(adjust, theme.COLOR_INTENT_SUCCESS),
+        COLOR_INTENT_WARNING: saturate(adjust, theme.COLOR_INTENT_WARNING),
+        COLOR_INTENT_INFO: saturate(adjust, theme.COLOR_INTENT_INFO),
+        COLOR_INTENT_DANGER: saturate(adjust, theme.COLOR_INTENT_DANGER),
+      }
+    } else if (scheme === 'dark') {
+
+      adjustments = {
+        LETTER_SPACING_DEFAULT: 'normal',
+        COLOR_INTENT_HIGHLIGHT: desaturate(adjust, theme.COLOR_INTENT_HIGHLIGHT),
+        COLOR_INTENT_SUCCESS: desaturate(adjust, theme.COLOR_INTENT_SUCCESS),
+        COLOR_INTENT_WARNING: desaturate(adjust, theme.COLOR_INTENT_WARNING),
+        COLOR_INTENT_INFO: desaturate(adjust, theme.COLOR_INTENT_INFO),
+        COLOR_INTENT_DANGER: desaturate(adjust, theme.COLOR_INTENT_DANGER),
+      }
+    }
+
+    const invertLightness = (color) => {
+      return setLightness((getLuminance(color) - 1) * -1, color);
+    }
+  
+    theme = {
+      ...theme,
+      COLOR_SCHEME: scheme,
+      COLOR_CONTENT: invertLightness(theme.COLOR_CONTENT),
+      COLOR_BACKGROUND: invertLightness(theme.COLOR_BACKGROUND),
+      ...adjustments
+    }
+
+    return prepareTheme(theme);
+
+  } else {
+    return theme;
+  }
+}
+
+export function invertColorScheme(theme) {
+  // Return a new theme with dark and light inverted
+
+  let newScheme;
+  if (getLuminance(theme.COLOR_BACKGROUND) > 0.5) {
+    // current scheme is light
+    newScheme = 'dark'
+  } else {
+    // current scheme is dark
+    newScheme = 'light';
+  }
+  
+  return theme = setColorScheme(newScheme, theme);
+}
+
+export function setColorSchemeDark(theme) {
+  // Return a new theme with a dark background and light content
+  return theme = setColorScheme('dark', theme);
+}
+
+export function setColorSchemeLight(theme) {
+  // Return a new theme with a light background and dark content
+  return theme = setColorScheme('light', theme);
 }
 
 function keenInfluence(theme) {
+  // Add 'keen' theming
   return theme = {
     ...theme,
-    THEME_NAME: "Keen",
+    THEME_NAME: 'Keen',
 
-    COLOR_BRAND_PRIMARY: "#00b42b",
-    COLOR_BRAND_SECONDARY: "#00b42b",
+    COLOR_BRAND_PRIMARY: '#00b42b',
+    COLOR_BRAND_SECONDARY: '#00b42b',
   }
-  
 }
 
-const LIGHTENING_FACTOR = 0.05;
 
-// export const keenDark = {
-//   ...defaults,
-//   name: "KeenDark",
-//   isDark: true,
 
-//   COLOR_BACKGROUND_DEFAULT: "#111",
-//   COLOR_BACKGROUND_TWO: "#181818",
-//   COLOR_BACKGROUND_THREE: "#242424",
-
-//   COLOR_CONTENT_DEFAULT: "hsla(0, 0%, 100%, 0.8)",
-//   COLOR_CONTENT_CONTRAST: "hsl(0, 0%, 100%)",
-//   COLOR_CONTENT_MUTED: "hsla(0, 0%, 100%, 0.6)",
-//   COLOR_CONTENT_NONESSENTIAL: "hsla(0, 0%, 100%, 0.5)",
-
-//   COLOR_INTENT_DANGER: lighten(LIGHTENING_FACTOR, keen.COLOR_INTENT_DANGER), // WCAG AA+
-//   COLOR_INTENT_WARNING: lighten(LIGHTENING_FACTOR, keen.COLOR_INTENT_WARNING), // WCAG AA+
-//   COLOR_INTENT_INFO: lighten(LIGHTENING_FACTOR, keen.COLOR_INTENT_INFO), // WCAG AA+
-
-//   COLOR_KEYLINE_DEFAULT: "hsla(0, 0%, 100%, 0.1)",
-//   COLOR_KEYLINE_SOLID: "hsla(0, 0%, 14%, 1)",
-
-//   FONT_WEIGHT_DEFAULT: 500,
-//   FONT_WEIGHT_MEDIUM: 600,
-//   FONT_WEIGHT_SEMIBOLD: 700,
-//   FONT_WEIGHT_BOLD: 800,
-
-//   LETTER_SPACING_DEFAULT: "0.025ch",
-// };
-
-let currentTheme = defaults;
+let currentTheme = themeBase;
 
 let prefs = {
-  useKeen: true,
+  useKeen: false,
   preferedColorScheme: 'dark',
 }
 
-if (prefs.useKeen || true) {
+if (prefs.useKeen) {
   currentTheme = keenInfluence(currentTheme);
 }
-
 if (prefs.preferredColorScheme === 'dark' || true) {
   currentTheme = setColorSchemeDark(currentTheme);
 }
 
 if (window.navigator.userAgent.includes('Mac OS X 10')) {
   currentTheme = addMacOSXInfluence(currentTheme);
+} else if (window.navigator.userAgent.includes('Mac OS X 11')) {
+  currentTheme = addMacOS11Influence(currentTheme);
 } else if (window.navigator.userAgent.includes('Win64')) {
   currentTheme = addWin10Influence(currentTheme);
 }
 
-export const theme = currentTheme;
+export const theme = prepareTheme(currentTheme);
