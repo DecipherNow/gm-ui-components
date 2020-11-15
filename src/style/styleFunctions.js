@@ -12,6 +12,8 @@ export function spacingScale(factor) {
     calc(var(--SPACING_BASE) * ${factor} * 1px)`;
 }
 
+export const space = (factor) => spacingScale(factor);
+
 // Darken the color, but add a touch of saturation for a more natural shadow look
 export function darkenColor(color, percent) {
   if (parseToHsl(color).saturation > 0.1) {

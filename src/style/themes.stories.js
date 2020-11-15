@@ -11,9 +11,10 @@ import {
   addWin10Influence,
   addMacOS11Influence,
   addMacOSXInfluence,
-  setSpacingBase
+  setSpacingBase,
+  setColorScheme
 } from "style/theme";
-import { spacingScale } from "style/styleFunctions";
+import { space } from "style/styleFunctions";
 
 import ConnectedThemeProvider, { ConnectedThemeTransformer } from 'components/ConnectedThemeProvider';
 
@@ -57,15 +58,15 @@ const StyledFieldset2 = styled(Fieldset)`
 
 const Space = styled.span`
   display: inline-block;
-  height: ${spacingScale(1)};
-  width: ${spacingScale(1)};
+  height: ${space(1)};
+  width: ${space(1)};
 `;
 
 const DocumentationLink = styled.h2`
   text-align: center;
   border-bottom: 1px solid ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};
-  padding-bottom: ${spacingScale(2)};
-  margin-bottom: ${spacingScale(2)};
+  padding-bottom: ${space(2)};
+  margin-bottom: ${space(2)};
 
   a {
     text-decoration: none;
@@ -145,17 +146,21 @@ stories.add(
   "Themes",
   () => {
 
-    const invertedTheme = invertColorScheme(theme);
-
     // TIDO: Add a toggle for high-contrast
-
-    const OSOptions = {
-      addMacOS11Influence,
-      addMacOSXInfluence,
-      addWin10Influence
-    }
+    // const OSOptions = {
+    //   addMacOS11Influence,
+    //   addMacOSXInfluence,
+    //   addWin10Influence
+    // }
     // TODO: Fix picker
-    const OSOption = select('OS Influence', OSOptions, addMacOS11Influence);
+    // const OSOption = select('OS Influence', OSOptions, addMacOS11Influence);
+
+    // TODO: Find a good way to present these options
+    // const modifyTheme = (theme) => {
+    //   if (boolean('invertTheme', false)) {
+    //     theme = invertColorScheme(theme)
+    //   }
+    // }
 
     return (
     <>
@@ -167,10 +172,28 @@ stories.add(
       </DocumentationLink>
       <DemoCols>
         <ConnectedThemeProvider theme={theme}>
-          <DemoContent themeName="keen" />
+          <DemoContent themeName="Default" />
           </ConnectedThemeProvider>
-        <ConnectedThemeTransformer fn={OSOption}>
-          <DemoContent themeName="keenDark" />
+        <ConnectedThemeTransformer fn={addMacOSXInfluence}>
+          <DemoContent themeName="mac OS X" />
+        </ConnectedThemeTransformer>
+        <ConnectedThemeTransformer fn={addMacOS11Influence}>
+          <DemoContent themeName="mac OS 11" />
+        </ConnectedThemeTransformer>
+        <ConnectedThemeTransformer fn={addWin10Influence}>
+          <DemoContent themeName="Windows 10" />
+        </ConnectedThemeTransformer>
+        <ConnectedThemeTransformer fn={invertColorScheme}>
+          <DemoContent themeName="Invert Color Scheme" />
+        </ConnectedThemeTransformer>
+        <ConnectedThemeTransformer fn={addHighContrastInfluence}>
+          <DemoContent themeName="The current theme, but with more contrast" />
+        </ConnectedThemeTransformer>
+        <ConnectedThemeTransformer fn={setColorScheme} args={["dark"]}>
+          <DemoContent themeName="The current theme, but light" />
+        </ConnectedThemeTransformer>
+        <ConnectedThemeTransformer fn={setSpacingBase} args={[12]}>
+          <DemoContent themeName="The current theme, but with more spacing" />
         </ConnectedThemeTransformer>
       </DemoCols>
     </>

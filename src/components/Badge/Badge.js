@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { readableColor, darken } from "polished";
-
 import { spacingScale } from "style/styleFunctions";
-// import { keen, keenDark } from "style/theme";
-
-// Create invertColorScheme function;
 
 const Badge = styled.span`
   font-size: ${({ theme }) => theme.FONT_SIZE_TEXT_SM};
@@ -17,12 +13,12 @@ const Badge = styled.span`
   padding: ${spacingScale(0.5)};
   background-color: ${props => props.color || props.theme.COLOR_BRAND_PRIMARY};
   border-radius: ${({ theme }) => theme.CORNER_RADIUS_CARD_SM};
-  /* color: ${props =>
+  color: ${props =>
     readableColor(
       darken(0.12, props.color || props.theme.COLOR_BACKGROUND_DEFAULT),
-      keen.COLOR_CONTENT_CONTRAST,
-      keenDark.COLOR_CONTENT_CONTRAST
-    )}; */
+      props.theme.COLOR_CONTENT,
+      props.theme.COLOR_BACKGROUND
+    )};
   margin-right: ${spacingScale(0.5)};
   white-space: nowrap;
 

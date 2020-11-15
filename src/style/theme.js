@@ -32,7 +32,7 @@ const themeBase = {
   CORNER_RADIUS_INPUT: '4px',
   CORNER_RADIUS_CARD_SM: '4px',
   CORNER_RADIUS_CARD_DEFAULT: '6px',
-  CORNER_RADIUS_CARD_LG: '8px',
+  CORNER_RADIUS_CARD_LG: '8px', 
   CORNER_RADIUS_MAX: '90000px',
 
   COLOR_BRAND_PRIMARY: 'rgb(0, 122, 255)',
@@ -86,7 +86,9 @@ const themeBase = {
   ZINDEX_TOOLTIP: '1070',
 }
 
-function prepareTheme(theme, content, keyline) {
+const prepareTheme = (theme, content, keyline) => {
+  // Take a theme and some optional properties,
+  // and construct a full set of theme variables from it.
 
   const bgScale = 0.05;
 
@@ -136,75 +138,65 @@ function prepareTheme(theme, content, keyline) {
     COLOR_BACKGROUND_FOUR: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(3)),
     COLOR_BACKGROUND_FIVE: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(4)),
 
-    // TODO: Add transparent versions of bg colors
+    // TODO: Add alpha-unblended versions of bg colors
   }
 }
 
-// const preparedTheme = prepareTheme(themeBase);
 
+export const addMacOSXInfluence = (theme) => ({
+  ...theme,
+  OS_INFLUENCE: 'macOS X',
+  // Rounded corners
+  CORNER_RADIUS_SHARP: '2px',
+  CORNER_RADIUS_INPUT: '4px',
+  CORNER_RADIUS_CARD_SM: '5px',
+  // Apple color palatte
+  COLOR_INTENT_HIGHLIGHT: 'rgb(0,122,255)',
+  COLOR_INTENT_DANGER: 'rgb(255,59,48)',
+  COLOR_INTENT_WARNING: 'rgb(255,149,0)',
+  COLOR_INTENT_INFO: 'rgb(90,200,250)',
+  COLOR_INTENT_SUCCESS: 'rgb(40,205,65)'
+})
 
-export const addMacOSXInfluence = (theme) => {
-  return theme = {
-    ...theme,
-      OS_INFLUENCE: 'macOS X',
-      // Rounded corners
-      CORNER_RADIUS_SHARP: '2px',
-      CORNER_RADIUS_INPUT: '4px',
-      CORNER_RADIUS_CARD_SM: '5px',
-      // Apple color palatte
-      COLOR_INTENT_HIGHLIGHT: 'rgb(0,122,255)',
-      COLOR_INTENT_DANGER: 'rgb(255,59,48)',
-      COLOR_INTENT_WARNING: 'rgb(255,149,0)',
-      COLOR_INTENT_INFO: 'rgb(90,200,250)',
-      COLOR_INTENT_SUCCESS: 'rgb(40,205,65)'
-  }
-}
+export const addMacOS11Influence = (theme) => ({
+  ...theme,
+  OS_INFLUENCE: 'macOS 11',
+  // More rounded corners
+  CORNER_RADIUS_SHARP: '3px',
+  CORNER_RADIUS_INPUT: '5px',
+  CORNER_RADIUS_CARD_SM: '7px',
+  CORNER_RADIUS_CARD_DEFAULT: '11px',
+  CORNER_RADIUS_CARD_LG: '17px',
+  CORNER_RADIUS_MAX: '90000px',
+  // Broad padding
+  SPACING_BASE: 10,
+  // Apple color palatte
+  COLOR_INTENT_HIGHLIGHT: 'rgb(0,122,255)',
+  COLOR_INTENT_DANGER: 'rgb(255,59,48)',
+  COLOR_INTENT_WARNING: 'rgb(255,149,0)',
+  COLOR_INTENT_INFO: 'rgb(90,200,250)',
+  COLOR_INTENT_SUCCESS: 'rgb(40,205,65)',
+})
 
-export const addMacOS11Influence = (theme) => {
-  return theme = {
-    ...theme,
-    OS_INFLUENCE: 'macOS 11',
-    // More rounded corners
-    CORNER_RADIUS_SHARP: '3px',
-    CORNER_RADIUS_INPUT: '5px',
-    CORNER_RADIUS_CARD_SM: '7px',
-    CORNER_RADIUS_CARD_DEFAULT: '11px',
-    CORNER_RADIUS_CARD_LG: '17px',
-    CORNER_RADIUS_MAX: '90000px',
-    // Broad padding
-    SPACING_BASE: 10,
-    // Apple color palatte
-    COLOR_INTENT_HIGHLIGHT: 'rgb(0,122,255)',
-    COLOR_INTENT_DANGER: 'rgb(255,59,48)',
-    COLOR_INTENT_WARNING: 'rgb(255,149,0)',
-    COLOR_INTENT_INFO: 'rgb(90,200,250)',
-    COLOR_INTENT_SUCCESS: 'rgb(40,205,65)',
-  }
-}
+export const addWin10Influence = (theme) => ({
+  ...theme,
+  OS_INFLUENCE: 'Win10',
+  // Sharp corners
+  CORNER_RADIUS_SHARP: '0',
+  CORNER_RADIUS_INPUT: '0',
+  CORNER_RADIUS_CARD_SM: '0',
+  CORNER_RADIUS_CARD_DEFAULT: '0',
+  CORNER_RADIUS_CARD_LG: '0',
+  CORNER_RADIUS_MAX: '0',
+  // Windows color palatte
+  COLOR_INTENT_HIGHLIGHT: '#0078d4',
+  COLOR_INTENT_SUCCESS: '#107c10',
+  COLOR_INTENT_DANGER: '#a80000',
+  COLOR_INTENT_WARNING: '#d83b01',
+  COLOR_INTENT_INFO: '#0078d4',
+})
 
-export const addWin10Influence = (theme) => {
-  return theme = {
-    ...theme,
-    OS_INFLUENCE: 'Win10',
-    // Sharp corners
-    CORNER_RADIUS_SHARP: '0',
-    CORNER_RADIUS_INPUT: '0',
-    CORNER_RADIUS_CARD_SM: '0',
-    CORNER_RADIUS_CARD_DEFAULT: '0',
-    CORNER_RADIUS_CARD_LG: '0',
-    CORNER_RADIUS_MAX: '0',
-    // Windows color palatte
-    COLOR_INTENT_HIGHLIGHT: '#0078d4',
-    COLOR_INTENT_SUCCESS: '#107c10',
-    COLOR_INTENT_DANGER: '#a80000',
-    COLOR_INTENT_WARNING: '#d83b01',
-    COLOR_INTENT_INFO: '#0078d4',
-  }
-}
-
-export const setSpacingBase = (size, theme) => {
-  return theme = size ? { ...theme, SPACING_BASE: size } : {...theme};
-}
+export const setSpacingBase = (theme, size) => (size ? { ...theme, SPACING_BASE: size } : {...theme});
 
 export const addHighContrastInfluence = (theme) => {
   const content = {
@@ -222,12 +214,15 @@ export const addHighContrastInfluence = (theme) => {
   return theme = prepareTheme(theme, content, keyline);
 }
 
-export function setColorScheme(scheme, theme) {
+export function setColorScheme(theme, scheme) {
 
   const adjust = theme.COLOR_SCHEME_SATURATION_ADJUSTMENT;
 
-  if (theme.COLOR_SCHEME !== scheme) {
+  const invertLightness = (color) => {
+    return setLightness((getLuminance(color) - 1) * -1, color);
+  }
 
+  if (theme.COLOR_SCHEME !== scheme) {
     let adjustments = {}
     if (scheme === 'light') {
       adjustments = {
@@ -239,7 +234,6 @@ export function setColorScheme(scheme, theme) {
         COLOR_INTENT_DANGER: saturate(adjust, theme.COLOR_INTENT_DANGER),
       }
     } else if (scheme === 'dark') {
-
       adjustments = {
         LETTER_SPACING_DEFAULT: 'normal',
         COLOR_INTENT_HIGHLIGHT: desaturate(adjust, theme.COLOR_INTENT_HIGHLIGHT),
@@ -249,11 +243,6 @@ export function setColorScheme(scheme, theme) {
         COLOR_INTENT_DANGER: desaturate(adjust, theme.COLOR_INTENT_DANGER),
       }
     }
-
-    const invertLightness = (color) => {
-      return setLightness((getLuminance(color) - 1) * -1, color);
-    }
-  
     theme = {
       ...theme,
       COLOR_SCHEME: scheme,
@@ -261,9 +250,7 @@ export function setColorScheme(scheme, theme) {
       COLOR_BACKGROUND: invertLightness(theme.COLOR_BACKGROUND),
       ...adjustments
     }
-
     return prepareTheme(theme);
-
   } else {
     return theme;
   }
@@ -281,52 +268,48 @@ export function invertColorScheme(theme) {
     newScheme = 'light';
   }
   
-  return theme = setColorScheme(newScheme, theme);
+  return theme = setColorScheme(theme, newScheme);
 }
 
-export function setColorSchemeDark(theme) {
-  // Return a new theme with a dark background and light content
-  return theme = setColorScheme('dark', theme);
-}
+export const setColorSchemeDark = (theme) => setColorScheme(theme, 'dark');
 
-export function setColorSchemeLight(theme) {
-  // Return a new theme with a light background and dark content
-  return theme = setColorScheme('light', theme);
-}
+export const setColorSchemeLight = (theme) => setColorScheme(theme, 'light');
 
-function keenInfluence(theme) {
-  // Add 'keen' theming
-  return theme = {
-    ...theme,
-    THEME_NAME: 'Keen',
-
-    COLOR_BRAND_PRIMARY: '#00b42b',
-    COLOR_BRAND_SECONDARY: '#00b42b',
-  }
-}
-
+export const keenInfluence = (theme) => ({
+  ...theme,
+  THEME_NAME: 'Keen',
+  COLOR_BRAND_PRIMARY: '#00b42b',
+  COLOR_BRAND_SECONDARY: '#00b42b',
+  COLOR_INTENT_HIGHLIGHT: '#00b42b',
+})
 
 
 let currentTheme = themeBase;
 
 let prefs = {
-  useKeen: false,
-  preferedColorScheme: 'dark',
+  useKeen: true,
+  preferredColorScheme: 'auto',
+  allowOSInfluence: false
 }
 
 if (prefs.useKeen) {
   currentTheme = keenInfluence(currentTheme);
 }
-if (prefs.preferredColorScheme === 'dark' || true) {
+
+if (prefs.preferredColorScheme === 'dark') {
   currentTheme = setColorSchemeDark(currentTheme);
+} else if (prefs.preferredColorScheme === 'light') {
+  currentTheme = setColorSchemeLight(currentTheme);
 }
 
-if (window.navigator.userAgent.includes('Mac OS X 10')) {
-  currentTheme = addMacOSXInfluence(currentTheme);
-} else if (window.navigator.userAgent.includes('Mac OS X 11')) {
-  currentTheme = addMacOS11Influence(currentTheme);
-} else if (window.navigator.userAgent.includes('Win64')) {
-  currentTheme = addWin10Influence(currentTheme);
+if (prefs.allowOSInfluence) {
+  if (window.navigator.userAgent.includes('Mac OS X 10')) {
+    currentTheme = addMacOSXInfluence(currentTheme);
+  } else if (window.navigator.userAgent.includes('Mac OS X 11')) {
+    currentTheme = addMacOS11Influence(currentTheme);
+  } else if (window.navigator.userAgent.includes('Win64')) {
+    currentTheme = addWin10Influence(currentTheme);
+  }
 }
 
 export const theme = prepareTheme(currentTheme);

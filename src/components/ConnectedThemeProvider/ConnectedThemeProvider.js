@@ -27,11 +27,19 @@ function ConnectedThemeProvider({ theme, children }) {
   )
 }
 
-function ConnectedThemeTransformer({ fn, children }) {
-  if (typeof(fn) === 'function') {
+function ConnectedThemeTransformer({ fn, children, args }) {
+  let transform;
+  
+  if (typeof (fn) === 'function') {
+    if (args) {
+      transform = (theme, args) => fn(theme, ...args);
+    } else {
+      transform = (theme) => fn(theme);
+    }
+
     return (
       <ThemeConsumer>
-        {theme => <ConnectedThemeProvider theme={fn(theme)} children={children} />}
+        {theme => <ConnectedThemeProvider theme={transform(theme, args)} children={children} />}
       </ThemeConsumer>
     )
   } else {
