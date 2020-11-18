@@ -2,8 +2,9 @@ import React from "react";
 import styled, { ThemeConsumer, ThemeProvider } from 'styled-components';
 
 // Wraps children in the proper theme,
-// and provides the base styles that
-// components typically assume exist at the root
+// and provides the base style properties that
+// elements typically inherit from the root or
+// html elements.
 
 const ThemeRegionStyle = styled.div`
   --SPACING_BASE: ${({ theme }) => theme.SPACING_BASE};

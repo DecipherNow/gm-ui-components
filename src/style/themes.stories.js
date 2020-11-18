@@ -46,6 +46,15 @@ const DemoCanvas = styled.div`
   border: 1px solid ${({ theme }) => theme.COLOR_KEYLINE_SOLID};
   border-radius: ${({ theme }) => theme.CORNER_RADIUS_CARD_LG};
   /* color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT}; */
+
+  h1 {
+    margin-bottom: 0;
+    
+    + p {
+      margin-top: 0;
+    }
+  }
+
 `;
 
 const StyledFieldset = styled(Fieldset)`
@@ -73,15 +82,12 @@ const DocumentationLink = styled.h2`
   }
 `;
 
-function DemoContent({ themeName }) {
+function DemoContent({ heading, description }) {
   return (
       <DemoCanvas>
-        <Breadcrumbs crumbs={["Overview", "Themes", "Theme"]} />
         <Space />
-        <h1>{themeName}</h1>
-        <p>
-          <IconCog /> Lorem ipsum dolor sit amet. Donec consectetur...
-        </p>
+        <h1>{heading}</h1>
+        <p>{description}</p>
         <Space />
         <Spinner orientation={"horizontal"} />
         <Space />
@@ -139,7 +145,7 @@ function DemoContent({ themeName }) {
 }
 
 DemoContent.propTypes = {
-  themeName: PropTypes.string
+  heading: PropTypes.string
 };
 
 stories.add(
@@ -172,29 +178,48 @@ stories.add(
       </DocumentationLink>
       <DemoCols>
         <ConnectedThemeProvider theme={theme}>
-          <DemoContent themeName="Default" />
+          <DemoContent heading="Default" description="Normal theme" />
           </ConnectedThemeProvider>
         <ConnectedThemeTransformer fn={addMacOSXInfluence}>
-          <DemoContent themeName="mac OS X" />
+          <DemoContent heading="macOS X" description="Theme with optional macOS X influence" />
         </ConnectedThemeTransformer>
         <ConnectedThemeTransformer fn={addMacOS11Influence}>
-          <DemoContent themeName="mac OS 11" />
+          <DemoContent heading="macOS 11" description="Theme with optional macOS 11 influence" />
         </ConnectedThemeTransformer>
         <ConnectedThemeTransformer fn={addWin10Influence}>
-          <DemoContent themeName="Windows 10" />
-        </ConnectedThemeTransformer>
-        <ConnectedThemeTransformer fn={invertColorScheme}>
-          <DemoContent themeName="Invert Color Scheme" />
+          <DemoContent heading="Windows 10" description="Theme with optional Windows 10 influence" />
         </ConnectedThemeTransformer>
         <ConnectedThemeTransformer fn={addHighContrastInfluence}>
-          <DemoContent themeName="The current theme, but with more contrast" />
+          <DemoContent heading="Higher contrast"  description="The current theme, but with more contrast." />
+        </ConnectedThemeTransformer>
+        <ConnectedThemeTransformer fn={invertColorScheme}>
+          <DemoContent heading="Reversed color scheme" description="The current theme, but with a reversed color scheme." />
         </ConnectedThemeTransformer>
         <ConnectedThemeTransformer fn={setColorScheme} args={["dark"]}>
-          <DemoContent themeName="The current theme, but light" />
+          <DemoContent heading="Dark color scheme" description="The current theme, but dark." />
+        </ConnectedThemeTransformer>
+        <ConnectedThemeTransformer fn={setColorScheme} args={["light"]}>
+          <DemoContent heading="Light color scheme" description="The current theme, but light." />
         </ConnectedThemeTransformer>
         <ConnectedThemeTransformer fn={setSpacingBase} args={[12]}>
-          <DemoContent themeName="The current theme, but with more spacing" />
+          <DemoContent heading="Spacing" description="The current theme, but with more spacing." />
         </ConnectedThemeTransformer>
+        <ConnectedThemeTransformer fn={setSpacingBase} args={[12]}>
+          <ConnectedThemeTransformer fn={addMacOSXInfluence}>
+            <ConnectedThemeTransformer fn={invertColorScheme}>
+              <ConnectedThemeTransformer fn={addHighContrastInfluence}>
+                  <DemoContent
+                    heading="Stacked influences"
+                    description="The current theme, but with macOS X style, inverted color scheme, higher contrast, and more spacing."
+                  />
+              </ConnectedThemeTransformer>
+            </ConnectedThemeTransformer>
+          </ConnectedThemeTransformer>
+        </ConnectedThemeTransformer>
+        {/* <ConnectedThemeProvider theme={Solarized}> */}
+          {/* <DemoContent heading="The Solarized theme" /> */}
+        {/* </ConnectedThemeProvider> */}
+
       </DemoCols>
     </>
   )},
