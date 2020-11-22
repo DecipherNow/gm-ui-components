@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { spacingScale } from "style/styleFunctions";
 import { formInteractionStyles } from "components/util/InputFieldInteractionStyles";
-import { theme } from "style/theme";
 
-const BORDER_WIDTH = 1;
 const CHEVRON_ICON_DEFAULT = ({ theme }) =>
   `"data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.155 12.784l2.47-2.47a.75.75 0 0 1 1.06 1.061l-3.53 3.53-3.53-3.53a.75.75 0 0 1 1.06-1.06l2.47 2.469z' fill='` +
   theme.COLOR_CONTENT_DEFAULT +
@@ -11,11 +9,11 @@ const CHEVRON_ICON_DEFAULT = ({ theme }) =>
 
 const SelectField = styled.select`
   ${formInteractionStyles};
-  height: calc(${spacingScale(4)} - ${BORDER_WIDTH * 2}px);
+  height: calc(${spacingScale(4)} - ${({ theme }) => theme.CONTROL_BORDER_WIDTH * 2});
   border-radius: calc(
-    ${({ theme }) => theme.CORNER_RADIUS_INPUT} + ${BORDER_WIDTH}px
+    ${({ theme }) => theme.CORNER_RADIUS_INPUT} + ${({ theme }) => theme.CONTROL_BORDER_WIDTH}
   );
-  border: ${BORDER_WIDTH}px solid ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};
+  border: ${({ theme }) => theme.CONTROL_BORDER_WIDTH} solid ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};
   padding: ${spacingScale(0.5)} ${spacingScale(1)};
   color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
   font-family: ${({ theme }) => theme.FONT_STACK_DEFAULT};
@@ -35,15 +33,6 @@ const SelectField = styled.select`
   &::placeholder {
     color: ${({ theme }) => theme.COLOR_CONTENT_NONESSENTIAL};
     transition: inherit;
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 10px;
-    height: 10px;
-    border: 2px solid red;
   }
 `;
 

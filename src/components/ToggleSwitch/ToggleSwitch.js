@@ -1,7 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
-import styled from "styled-components";
-import { readableColor } from "polished";
+import styled, { css } from "styled-components";
+import { readableColor, darken, transparentize } from "polished";
 import { formInteractionStyles } from "components/util/InputFieldInteractionStyles";
 import InputWrap from "components/util/InputWrap";
 import InputLabelText from "components/util/InputLabelText";
@@ -11,46 +11,43 @@ const ToggleSwitchElement = styled.input.attrs(props => ({
 }))`
   ${formInteractionStyles()};
   appearance: none;
-  border-radius: 10em;
-  height: 1em;
-  width: 1.615em;
+  border-radius: 1000em;
+  height: calc(1em - (${({ theme }) => theme.CONTROL_BORDER_WIDTH}) * 2);
+  width: calc(1.615em - (${({ theme }) => theme.CONTROL_BORDER_WIDTH}) * 2);
   display: flex;
   transition: all 0.3s ease;
-  border: 1px solid;
+  border: ${({ theme }) => theme.CONTROL_BORDER_WIDTH} solid;
   position: relative;
   outline: none;
   box-sizing: content-box;
+  color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
 
-  &:not(:disabled) {
-    cursor: pointer;
-  }
+  --color: ${({ color, theme }) => color ? color : theme.COLOR_INTENT_HIGHLIGHT};
+  --color-light: ${({ color, theme }) => color ? transparentize(0.25, color) : transparentize(0.25, theme.COLOR_INTENT_HIGHLIGHT)};
+  --color-readable: ${({ color, theme }) =>
+    color
+      ? readableColor(darken(0.1, color))
+      : readableColor(darken(0.1, theme.COLOR_INTENT_HIGHLIGHT))};
 
-  &:disabled {
-    opacity: ${({ theme }) => theme.OPACITY_LIGHTER};
-  }
+  --inset: ${({ theme }) => theme.CONTROL_BORDER_WIDTH};
+  --spring-full-press: calc((37% + ${({ theme }) => theme.CONTROL_BORDER_WIDTH}) + var(--inset));
+  --spring-medium-press: calc((30% + ${({ theme }) => theme.CONTROL_BORDER_WIDTH}) + var(--inset));
 
-  &,
-  &:focus,
-  &:focus:active {
-    border-color: ${({ color, theme }) =>
-      color ? color : theme.COLOR_INTENT_HIGHLIGHT}; 
-  }
-
-
+  /* Default before element */
   &:before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};
+    background: currentColor;
+    top: var(--inset);
+    bottom: var(--inset);
+    left: var(--inset);
+    right: var(--inset);
     border-radius: inherit;
-    transition: all 0.15s ease;
+    transition: color 0.3s ease, left 0.3s ease, right 0.3s ease;
     z-index: 2;
   }
 
+  /* Default after element */
   &:after {
     color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
     z-index: 1;
@@ -67,46 +64,65 @@ const ToggleSwitchElement = styled.input.attrs(props => ({
     right: 0;
   }
 
-  &:checked {
-    background: ${({ color, theme }) =>
-      color ? color : theme.COLOR_INTENT_HIGHLIGHT};
-    &:before {
-      left: 37%;
-      right: 0;
-    }
+  /* Change the colors on hover and unchecked */
+  label:hover > &:not(:disabled):not(:checked) {
+    border-color: var(--color);
 
-    &:not(:disabled):hover:before {
-      left: 30%;
+    &:before {
+      color: var(--color);
+    }
+  }
+
+  /* Change the colors when checked */
+  &:checked {
+    background: var(--color);
+    border-color: transparent;
+
+    &:before,
+    &:after {
+      color: var(--color-readable);
+    }
+  }
+
+  /* Change the colors when hovered and checked */
+  label:hover > &:checked,
+  &:hover:checked {
+    background: var(--color-light);
+    border-color: transparent;
+  }
+
+  /* Move the indicator and inner labels when checked */
+  &:checked {
+    &:before {
+      left: var(--spring-full-press);
+      right: var(--inset);
     }
 
     &:after {
       content: "${props => props.innerLabelOn}";
-      left: 0;
+      left: var(--inset);
       right: auto;
-      color: ${({ color, theme }) =>
-        color
-          ? readableColor(color)
-          : readableColor(theme.COLOR_INTENT_HIGHLIGHT)};
     }
   }
 
+  /* Move the indicator and inner labels when unchecked */
   &:not(:checked) {
-    background: ${({ theme }) => theme.COLOR_BACKGROUND_THREE};
 
     &:before {
-      right: 37%;
-      left: 0;
-    }
-
-    &:not(:disabled):hover:before {
-      right: 30%;
+      right: var(--spring-full-press);
+      left: var(--inset);
     }
 
     &:after {
       content: "${props => props.innerLabelOff}";
       left: auto;
-      right: 0;
+      right: var(--inset);
     }
+  }
+
+  /* Fade when disabled */
+  &:disabled {
+    opacity: ${({ theme }) => theme.OPACITY_LIGHTER};
   }
 `;
 
@@ -123,7 +139,7 @@ export default function ToggleSwitch({
 }) {
   return (
     <InputWrap labelPosition={labelPosition}>
-      {label && <InputLabelText>{label}</InputLabelText>}
+      {label && <InputLabelText disabled={props.disabled}>{label}</InputLabelText>}
       <ToggleSwitchElement
         color={color}
         innerLabelOn={innerLabelOn}

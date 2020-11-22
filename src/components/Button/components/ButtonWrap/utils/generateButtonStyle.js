@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { darken, readableColor, getLuminance } from "polished";
+import { darken, lighten, readableColor, getLuminance } from "polished";
 
 // Maps button types to a particular color
 function generateButtonTypeColors(theme, type) {
@@ -36,7 +36,7 @@ function generateButtonStyle(theme, type, dangerouslySetColor, renderBorder) {
 
   const colorStyles = css`
     background-color: ${baseColor};
-    border-color: ${renderBorder ? darken(0.1, baseColor) : `transparent`};
+    border-color: ${renderBorder ? lighten(0.1, baseColor) : `transparent`};
     color: ${readableColor(darken(0.1, baseColor))};
     /* darkening the color first gives a more appealing result */
   `;
@@ -44,6 +44,8 @@ function generateButtonStyle(theme, type, dangerouslySetColor, renderBorder) {
   const interactionStyles =
     getLuminance(baseColor) >= 0.5
       ? css`
+          border-color: ${renderBorder ? darken(0.1, baseColor) : `transparent`};
+
           &:hover {
             filter: saturate(120%) brightness(95%);
           }

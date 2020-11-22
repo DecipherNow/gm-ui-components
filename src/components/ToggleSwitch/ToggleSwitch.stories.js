@@ -128,7 +128,7 @@ stories
         <TypicalWrapper>
           <ToggleSwitch
             label={text("label", "Toggle Switch Label")}
-            color={keen.COLOR_INTENT_DANGER}
+            color={theme.COLOR_INTENT_DANGER}
           />
           <ToggleSwitch
             color={color("color")}

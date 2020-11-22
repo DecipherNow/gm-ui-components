@@ -7,7 +7,7 @@ export const spinGradient = keyframes`
   }
   100% {
     background-position: 100% 100%;
-    transform: rotate(calc(360deg * 16))
+    transform: rotate(360deg)
   }
 `;
 

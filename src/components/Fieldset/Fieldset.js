@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { spacingScale } from "style/styleFunctions";
-import { theme } from "style/theme";
 
 const Fieldset = styled.fieldset`
   border: 1px solid ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};

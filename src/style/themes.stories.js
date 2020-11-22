@@ -18,7 +18,7 @@ import { space } from "style/styleFunctions";
 
 import ConnectedThemeProvider, { ConnectedThemeTransformer } from 'components/ConnectedThemeProvider';
 
-import { IconCog, IconChevronRight } from "components/Glyphs";
+import { IconChevronRight } from "components/Glyphs";
 import Breadcrumbs from "components/Breadcrumbs";
 import Button from "components/Button";
 import ButtonGroup from "components/ButtonGroup";
@@ -29,6 +29,7 @@ import Fieldset from "components/Fieldset";
 import Spinner from "components/Spinner";
 import TabGroup from "components/TabGroup";
 import Tab from "components/Tab";
+import ToggleSwitch from "components/ToggleSwitch";
 import Select from "components/Select";
 
 const stories = storiesOf(" Overview|Themes", module);
@@ -45,7 +46,6 @@ const DemoCanvas = styled.div`
   background-color: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
   border: 1px solid ${({ theme }) => theme.COLOR_KEYLINE_SOLID};
   border-radius: ${({ theme }) => theme.CORNER_RADIUS_CARD_LG};
-  /* color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT}; */
 
   h1 {
     margin-bottom: 0;
@@ -82,65 +82,78 @@ const DocumentationLink = styled.h2`
   }
 `;
 
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  grid-gap: 0.5rem 1rem;
+`;
+
 function DemoContent({ heading, description }) {
   return (
-      <DemoCanvas>
-        <Space />
-        <h1>{heading}</h1>
-        <p>{description}</p>
-        <Space />
-        <Spinner orientation={"horizontal"} />
-        <Space />
-        <TabGroup label="Tab Group">
-          <Tab label="Active Tab" active />
-          <Tab label="Label" />
-          <Tab label="Disabled" disabled />
-        </TabGroup>
-        <Fieldset>
-          <Textarea
-            autoFocus={false}
-            label="Textarea"
-            defaultValue=""
-            placeholder="Placeholder Text"
-            maxLength={25}
-          />
-          <hr style={{ border: "0", borderBottom: '1px solid var(--COLOR_KEYLINE_DEFAULT)'}} />
-          <hr style={{ border: "0", borderBottom: '1px solid var(--COLOR_KEYLINE_SOLID)'}} />
+    <DemoCanvas>
+      <Space />
+      <h1>{heading}</h1>
+      <p>{description}</p>
+      <Space />
+      <Spinner orientation={"horizontal"} />
+      <Space />
+      <TabGroup label="Tab Group">
+        <Tab label="Active Tab" active />
+        <Tab label="Label" />
+        <Tab label="Disabled" disabled />
+      </TabGroup>
+      <Fieldset>
+        <Textarea
+          autoFocus={false}
+          label="Textarea"
+          defaultValue=""
+          placeholder="Placeholder Text"
+          maxLength={25}
+        />
+        <hr style={{ border: "0", borderBottom: '1px solid var(--COLOR_KEYLINE_DEFAULT)' }} />
+        <hr style={{ border: "0", borderBottom: '1px solid var(--COLOR_KEYLINE_SOLID)' }} />
 
-          <Space />
-          <Select>
-            <optgroup label="Swedish Cars">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-            </optgroup>
-            <optgroup label="German Cars">
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </optgroup>
-          </Select>
-          <Space />
+        <Space />
+        <Select>
+          <optgroup label="Swedish Cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+          </optgroup>
+          <optgroup label="German Cars">
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </optgroup>
+        </Select>
+        <Space />
+        <Grid>
+          <ToggleSwitch label={"ToggleSwitch"} />
+          <ToggleSwitch label={"ToggleSwitch"} defaultChecked={true} />
           <Checkbox labelPosition="right" label={"Checkbox"} />
-          <Radio labelPosition="right" label={"Radio"} />
-        </Fieldset>
-        <Space />
-        <StyledFieldset>
-          <ButtonGroup>
-            <Button label={"Plain Button"} />
-            <Space />
-            <Button type={"primary"} label={"Primary Button"} />
-          </ButtonGroup>
-        </StyledFieldset>
-        <Space />
-        <Space />
-        <StyledFieldset2>
-          <ButtonGroup>
-            <Button label={"Plain Button"} />
-            <Space />
-            <Button type={"primary"} label={"Primary Button"} />
-          </ButtonGroup>
-        </StyledFieldset2>
-        <Space />
-      </DemoCanvas>
+          <Checkbox labelPosition="right" label={"Checkbox"} defaultChecked={true} />
+          <Checkbox labelPosition="right" label={"Checkbox"} disabled />
+          <Checkbox labelPosition="right" label={"Checkbox"} defaultChecked={true} disabled />
+          <Radio labelPosition="right" name="demoradio" label={"Radio"} />
+          <Radio labelPosition="right" name="demoradio" label={"Radio"} defaultChecked={true} />
+          <Radio labelPosition="right" label={"Radio"} disabled />
+          <Radio labelPosition="right" label={"Radio"} defaultChecked={true} disabled />
+        </Grid>
+      </Fieldset>
+      <Space />
+      <StyledFieldset>
+        <ButtonGroup>
+          <Button label={"Plain Button"} outline />
+          <Space />
+          <Button type={"primary"} label={"Primary Button"} />
+        </ButtonGroup>
+      </StyledFieldset>
+      <Space />
+      <Space />
+      <StyledFieldset2>
+        <ToggleSwitch label={"ToggleSwitch"} />
+        <ToggleSwitch label={"ToggleSwitch"} defaultChecked={true} />
+      </StyledFieldset2>
+      <Space />
+    </DemoCanvas>
   );
 }
 
@@ -169,60 +182,61 @@ stories.add(
     // }
 
     return (
-    <>
-      <DocumentationLink>
-        <a href="https://github.com/greymatter-io/gm-ui-components#theming">
-          Theming the Component Library
+      <>
+        <DocumentationLink>
+          <a href="https://github.com/greymatter-io/gm-ui-components#theming">
+            Theming the Component Library
           <IconChevronRight />
-        </a>
-      </DocumentationLink>
-      <DemoCols>
-        <ConnectedThemeProvider theme={theme}>
-          <DemoContent heading="Default" description="Normal theme" />
+          </a>
+        </DocumentationLink>
+        <DemoCols>
+          <ConnectedThemeProvider theme={theme}>
+            <DemoContent heading="Default" description="Normal theme" />
           </ConnectedThemeProvider>
-        <ConnectedThemeTransformer fn={addMacOSXInfluence}>
-          <DemoContent heading="macOS X" description="Theme with optional macOS X influence" />
-        </ConnectedThemeTransformer>
-        <ConnectedThemeTransformer fn={addMacOS11Influence}>
-          <DemoContent heading="macOS 11" description="Theme with optional macOS 11 influence" />
-        </ConnectedThemeTransformer>
-        <ConnectedThemeTransformer fn={addWin10Influence}>
-          <DemoContent heading="Windows 10" description="Theme with optional Windows 10 influence" />
-        </ConnectedThemeTransformer>
-        <ConnectedThemeTransformer fn={addHighContrastInfluence}>
-          <DemoContent heading="Higher contrast"  description="The current theme, but with more contrast." />
-        </ConnectedThemeTransformer>
-        <ConnectedThemeTransformer fn={invertColorScheme}>
-          <DemoContent heading="Reversed color scheme" description="The current theme, but with a reversed color scheme." />
-        </ConnectedThemeTransformer>
-        <ConnectedThemeTransformer fn={setColorScheme} args={["dark"]}>
-          <DemoContent heading="Dark color scheme" description="The current theme, but dark." />
-        </ConnectedThemeTransformer>
-        <ConnectedThemeTransformer fn={setColorScheme} args={["light"]}>
-          <DemoContent heading="Light color scheme" description="The current theme, but light." />
-        </ConnectedThemeTransformer>
-        <ConnectedThemeTransformer fn={setSpacingBase} args={[12]}>
-          <DemoContent heading="Spacing" description="The current theme, but with more spacing." />
-        </ConnectedThemeTransformer>
-        <ConnectedThemeTransformer fn={setSpacingBase} args={[12]}>
           <ConnectedThemeTransformer fn={addMacOSXInfluence}>
-            <ConnectedThemeTransformer fn={invertColorScheme}>
-              <ConnectedThemeTransformer fn={addHighContrastInfluence}>
+            <DemoContent heading="macOS X" description="Theme with optional macOS X influence" />
+          </ConnectedThemeTransformer>
+          <ConnectedThemeTransformer fn={addMacOS11Influence}>
+            <DemoContent heading="macOS 11" description="Theme with optional macOS 11 influence" />
+          </ConnectedThemeTransformer>
+          <ConnectedThemeTransformer fn={addWin10Influence}>
+            <DemoContent heading="Windows 10" description="Theme with optional Windows 10 influence" />
+          </ConnectedThemeTransformer>
+          <ConnectedThemeTransformer fn={addHighContrastInfluence}>
+            <DemoContent heading="Higher contrast" description="The current theme, but with more contrast." />
+          </ConnectedThemeTransformer>
+          <ConnectedThemeTransformer fn={invertColorScheme}>
+            <DemoContent heading="Reversed color scheme" description="The current theme, but with a reversed color scheme." />
+          </ConnectedThemeTransformer>
+          <ConnectedThemeTransformer fn={setColorScheme} args={["dark"]}>
+            <DemoContent heading="Dark color scheme" description="The current theme, but dark." />
+          </ConnectedThemeTransformer>
+          <ConnectedThemeTransformer fn={setColorScheme} args={["light"]}>
+            <DemoContent heading="Light color scheme" description="The current theme, but light." />
+          </ConnectedThemeTransformer>
+          <ConnectedThemeTransformer fn={setSpacingBase} args={[12]}>
+            <DemoContent heading="Spacing" description="The current theme, but with more spacing." />
+          </ConnectedThemeTransformer>
+          <ConnectedThemeTransformer fn={setSpacingBase} args={[12]}>
+            <ConnectedThemeTransformer fn={addMacOSXInfluence}>
+              <ConnectedThemeTransformer fn={invertColorScheme}>
+                <ConnectedThemeTransformer fn={addHighContrastInfluence}>
                   <DemoContent
                     heading="Stacked influences"
                     description="The current theme, but with macOS X style, inverted color scheme, higher contrast, and more spacing."
                   />
+                </ConnectedThemeTransformer>
               </ConnectedThemeTransformer>
             </ConnectedThemeTransformer>
           </ConnectedThemeTransformer>
-        </ConnectedThemeTransformer>
-        {/* <ConnectedThemeProvider theme={Solarized}> */}
+          {/* <ConnectedThemeProvider theme={Solarized}> */}
           {/* <DemoContent heading="The Solarized theme" /> */}
-        {/* </ConnectedThemeProvider> */}
+          {/* </ConnectedThemeProvider> */}
 
-      </DemoCols>
-    </>
-  )},
+        </DemoCols>
+      </>
+    )
+  },
   {
     info: {
       source: false

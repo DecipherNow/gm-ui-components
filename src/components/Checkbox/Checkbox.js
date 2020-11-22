@@ -17,7 +17,7 @@ const Checkbox = ({
 }) => {
   return (
     <InputWrap labelPosition={labelPosition} style={style}>
-      {label && <InputLabelText>{label}</InputLabelText>}
+      {label && <InputLabelText disabled={disabled}>{label}</InputLabelText>}
       <CheckboxBox value={value} disabled={disabled} {...props} />
     </InputWrap>
   );

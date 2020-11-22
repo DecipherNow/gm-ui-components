@@ -16,7 +16,7 @@ export default function InputRange({
 }) {
   return (
     <InputWrap labelPosition={labelPosition}>
-      {label && <InputLabelText>{label}</InputLabelText>}
+      {label && <InputLabelText disabled={disabled}>{label}</InputLabelText>}
       <InputRangeControl
         autoFocus={autoFocus}
         defaultValue={defaultValue}

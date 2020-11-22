@@ -1,80 +1,72 @@
-import styled, { css } from "styled-components";
-import { transparentize } from "polished";
+import styled from "styled-components";
+import { readableColor, darken, transparentize } from 'polished';
 
-import {
-  FORM_HIGHLIGHT_SIZE,
-  formInteractionStyles
-} from "./InputFieldInteractionStyles";
-import { theme } from "style/theme";
-
-const BORDER_WIDTH = 1;
-
-const ACTIVE_SHADOW = ({ theme }) =>
-  css`inset 0 0 0 1px ${theme.brandColor || theme.COLOR_INTENT_HIGHLIGHT}`;
-
-const FOCUS_SHADOW = ({ theme }) =>
-  css`0 0 0 ${FORM_HIGHLIGHT_SIZE}px ${transparentize(
-    1 - theme.OPACITY_LIGHTER,
-    theme.brandColor || theme.COLOR_INTENT_HIGHLIGHT
-  )}`;
+import { formInteractionStyles } from "./InputFieldInteractionStyles";
 
 const InputBox = styled.input`
   ${formInteractionStyles};
-  border: ${({ theme }) =>
-    css`${BORDER_WIDTH}px solid ${theme.brandColor ||
-      theme.COLOR_INTENT_HIGHLIGHT}`};
-  color: ${({ theme }) => theme.brandColor || theme.COLOR_INTENT_HIGHLIGHT};
-  font-size: 1.25em;
-  margin-block: 0.25em;
-  margin-inline-end: 0.25em;
+  border: ${({ theme }) => theme.CONTROL_BORDER_WIDTH} solid ${({ theme }) => theme.INPUT_BOX_INACTIVE_BORDER_COLOR};
+  color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
   appearance: none;
-  flex: 0 0 calc(1em - ${BORDER_WIDTH * 2}px);
-  height: calc(1em - ${BORDER_WIDTH * 2}px);
-  width: calc(1em - ${BORDER_WIDTH * 2}px);
+  font-size: 1em;
+  height: 1em;
+  width: 1em;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: all 0.15s ease;
   box-sizing: border-box;
 
-  &:focus {
-    box-shadow: ${FOCUS_SHADOW}, 0;
-  }
-
-  &:active {
-    box-shadow: ${ACTIVE_SHADOW}, 0;
-
-    &:focus {
-      box-shadow: ${FOCUS_SHADOW}, ${ACTIVE_SHADOW};
-    }
-  }
-
+  /* Base styles for inner object */
   &:after {
     content: "";
     box-sizing: border-box;
     opacity: 0;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    transition: all 0.3s ease;
+    color: ${({ theme }) => readableColor(darken(0.1, theme.COLOR_INTENT_HIGHLIGHT))};
   }
 
-  &:checked {
-    background: ${({ theme }) =>
-      theme.brandColor || theme.COLOR_INTENT_HIGHLIGHT};
+  /* Hover and focus when unchecked */
+  label:hover > &,
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => transparentize(0.25, theme.COLOR_INTENT_HIGHLIGHT)};
+  }
 
+  /* Checked items use highlight color */
+  &:checked,
+  &:indeterminate[type="checkbox"] {
+    color: ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT};
+    background: currentColor;
+
+    /* Inner object visible */
     &:after {
       opacity: 1;
     }
+
+    /* Hover and focus when checked */
+    label:hover > &,
+    &:hover,
+    &:focus {
+      border-color: transparent;
+    }
   }
 
+  /* Disabled items use non-highlight color
+  and are faded */
   &:disabled {
-    border-color: ${({ theme }) => theme.COLOR_BACKGROUND_THREE};
-    opacity: ${({ theme }) => theme.OPACITY_LIGHTER};
-    box-shadow: none;
+    opacity: 0.5;
 
-    &:checked {
-      background-color: ${({ theme }) => theme.COLOR_BACKGROUND_THREE};
+    &,
+    label:hover > &,
+    &:hover,
+    &:focus {
+      color: ${({ theme }) => theme.COLOR_CONTENT_NONESSENTIAL};
+    }
+
+    &:checked,
+    &[type="checkbox"]:indeterminate {
+      background: ${({ theme }) => theme.COLOR_CONTENT_NONESSENTIAL};
+      border-color: transparent;
     }
   }
 `;

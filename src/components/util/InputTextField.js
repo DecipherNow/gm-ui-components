@@ -2,17 +2,14 @@ import styled from "styled-components";
 
 import { spacingScale } from "style/styleFunctions";
 import { formInteractionStyles } from "./InputFieldInteractionStyles";
-import { theme } from "style/theme";
-
-const BORDER_WIDTH = 1;
 
 export const InputTextField = styled.input`
   ${formInteractionStyles};
-  min-height: calc(${spacingScale(3)} - ${BORDER_WIDTH * 2}px);
+  min-height: calc(${spacingScale(3)} - ${({ theme }) => theme.CONTROL_BORDER_WIDTH * 2});
   border-radius: calc(
-    ${({ theme }) => theme.CORNER_RADIUS_INPUT} + ${BORDER_WIDTH}px
+    ${({ theme }) => theme.CORNER_RADIUS_INPUT} + ${({ theme }) => theme.CONTROL_BORDER_WIDTH}
   );
-  border: ${BORDER_WIDTH}px solid ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};
+  border: ${({ theme }) => theme.CONTROL_BORDER_WIDTH} solid ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};
   padding: ${spacingScale(0.5)} ${spacingScale(1)};
   appearance: none;
   margin: 0;

@@ -32,7 +32,7 @@ const themeBase = {
   CORNER_RADIUS_INPUT: '4px',
   CORNER_RADIUS_CARD_SM: '4px',
   CORNER_RADIUS_CARD_DEFAULT: '6px',
-  CORNER_RADIUS_CARD_LG: '8px', 
+  CORNER_RADIUS_CARD_LG: '8px',
   CORNER_RADIUS_MAX: '90000px',
 
   COLOR_BRAND_PRIMARY: 'rgb(0, 122, 255)',
@@ -51,27 +51,14 @@ const themeBase = {
   FONT_STACK_BRAND: `'Metropolis', 'Helvetica Neue', Arial, sans-serif`,
   FONT_STACK_CODE: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
 
-  FONT_SIZE_PAGE_TITLE: '40px',
-
-  FONT_SIZE_HEADING_LG: '38px',
-  FONT_SIZE_HEADING_DEFAULT: '36px',
-  FONT_SIZE_HEADING_SM: '32px',
-
-  FONT_SIZE_SUBHEADING_LG: '18px',
-  FONT_SIZE_SUBHEADING_DEFAULT: '16px',
-  FONT_SIZE_SUBHEADING_SM: '14px',
-
-  FONT_SIZE_ITEM_TITLE_LG: '16px',
-  FONT_SIZE_ITEM_TITLE_DEFAULT: '14px',
-  FONT_SIZE_ITEM_TITLE_SM: '12px',
-
-  FONT_SIZE_TEXT_XL: '18px',
-  FONT_SIZE_TEXT_LG: '16px',
-  FONT_SIZE_TEXT_DEFAULT: '14px',
-  FONT_SIZE_TEXT_SM: '12px',
-  FONT_SIZE_TEXT_XS: '10px',
+  FONT_SIZE_MIN: 10,
+  FONT_SCALE_FACTOR: 2,
 
   LETTER_SPACING_DEFAULT: 'normal',
+
+  FOCUS_RING_SIZE: '2.5px',
+  CONTROL_BORDER_WIDTH: '1px',
+  INPUT_BOX_INACTIVE_BORDER_COLOR: 'currentColor',
 
   SPACING_BASE: 8,
 
@@ -89,8 +76,6 @@ const themeBase = {
 const prepareTheme = (theme, content, keyline) => {
   // Take a theme and some optional properties,
   // and construct a full set of theme variables from it.
-
-  const bgScale = 0.05;
 
   const defaultContent = {
     contrast: 1,
@@ -112,6 +97,14 @@ const prepareTheme = (theme, content, keyline) => {
     keyline = defaultKeyline
   }
 
+  const makeTypeLevel = (level) => {
+    return Math.ceil(level * theme.FONT_SCALE_FACTOR) + theme.FONT_SIZE_MIN + 'px'
+  }
+
+  // Factor used to increase the mix of the foreground
+  // with background, when creating a background level.
+  const bgScale = 0.05;
+
   const makeBackgroundLevel = (level) => {
     if (theme.COLOR_SCHEME === 'dark') {
       return mix(level * bgScale, theme.COLOR_CONTENT, theme.COLOR_BACKGROUND)
@@ -125,7 +118,7 @@ const prepareTheme = (theme, content, keyline) => {
     COLOR_CONTENT_CONTRAST: transparentize((1 - content.contrast), theme.COLOR_CONTENT),
     COLOR_CONTENT_DEFAULT: transparentize((1 - content.default), theme.COLOR_CONTENT),
     COLOR_CONTENT_MUTED: transparentize((1 - content.muted), theme.COLOR_CONTENT),
-    COLOR_CONTENT_NONESSENTIAL: transparentize((1 - content.muted), theme.COLOR_CONTENT),
+    COLOR_CONTENT_NONESSENTIAL: transparentize((1 - content.nonessential), theme.COLOR_CONTENT),
 
     COLOR_KEYLINE_DEFAULT: lighten(theme.LIGHTNESS_BIAS, transparentize((1 - keyline.default), theme.COLOR_CONTENT)),
     // TODO: Verify _SOLID version
@@ -137,6 +130,26 @@ const prepareTheme = (theme, content, keyline) => {
     COLOR_BACKGROUND_THREE: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(2)),
     COLOR_BACKGROUND_FOUR: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(3)),
     COLOR_BACKGROUND_FIVE: lighten(theme.LIGHTNESS_BIAS, makeBackgroundLevel(4)),
+
+    FONT_SIZE_PAGE_TITLE: makeTypeLevel(22),
+
+    FONT_SIZE_HEADING_LG: makeTypeLevel(16),
+    FONT_SIZE_HEADING_DEFAULT: makeTypeLevel(15),
+    FONT_SIZE_HEADING_SM: makeTypeLevel(13),
+
+    FONT_SIZE_SUBHEADING_LG: makeTypeLevel(6),
+    FONT_SIZE_SUBHEADING_DEFAULT: makeTypeLevel(4),
+    FONT_SIZE_SUBHEADING_SM: makeTypeLevel(3),
+
+    FONT_SIZE_ITEM_TITLE_LG: makeTypeLevel(4),
+    FONT_SIZE_ITEM_TITLE_DEFAULT: makeTypeLevel(3),
+    FONT_SIZE_ITEM_TITLE_SM: makeTypeLevel(2),
+
+    FONT_SIZE_TEXT_XL: makeTypeLevel(5),
+    FONT_SIZE_TEXT_LG: makeTypeLevel(4),
+    FONT_SIZE_TEXT_DEFAULT: makeTypeLevel(3),
+    FONT_SIZE_TEXT_SM: makeTypeLevel(2),
+    FONT_SIZE_TEXT_XS: makeTypeLevel(1),
 
     // TODO: Add alpha-unblended versions of bg colors
   }
@@ -182,18 +195,20 @@ export const addWin10Influence = (theme) => ({
   ...theme,
   OS_INFLUENCE: 'Win10',
   // Sharp corners
-  CORNER_RADIUS_SHARP: '0',
-  CORNER_RADIUS_INPUT: '0',
-  CORNER_RADIUS_CARD_SM: '0',
-  CORNER_RADIUS_CARD_DEFAULT: '0',
-  CORNER_RADIUS_CARD_LG: '0',
-  CORNER_RADIUS_MAX: '0',
+  CORNER_RADIUS_SHARP: '0px',
+  CORNER_RADIUS_INPUT: '0px',
+  CORNER_RADIUS_CARD_SM: '0px',
+  CORNER_RADIUS_CARD_DEFAULT: '0px',
+  CORNER_RADIUS_CARD_LG: '0px',
+  CORNER_RADIUS_MAX: '0px',
   // Windows color palatte
   COLOR_INTENT_HIGHLIGHT: '#0078d4',
   COLOR_INTENT_SUCCESS: '#107c10',
   COLOR_INTENT_DANGER: '#a80000',
   COLOR_INTENT_WARNING: '#d83b01',
   COLOR_INTENT_INFO: '#0078d4',
+
+  CONTROL_BORDER_WIDTH: '2px',
 })
 
 export const setSpacingBase = (theme, size) => (size ? { ...theme, SPACING_BASE: size } : {...theme});

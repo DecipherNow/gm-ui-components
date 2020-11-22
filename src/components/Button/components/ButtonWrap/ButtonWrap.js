@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 import generateButtonOrientation from "./utils/generateButtonOrientation";
 import generateButtonSize from "./utils/generateButtonSize";
 import generateButtonStyle from "./utils/generateButtonStyle";
-import { theme } from "style/theme";
 
 // The start of the CSS style output
 const ButtonWrap = styled.button`
   align-items: center;
-  border-style: solid;
-  border-width: 1px;
+  border: ${({ theme }) => theme.CONTROL_BORDER_WIDTH} solid
+    ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};
+  /* background-clip: border-box; */
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
@@ -42,8 +42,8 @@ const ButtonWrap = styled.button`
   &:focus,
   &:focus:active {
     outline: none;
-    border: 1px solid
-      ${({ theme }) => theme.brandColor || theme.COLOR_INTENT_HIGHLIGHT};
+    border: ${({ theme }) => theme.CONTROL_BORDER_WIDTH} solid
+      ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT};
     z-index: 10;
     position: relative;
 

@@ -20,7 +20,7 @@ export default function Textarea({
 }) {
   return (
     <InputWrap labelPosition={labelPosition}>
-      {label && <InputLabelText>{label}</InputLabelText>}
+      {label && <InputLabelText disabled={disabled}>{label}</InputLabelText>}
       <TextareaField
         autoFocus={autoFocus}
         defaultValue={defaultValue}

@@ -19,7 +19,7 @@ const Select = ({
 }) => {
   return (
     <InputWrap labelPosition={labelPosition}>
-      {label && <InputLabelText>{label}</InputLabelText>}
+      {label && <InputLabelText disabled={disabled}>{label}</InputLabelText>}
       <SelectField
         autoFocus={autoFocus}
         value={value}

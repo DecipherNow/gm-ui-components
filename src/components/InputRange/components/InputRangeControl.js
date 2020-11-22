@@ -4,11 +4,8 @@ import { spacingScale } from "style/styleFunctions";
 import { mix, transparentize } from "polished";
 import {
   formInteractionStyles,
-  FORM_HIGHLIGHT_SIZE
 } from "components/util/InputFieldInteractionStyles";
-import { theme } from "style/theme";
 
-const BORDER_WIDTH = 2;
 const THUMB_SIZE = "1em";
 const TRACK_HEIGHT = spacingScale(0.25);
 
@@ -16,7 +13,7 @@ const ACTIVE_SHADOW = ({ theme }) =>
   css`inset 0 0 0 1px ${theme.brandColor || theme.COLOR_INTENT_HIGHLIGHT}`;
 
 const FOCUS_SHADOW = ({ theme }) =>
-  css`0 0 0 ${FORM_HIGHLIGHT_SIZE}px ${transparentize(
+  css`0 0 0 ${theme.FORM_HIGHLIGHT_SIZE}px ${transparentize(
     1 - theme.OPACITY_LIGHTER,
     theme.brandColor || theme.COLOR_INTENT_HIGHLIGHT
   )}`;
@@ -35,7 +32,7 @@ const THUMB_STYLE = css`
       theme.COLOR_BACKGROUND_DEFAULT,
       theme.COLOR_CONTENT_DEFAULT
     )};
-  box-shadow: 0 0 0 ${BORDER_WIDTH}px
+  box-shadow: 0 0 0 ${({ theme }) => theme.CONTROL_BORDER_WIDTH}
       ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT},
     ${PLACEHOLDER_SHADOW};
   flex: 0 0 ${THUMB_SIZE};

@@ -8,9 +8,6 @@ import { spacingScale } from "./styleFunctions";
 
 const stories = storiesOf("Overview|Design Tokens", module);
 
-// console.log(env);
-// console.log(process);
-
 const DemoCanvas = styled.div`
   background-color: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
   color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
@@ -27,8 +24,6 @@ const DemoItem = styled.button.attrs(props => ({
   box-sizing: border-box;
   background: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
   border-radius: ${({ theme }) => theme.CORNER_RADIUS_CARD_SM};
-  margin: ${spacingScale(1)};
-  width: ${spacingScale(16)};
   font-size: ${({ theme }) => theme.FONT_SIZE_TEXT_SM};
   color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
   border: 1px solid ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
@@ -125,16 +120,23 @@ const DemoSubSection = styled(DemoSection)`
   margin-top: ${spacingScale(4)};
   padding-top: 0;
   flex: 0 0 100%;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+  grid-gap: 0.5rem;
+  
   &:before {
     font-size: ${({ theme }) => theme.FONT_SIZE_TEXT_LG};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT_SEMIBOLD};
     letter-spacing: 0.03em;
     text-transform: uppercase;
+    grid-column: 1 / -1;
+  }
+
+  > p:first-child {
+    grid-column: 1 / -1;
   }
 
   &:not(:first-of-type) {
-    margin-top: ${spacingScale(4)};
     padding-top: 0;
     border: 0;
   }
@@ -157,9 +159,6 @@ const ColorDemo = styled(DemoItem)`
       ${({ theme }) => theme.COLOR_BACKGROUND_THREE} 100%
     );
   height: ${spacingScale(11)};
-  width: ${spacingScale(26)};
-  justify-content: space-between;
-  align-items: stretch;
 
   &:before {
     content: "";
@@ -198,7 +197,6 @@ const ColorLineDemo = styled(ColorDemo)`
 
 const ColorTextDemo = styled(DemoItem)`
   align-items: stretch;
-  width: ${spacingScale(26)};
   background-color: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
 
   &:before {
@@ -279,7 +277,7 @@ Flexibly optimize your cloud, enhance customer digital experience, gain critical
 
 const RadiusDemo = styled(DemoItem)`
   height: ${spacingScale(14)};
-  width: ${spacingScale(26)};
+  min-width: ${spacingScale(26)};
 
   &:before {
     content: "";

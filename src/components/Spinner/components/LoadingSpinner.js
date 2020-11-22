@@ -3,12 +3,10 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 import { spacingScale } from "style/styleFunctions";
-
 import spinGradient from "./spinGradient";
-import { theme } from "style/theme";
 
 export const SpinnerSVG = styled.svg`
-  animation: ${spinGradient} 16s ease infinite;
+  animation: ${spinGradient} 1s linear infinite;
   margin: ${spacingScale(1)};
   color: ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT};
   overflow: visible;
@@ -25,13 +23,13 @@ export const SpinnerSVG = styled.svg`
 SpinnerSVG.displayName = "SpinnerSVG";
 
 export const verticalStyles = css`
-  height: ${spacingScale(6)};
-  width: ${spacingScale(6)};
+  height: 4em;
+  width: 4em;
 `;
 
 export const horizontalStyles = css`
-  height: ${spacingScale(2)};
-  width: ${spacingScale(2)};
+  height: 1em;
+  width: 1em;
 `;
 
 export function LoadingSpinner(props) {

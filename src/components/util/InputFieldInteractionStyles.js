@@ -2,13 +2,19 @@ import { css } from "styled-components";
 
 import { transparentize, mix } from "polished";
 
-export const FORM_HIGHLIGHT_SIZE = 2.5;
+function makeFocusHighlight(focused, theme) {
+  if (focused) {
+    return ('box-shadow: 0 0 0 ' + theme.FOCUS_RING_SIZE + ' ' + transparentize(1 - theme.OPACITY_LIGHTER, theme.COLOR_INTENT_HIGHLIGHT));
+  } else {
+    return ('box-shadow: 0 0 0 ' + theme.FOCUS_RING_SIZE + ' ' + ' transparent');
+  }
+}
 
 export function formInteractionStyles() {
   return css`
-    &:invalid {
-      box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+    ${({ theme }) => makeFocusHighlight(false, theme)}
 
+    &:invalid {
       &:required {
         background-color: ${({ theme }) =>
           mix(
@@ -17,9 +23,6 @@ export function formInteractionStyles() {
             theme.COLOR_BACKGROUND_DEFAULT
           )};
       }
-    }
-
-    &:required {
     }
 
     &:disabled {
@@ -61,15 +64,8 @@ export function formInteractionStyles() {
     &:focus,
     &:focus:active {
       outline: none;
-      border: ${css`1px solid ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT}`};
-      box-shadow: ${css`0 0 0 ${FORM_HIGHLIGHT_SIZE}px ${({ theme }) =>
-        transparentize(
-          1 - theme.OPACITY_LIGHTER,
-          theme.COLOR_INTENT_HIGHLIGHT
-        )}`};
-    }
-
-    &:active {
+      border: ${({ theme }) => theme.CONTROL_BORDER_WIDTH} solid ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT};
+      ${({ theme }) => makeFocusHighlight(true, theme)}
     }
   `;
 }
