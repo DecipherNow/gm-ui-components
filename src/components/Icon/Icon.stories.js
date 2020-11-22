@@ -257,57 +257,57 @@ stories
           "An Icon component that renders a variety of glyphs (see the gallery for all glyph options)."
       }
     }
-  )
-  .add(
-    "Custom Glyphs",
-    () => {
-      return (
-        <Icon
-          title={text("title", undefined)}
-          size={text("size", undefined)}
-          borderColor={color("borderColor", undefined)}
-          borderWidth={number("borderWidth", undefined)}
-          fillColor={color("fillColor", undefined)}
-          fillOpacity={number("fillOpacity", undefined)}
-          hasBadge={boolean("hasBadge", undefined)}
-          badgeColor={color("badgeColor", undefined)}
-          badgePosition={object("badgePosition", undefined)}
-        >
-          <svg className="svg-icon" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="7.4" />
-          </svg>
-        </Icon>
-      );
-    },
-    {
-      info: {
-        text:
-          "An Icon component that renders a custom glyph. Simply import { Icon } and wrap your custom svg."
-      }
-    }
-  )
-  .add("Glyph Gallery", () => {
-    return (
-      <GalleryIconList fontSize={text("Context font size", "inherit")}>
-        {glyphNames.map(glyph => {
-          let Glyph = Glyphs[glyph];
-          return (
-            <GalleryIconDemo key={glyph}>
-              <Glyph
-                title={glyph}
-                size={text("size", undefined)}
-                fillColor={color("fillColor", undefined)}
-                fillOpacity={number("fillOpacity", undefined)}
-                borderColor={color("borderColor", undefined)}
-                borderWidth={text("borderWidth", undefined)}
-                hasBadge={boolean("hasBadge", undefined)}
-                badgeColor={color("badgeColor")}
-                badgePosition={object("badgePosition", undefined)}
-              />
-              <GalleryIconLabel>{glyph}</GalleryIconLabel>
-            </GalleryIconDemo>
-          );
-        })}
-      </GalleryIconList>
-    );
-  });
+  // )
+  // .add(
+  //   "Custom Glyphs",
+  //   () => {
+  //     return (
+  //       <Icon
+  //         title={text("title", undefined)}
+  //         size={text("size", undefined)}
+  //         borderColor={color("borderColor", undefined)}
+  //         borderWidth={number("borderWidth", undefined)}
+  //         fillColor={color("fillColor", undefined)}
+  //         fillOpacity={number("fillOpacity", undefined)}
+  //         hasBadge={boolean("hasBadge", undefined)}
+  //         badgeColor={color("badgeColor", undefined)}
+  //         badgePosition={object("badgePosition", undefined)}
+  //       >
+  //         <svg className="svg-icon" viewBox="0 0 24 24">
+  //           <circle cx="12" cy="12" r="7.4" />
+  //         </svg>
+  //       </Icon>
+  //     );
+  //   },
+  //   {
+  //     info: {
+  //       text:
+  //         "An Icon component that renders a custom glyph. Simply import { Icon } and wrap your custom svg."
+  //     }
+  //   }
+  // )
+  // .add("Glyph Gallery", () => {
+  //   return (
+  //     <GalleryIconList fontSize={text("Context font size", "inherit")}>
+  //       {glyphNames.map(glyph => {
+  //         let Glyph = Glyphs[glyph];
+  //         return (
+  //           <GalleryIconDemo key={glyph}>
+  //             <Glyph
+  //               title={glyph}
+  //               size={text("size", undefined)}
+  //               fillColor={color("fillColor", undefined)}
+  //               fillOpacity={number("fillOpacity", undefined)}
+  //               borderColor={color("borderColor", undefined)}
+  //               borderWidth={text("borderWidth", undefined)}
+  //               hasBadge={boolean("hasBadge", undefined)}
+  //               badgeColor={color("badgeColor")}
+  //               badgePosition={object("badgePosition", undefined)}
+  //             />
+  //             <GalleryIconLabel>{glyph}</GalleryIconLabel>
+  //           </GalleryIconDemo>
+  //         );
+  //       })}
+  //     </GalleryIconList>
+    // );
+  );

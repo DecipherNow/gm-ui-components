@@ -34,16 +34,16 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.svg$/,
-        include: /src\/components\/Glyphs/,
-        use: [
-          {
-            loader: "@svgr/webpack",
-            options: {
-              configFile: path.resolve(__dirname, "config", "svgr.config.js")
-            }
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        issuer: {
+          test: /\.jsx?$/
+        },
+        use: [{
+          loader: '@svgr/webpack',
+          options: {
+            memo: true
           }
-        ]
+        }]
       },
       {
         test: /\.(eot|svg|png|jpg|jpeg|gif|ttf|woff|woff2)$/,
@@ -59,6 +59,18 @@ module.exports = {
           }
         ]
       },
+      // {
+      //   test: /\.svg$/,
+      //   include: /src\/components\/Glyphs/,
+      //   use: [
+      //     {
+      //       loader: "@svgr/webpack",
+      //       options: {
+      //         configFile: path.resolve(__dirname, "config", "svgr.config.js")
+      //       }
+      //     }
+      //   ]
+      // },
       {
         test: /\.(css|scss|less)$/,
         use: [

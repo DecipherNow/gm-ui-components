@@ -24,6 +24,7 @@
     "inter-ui": "^3"
   },
   "dependencies": {
+    "@svgr/babel-plugin-transform-svg-component": "^5.5.0",
     "polished": "^3.6.7"
   },
   "scripts": {
@@ -63,8 +64,9 @@
     "@storybook/addons": "^5.3.21",
     "@storybook/react": "^5.3.21",
     "@storybook/storybook-deployer": "^2.8.7",
-    "@svgr/core": "^3.1.0",
-    "@svgr/webpack": "^3.1.0",
+    "@svgr/core": "^5.5.0",
+    "@svgr/plugin-jsx": "^5.5.0",
+    "@svgr/webpack": "^5.5.0",
     "autoprefixer": "^9.8.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
