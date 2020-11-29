@@ -12,6 +12,7 @@ export { default as InputRange } from "./InputRange";
 export { default as LayoutSection } from "./LayoutSection";
 export { default as NavCard } from "./NavCard";
 export { default as NavCardGroup } from "./NavCardGroup";
+export { default as Progress } from "./Progress";
 export { default as Radio } from "./Radio";
 export { default as Readout } from "./Readout";
 export { default as ReadoutGroup } from "./ReadoutGroup";

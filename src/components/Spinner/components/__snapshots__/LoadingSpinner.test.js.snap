@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoadingSpinner matches snapshot 1`] = `
-<SpinnerSVG
-  height="100"
+<Spinner
+  max={1}
   orientation="vertical"
+  shape="circle"
   theme={
     Object {
       "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
@@ -71,43 +72,5 @@ exports[`LoadingSpinner matches snapshot 1`] = `
       "name": "Keen",
     }
   }
-  viewBox="0 0 100 100"
-  width="100"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <defs>
-    <linearGradient
-      id="gradient"
-      x1="0%"
-      x2="0%"
-      y1="0%"
-      y2="100%"
-    >
-      <stop
-        offset="0%"
-        stopColor="currentColor"
-        stopOpacity="0.15"
-      />
-      <stop
-        offset="33%"
-        stopColor="currentColor"
-        stopOpacity="0.15"
-      />
-      <stop
-        offset="100%"
-        stopColor="currentColor"
-      />
-    </linearGradient>
-  </defs>
-  <circle
-    cx="50"
-    cy="50"
-    fill="none"
-    r="47"
-    stroke="url(#gradient)"
-    strokeWidth="1.0001"
-    transform="rotate(90 50 50)"
-    vectorEffect="non-scaling-stroke"
-  />
-</SpinnerSVG>
+/>
 `;
