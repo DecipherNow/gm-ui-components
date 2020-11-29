@@ -3,6 +3,19 @@ import { keen } from "style/theme";
 
 import "inter-ui/inter.css";
 
+// 
+const SafariSVGFlickerOnHoverFix = () => {
+  const ContainsSafari = new RegExp("(Safari)");
+  const isSafari = (ContainsSafari.test(window.navigator.userAgent));
+
+  if (isSafari) {
+    return css`
+    svg {
+      will-change: transform;
+    }
+`}
+}
+
 const NORMALIZE = css`
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -355,6 +368,10 @@ const NORMALIZE = css`
   [hidden] {
     display: none;
   }
+
+  /* Include the fix for Safari SVGs */
+  ${SafariSVGFlickerOnHoverFix}
+
 `;
 
 const CSS_CUSTOM_PROPERTIES = css`
@@ -479,3 +496,4 @@ GlobalStyles.defaultProps = {
 };
 
 export default GlobalStyles;
+
