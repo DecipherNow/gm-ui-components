@@ -29,6 +29,7 @@ export * from "../style/styleFunctions";
 export { default as GlobalStyles } from "../style/GlobalStyles";
 
 // utility components
+export { default as color } from "./util/color";
 export { default as InputBox } from "./util/InputBox";
 export { default as InputHint } from "./util/InputHint";
 export { default as InputLabelText } from "./util/InputLabelText";
