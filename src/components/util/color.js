@@ -1,80 +1,83 @@
-import { lch } from 'd3-color';
-import PropTypes from 'prop-types';
+import { lch, cubehelix } from "d3-color";
 
-// Must be optionally theme-aware
-// Take colors
-// Support color transformations in good colorspace
+const COLORSPACE = lch;
 
-const getValueFromTheme = (theme, value) => (theme[value]);
-
-const getThemeValueOrReturn = (theme, value) => {
-
-  if (typeof value === 'number') {
-    return value;
-  } else if (typeof value === 'string') {
-    let result = getValueFromTheme(theme, value);
-
-    if (result) {
-      return result;
-    } else {
-      return value;
-    }
-  }
+var PROPERTY_LIMITS;
+if (COLORSPACE === lch) {
+  PROPERTY_LIMITS = {
+    h: [0, 360],
+    c: [0, 100],
+    l: [0, 120]
+  };
+} else if (COLORSPACE === cubehelix) {
+  PROPERTY_LIMITS = {
+    h: [0, 360],
+    c: [0, 1],
+    l: [0, 1]
+  };
 }
 
+function lerp(v0, v1, t) {
+  return v0 * (1 - t) + v1 * t;
+}
 
-function color(a, b, c) {
-  let inputTheme;
-  let inputColor;
-  let inputAlpha;
+function colorify(color, colorSpace = COLORSPACE) {
+  return colorSpace(color);
+}
 
-  if (typeof a === 'object') {
-    // If A is an object, assume it's
-    // a theme, B is color, C is alpha
-    inputTheme = a;
-    inputColor = getThemeValueOrReturn(a, b);
-    inputAlpha = getThemeValueOrReturn(a, c);
+const colorPropertyAdjust = (color, property, adjust) => {
+  let result = colorify(color);
+  result[property] += adjust;
+  return result;
+};
+const colorPropertySet = (color, property, value) => {
+  console.log({ color, property, value });
+  let result = colorify(color);
+  result[property] = value;
+  return result;
+};
 
+// TODO: Needs testing
+export function adjustHue(color, adjustment) {
+  return colorPropertyAdjust(color, "h", adjustment);
+}
+export function adjustChroma(color, adjustment) {
+  return colorPropertyAdjust(color, "c", adjustment);
+}
+export function adjustLightness(color, adjustment) {
+  return colorPropertyAdjust(color, "l", adjustment);
+}
+export function adjustOpacity(color, adjustment) {
+  return colorPropertyAdjust(color, "opacity", adjustment);
+}
+
+export function setHue(color, hue) {
+  return colorPropertySet(color, "h", hue);
+}
+export function setChroma(color, chroma) {
+  chroma = lerp(PROPERTY_LIMITS.c[0], PROPERTY_LIMITS.c[1], chroma);
+  return colorPropertySet(color, "c", chroma);
+}
+export function setLightness(color, lightness) {
+  lightness = lerp(PROPERTY_LIMITS.l[0], PROPERTY_LIMITS.l[1], lightness);
+  return colorPropertySet(color, "l", lightness);
+}
+export function setOpacity(color, opacity) {
+  return colorPropertySet(color, "o", opacity);
+}
+
+// TODO: Needs testing
+export function readableColor(
+  color,
+  colorIfLight = "#000",
+  colorIfDark = "#fff"
+) {
+  color = colorify(color);
+  if (color.l > 0.5) {
+    // color is light
+    return colorIfLight;
   } else {
-    // Otherwise assume A is a color,
-    // and B is an alpha
-    inputColor = a;
-    inputAlpha = b;
+    // color is dark
+    return colorIfDark;
   }
-
-  let color = lch(inputColor);
-
-  if (inputAlpha) {
-    color.opacity = inputAlpha;
-  }
-
-  return color;
 }
-
-// themeobject string
-// keen,       CONTRAST
-// keen,       #FFFFFF throw!
-// getValueFromTheme
-// 
-// themeobject string string
-// keen,       CONTRAST '0.3'
-// transparentize getValueFromTheme(theme, string1).opacity(string2)
-//
-// themeobject string number
-// keen,       CONTRAST 0.3
-//
-// string string
-// CONTRAST '0.5'
-// 
-// string number
-// CONTRAST 
-
-// return resultColor;
-
-color.PropTypes = {
-  a: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  b: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  c: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
-
-export default color;

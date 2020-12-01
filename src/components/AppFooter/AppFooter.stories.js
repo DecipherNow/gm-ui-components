@@ -5,37 +5,13 @@ import { boolean, text } from "@storybook/addon-knobs";
 import AppFooter from "./AppFooter";
 import { IconBell } from "..";
 
-import c from "../util/color";
-
 const stories = storiesOf("Components|App Footer", module);
 
 const FooterDemoArea = styled.div`
   width: 85vw;
 `;
 
-const TestDiv = styled.div`
-  /* background: ${({ theme }) => c(theme = theme, color = 'COLOR_CONTENT_CONTRAST', alpha = 0.5)}; */
-  /* background: ${({ theme }) => c(theme, 'COLOR_INTENT_HIGHLIGHT')}; */
-  /* background: ${({ theme }) => c(theme, 'COLOR_CONTENT_CONTRAST', 0.5)}; */
-  /* background: ${({ theme }) => c(theme, 'COLOR_CONTENT_CONTRAST', 'OPACITY_LIGHTER')}; */
-  /* background: ${({ theme }) => transparentize(theme.OPACITY_LIGHT, theme.COLOR_CONTENT_CONTRAST)}; */
-  /* background: ${({ theme }) => c(theme, 'blue', 'OPACITY_LIGHTER')}; */
-  background: ${({ theme }) => c('blue', 'OPACITY_LIGHTER')};
-  /* background: ${c('blue', 0.5)}; */
-  font-size: 20em;
-  width: 1em;
-  height: 1em;
-  margin: 1rem;
-`;
-
 stories
-
-  .add(
-    "Color",
-    () => (
-      <TestDiv />
-    ),
-  )
   .add(
     "Default",
     () => (
