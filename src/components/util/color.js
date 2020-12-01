@@ -1,8 +1,8 @@
 import { lch, cubehelix } from "d3-color";
 
+// Configuration
 const COLORSPACE = lch;
-
-var PROPERTY_LIMITS;
+let PROPERTY_LIMITS;
 if (COLORSPACE === lch) {
   PROPERTY_LIMITS = {
     h: [0, 360],
@@ -17,9 +17,7 @@ if (COLORSPACE === lch) {
   };
 }
 
-function lerp(v0, v1, t) {
-  return v0 * (1 - t) + v1 * t;
-}
+const lerp = (v0, v1, t) => v0 * (1 - t) + v1 * t;
 
 function colorify(color, colorSpace = COLORSPACE) {
   return colorSpace(color);
@@ -63,7 +61,7 @@ export function setLightness(color, lightness) {
   return colorPropertySet(color, "l", lightness);
 }
 export function setOpacity(color, opacity) {
-  return colorPropertySet(color, "o", opacity);
+  return colorPropertySet(color, "opacity", opacity);
 }
 
 // TODO: Needs testing
