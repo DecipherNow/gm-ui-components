@@ -83,9 +83,13 @@ const TestChromaDiv = styled(TestDiv)`
   background-image: linear-gradient(
     to right,
     ${props => c.setSaturation(props.color, 0, props.colorSpace)},
+    ${props => c.setSaturation(props.color, 0.125, props.colorSpace)},
     ${props => c.setSaturation(props.color, 0.25, props.colorSpace)},
+    ${props => c.setSaturation(props.color, 0.375, props.colorSpace)},
     ${props => c.setSaturation(props.color, 0.5, props.colorSpace)},
+    ${props => c.setSaturation(props.color, 0.625, props.colorSpace)},
     ${props => c.setSaturation(props.color, 0.75, props.colorSpace)},
+    ${props => c.setSaturation(props.color, 0.875, props.colorSpace)},
     ${props => c.setSaturation(props.color, 1, props.colorSpace)}
   );
 `;
@@ -94,9 +98,13 @@ const TestLightnessDiv = styled(TestDiv)`
   background-image: linear-gradient(
     to right,
     ${props => c.setBrightness(props.color, 0, props.colorSpace)},
+    ${props => c.setBrightness(props.color, 0.125, props.colorSpace)},
     ${props => c.setBrightness(props.color, 0.25, props.colorSpace)},
+    ${props => c.setBrightness(props.color, 0.375, props.colorSpace)},
     ${props => c.setBrightness(props.color, 0.5, props.colorSpace)},
+    ${props => c.setBrightness(props.color, 0.625, props.colorSpace)},
     ${props => c.setBrightness(props.color, 0.75, props.colorSpace)},
+    ${props => c.setBrightness(props.color, 0.875, props.colorSpace)},
     ${props => c.setBrightness(props.color, 1, props.colorSpace)}
   );
 `;
@@ -105,9 +113,13 @@ const TestOpacityDiv = styled(TestDiv)`
   background-image: linear-gradient(
     to left,
     ${props => c.setOpacity(props.color, 0, props.colorSpace)},
+    ${props => c.setOpacity(props.color, 0.125, props.colorSpace)},
     ${props => c.setOpacity(props.color, 0.25, props.colorSpace)},
+    ${props => c.setOpacity(props.color, 0.375, props.colorSpace)},
     ${props => c.setOpacity(props.color, 0.5, props.colorSpace)},
+    ${props => c.setOpacity(props.color, 0.625, props.colorSpace)},
     ${props => c.setOpacity(props.color, 0.75, props.colorSpace)},
+    ${props => c.setOpacity(props.color, 0.875, props.colorSpace)},
     ${props => c.setOpacity(props.color, 1, props.colorSpace)}
   );
 `;
