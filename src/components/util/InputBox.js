@@ -22,8 +22,10 @@ const FOCUS_SHADOW = ({ theme }) =>
 const InputBox = styled.input`
   ${formInteractionStyles};
   border: ${({ theme }) =>
-    css`${BORDER_WIDTH}px solid ${theme.brandColor ||
-      theme.COLOR_INTENT_HIGHLIGHT}`};
+    css`
+      ${BORDER_WIDTH}px solid ${theme.brandColor ||
+      theme.COLOR_INTENT_HIGHLIGHT}
+    `};
   color: ${({ theme }) => theme.brandColor || theme.COLOR_INTENT_HIGHLIGHT};
   font-size: ${spacingScale(2)};
   margin: ${spacingScale(0.25)};

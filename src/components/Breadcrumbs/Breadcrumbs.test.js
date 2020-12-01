@@ -22,12 +22,7 @@ describe("Breadcrumbs", () => {
   });
   test("passes delimiter prop to Breadcrumb", () => {
     wrapper = shallow(<Breadcrumbs crumbs={crumbs} delimiter={false} />);
-    expect(
-      wrapper
-        .find("Breadcrumb")
-        .at(0)
-        .props().delimiter
-    ).toBeFalsy();
+    expect(wrapper.find("Breadcrumb").at(0).props().delimiter).toBeFalsy();
   });
 });
 

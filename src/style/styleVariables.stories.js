@@ -31,7 +31,7 @@ const DemoItem = styled.button.attrs(props => ({
   border: 1px solid ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
   padding: 0;
   box-shadow: 0 0 0 1px ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -48,10 +48,10 @@ const DemoItem = styled.button.attrs(props => ({
     `}
 
   &:after {
-    content: '${props => props.demoVarName}';
+    content: "${props => props.demoVarName}";
     margin-top: ${spacingScale(1)};
     margin-bottom: ${spacingScale(1)};
-    transition: all .5s ease;
+    transition: all 0.5s ease;
     font-family: ${({ theme }) => theme.FONT_STACK_DEFAULT};
     font-size: ${({ theme }) => theme.FONT_SIZE_TEXT_SM};
     opacity: ${({ theme }) => theme.OPACITY_LIGHT};
@@ -60,11 +60,11 @@ const DemoItem = styled.button.attrs(props => ({
   &:hover,
   &:focus {
     box-shadow: 0 0 0 1.5px ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT};
-    transition: all .15s ease;
+    transition: all 0.15s ease;
 
     &:after {
       transition: inherit;
-      content: 'Copy to Clipboard';
+      content: "Copy to Clipboard";
       opacity: ${({ theme }) => theme.OPACITY_FULL};
       color: ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT};
     }
@@ -72,7 +72,7 @@ const DemoItem = styled.button.attrs(props => ({
     &:active {
       transition: 0;
 
-      &:after{
+      &:after {
         font-weight: ${({ theme }) => theme.FONT_WEIGHT_SEMIBOLD};
         color: ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT};
       }
@@ -101,8 +101,8 @@ const DemoSection = styled.div.attrs(props => ({
   background-color: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
   color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
 
-  &:before { 
-    content: '${props => props.name}';
+  &:before {
+    content: "${props => props.name}";
     display: block;
     flex: 0 0 100%;
     margin: ${spacingScale(1)};

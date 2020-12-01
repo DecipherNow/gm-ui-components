@@ -29,20 +29,10 @@ describe("Components|NavCard", () => {
   });
   it("renders details", () => {
     expect(aNavCard.find("NavCardDetails")).toHaveLength(1);
-    expect(
-      aNavCard
-        .find("NavCardKey")
-        .children()
-        .text()
-    ).toBe("Uptime");
+    expect(aNavCard.find("NavCardKey").children().text()).toBe("Uptime");
     expect(aNavCard.find("NavCardKey")).toHaveLength(1);
     expect(aNavCard.find("NavCardVal")).toHaveLength(1);
-    expect(
-      aNavCard
-        .find("NavCardVal")
-        .children()
-        .text()
-    ).toBe("15 Days");
+    expect(aNavCard.find("NavCardVal").children().text()).toBe("15 Days");
   });
   it("renders children", () => {
     expect(aNavCard.find("span").text()).toBe("Hello World!");

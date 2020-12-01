@@ -33,9 +33,8 @@ const ToggleSwitchElement = styled.input.attrs(props => ({
   &:focus,
   &:focus:active {
     border-color: ${({ color, theme }) =>
-      color ? color : theme.COLOR_INTENT_HIGHLIGHT}; 
+      color ? color : theme.COLOR_INTENT_HIGHLIGHT};
   }
-
 
   &:before {
     content: "";

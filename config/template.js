@@ -1,47 +1,44 @@
-const { getProps } = require("@svgr/core");
+function template(
+  { template },
+  opts,
+  { imports, componentName, props, jsx, exports }
+) {
+  const componentNameWithIconPrefix = `Icon${componentName.name.replace(
+    /^Svg/,
+    ""
+  )}`;
 
-/* This file exports a template used by webpack to create React components from our 
-svg files. The template is based on svgr docs and modified for our use case: 
-https://github.com/smooth-code/svgr/blob/master/packages/core/src/templates/reactDomTemplate.js */
-module.exports = (code, config, state) => {
-  const props = getProps(config);
+  const jsxTpl = template.smart({ plugins: ["jsx"] });
 
-  // svgr prepends "Svg" to the beginning of the component name
-  const componentName = `${state.componentName.substring(3)}`;
+  /* svgr always wraps the glyph in an svg, but we want to
+   use our own custom Icon component as the svg element. The following code 
+   lifts up the `g` element one level, in place of the svg. */
+  jsx.openingElement = jsx.children[0].openingElement;
+  jsx.closingElement = jsx.children[0].closingElement;
+  jsx.children = jsx.children[0].children;
+  jsx.selfClosing = false;
 
-  let result = `
+  const ast = jsxTpl.ast`
   import React from 'react';
   import Icon from "components/Icon";
   
- function ${componentName} (${props}) {
-    return (<Icon {...${props}} glyphName="${componentName}">
-      ${stripSVG(code)}
-      </Icon>);
+  function ${componentName} (${props}) {
+    return React.createElement(Icon, ${props}, ${jsx})
   }
   
   const memoizedIcon = React.memo(${componentName});
-
-  memoizedIcon.displayName = "Icon${componentName}";
-
+  
   export default memoizedIcon;
   `;
 
-  return result;
-};
+  // We can't directly interpolate arbitrary variables into ast, so we need to create an expression
+  // Based off https://github.com/sembark/gladio/blob/master/packages/icons/svgr.config.js
+  ast.push(
+    template.expression(
+      `memoizedIcon.displayName = '${componentNameWithIconPrefix}'`
+    )()
+  );
 
-/* svgr always wraps the glyph in an svg, but we want to 
-   use our own custom Icon component as the svg element. */
-function stripSVG(code) {
-  return (
-    code
-      .slice(code.indexOf(">"), code.indexOf("</svg>"))
-      /**
-       * Pardon this estoric string replacement. Sketch creates SVGs but the only way it allows adding
-       * a name to the elements in the SVG is by applying an id. The ids aren’t always unique, which doesn't
-       * conform to the HTML spec, so this replacement converts those ids to classes. We also use the classes
-       * for styling.
-       */
-      .replace(/id=/g, "className=")
-      .replace(/fill="([^"]*)"/g, "")
-  ); // Strip out any hard coded fills https://regexr.com/41skv
+  return ast;
 }
+module.exports = template;

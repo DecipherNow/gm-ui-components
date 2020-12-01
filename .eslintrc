@@ -1,21 +1,7 @@
 {
-  "parser": "babel-eslint",
   "rules": {
-    "prettier/prettier": [
-      "off",
-      {
-        "bracketSpacing": true,
-        "jsxBracketSameLine": false,
-        "printWidth": 80,
-        "semi": true,
-        "singleQuote": false,
-        "tabWidth": 2,
-        "trailingComma": "none",
-        "useTabs": false
-      }
-    ],
+    "prettier/prettier": ["error"],
     "quotes": [0, "single"],
-    "linebreak-style": [2, "unix"],
     "react/forbid-prop-types": 0,
     "react/jsx-boolean-value": 0,
     "react/jsx-no-bind": 0,

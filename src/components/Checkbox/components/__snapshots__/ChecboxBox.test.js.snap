@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckboxBox should render 1`] = `
-.c0 {
+.c1 {
   border: 1px solid #00b42b;
   color: #00b42b;
   font-size: calc(var(--SPACING_BASE) * 2 * 1px);
@@ -30,70 +30,69 @@ exports[`CheckboxBox should render 1`] = `
   -webkit-transition: all 0.15s ease;
   transition: all 0.15s ease;
   box-sizing: border-box;
-  border-radius: 3px;
 }
 
-.c0:invalid {
+.c1:invalid {
   box-shadow: 0 0 0 0 transparent,0 0 0 0 transparent;
 }
 
-.c0:invalid:required {
+.c1:invalid:required {
   background-color: #f9e1dd;
 }
 
-.c0:disabled {
+.c1:disabled {
   background-color: #FDFDFE;
 }
 
-.c0:valid:required {
+.c1:valid:required {
   background-color: #d8f3df;
 }
 
-.c0:valid:required[type="checkbox"]:after,
-.c0:valid:required[type="radio"]:after {
+.c1:valid:required[type="checkbox"]:after,
+.c1:valid:required[type="radio"]:after {
   border-color: #00b42b;
 }
 
-.c0:-moz-read-only[type="text"],
-.c0:-moz-read-only[type="password"],
-.c0:-moz-read-only[type="search"],
-.c0:-moz-read-only[type="url"],
-.c0:-moz-read-only[type="tel"],
-.c0:-moz-read-only[type="number"],
-.c0:-moz-read-only[type="email"] {
+.c1:-moz-read-only[type="text"],
+.c1:-moz-read-only[type="password"],
+.c1:-moz-read-only[type="search"],
+.c1:-moz-read-only[type="url"],
+.c1:-moz-read-only[type="tel"],
+.c1:-moz-read-only[type="number"],
+.c1:-moz-read-only[type="email"] {
   border-style: dashed !important;
 }
 
-.c0:read-only[type="text"],
-.c0:read-only[type="password"],
-.c0:read-only[type="search"],
-.c0:read-only[type="url"],
-.c0:read-only[type="tel"],
-.c0:read-only[type="number"],
-.c0:read-only[type="email"] {
+.c1:read-only[type="text"],
+.c1:read-only[type="password"],
+.c1:read-only[type="search"],
+.c1:read-only[type="url"],
+.c1:read-only[type="tel"],
+.c1:read-only[type="number"],
+.c1:read-only[type="email"] {
   border-style: dashed !important;
 }
 
-.c0:focus,
-.c0:focus:active {
+.c1:focus,
+.c1:focus:active {
   outline: none;
   border: 1px solid #00b42b;
   box-shadow: 0 0 0 2.5px rgba(0,180,43,0.5);
 }
 
-.c0:focus {
+.c1:focus {
   box-shadow: 0 0 0 2.5px rgba(0,180,43,0.5),0;
 }
 
-.c0:active {
+.c1:active {
   box-shadow: inset 0 0 0 1px #00b42b,0;
 }
 
-.c0:active:focus {
+.c1:active:focus {
   box-shadow: 0 0 0 2.5px rgba(0,180,43,0.5),inset 0 0 0 1px #00b42b;
 }
 
-.c0:after {
+.c1:after {
   content: "";
   box-sizing: border-box;
   opacity: 0;
@@ -102,25 +101,29 @@ exports[`CheckboxBox should render 1`] = `
   left: 50%;
 }
 
-.c0:checked {
+.c1:checked {
   background: #00b42b;
 }
 
-.c0:checked:after {
+.c1:checked:after {
   opacity: 1;
 }
 
-.c0:disabled {
+.c1:disabled {
   border-color: hsl(0,0%,94%);
   opacity: 0.5;
   box-shadow: none;
 }
 
-.c0:disabled:checked {
+.c1:disabled:checked {
   background-color: hsl(0,0%,94%);
 }
 
-.c0:after {
+.c2 {
+  border-radius: 3px;
+}
+
+.c2:after {
   width: 45%;
   height: 80%;
   border-style: solid;
@@ -135,17 +138,17 @@ exports[`CheckboxBox should render 1`] = `
   transition: all 0.3s ease;
 }
 
-.c0:checked:after {
+.c2:checked:after {
   -webkit-transform: translateY(-50%) translateX(-50%) rotate(45deg) scale(1);
   -ms-transform: translateY(-50%) translateX(-50%) rotate(45deg) scale(1);
   transform: translateY(-50%) translateX(-50%) rotate(45deg) scale(1);
 }
 
-.c0:indeterminate:enabled {
+.c2:indeterminate:enabled {
   background: #00b42b;
 }
 
-.c0:indeterminate:after {
+.c2:indeterminate:after {
   opacity: 1;
   width: 50%;
   height: 0;
@@ -169,13 +172,13 @@ exports[`CheckboxBox should render 1`] = `
 }
 
 *:active > *:hover > .c0:checked,
-*:active > *:hover > .c0:indeterminate {
+*:active > *:hover > .c2:indeterminate {
   background: rgba(0,180,43,0.5);
   border-color: transparent;
 }
 
 <input
-  className="c0"
+  className="c0 c1 c2"
   type="checkbox"
 />
 `;
