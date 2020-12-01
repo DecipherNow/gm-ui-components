@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
-import { color } from "@storybook/addon-knobs";
+import { color, number } from "@storybook/addon-knobs";
 import { lch, cubehelix, hsl } from 'd3-color';
 
 import * as c from "../components/util/color";
 
-const stories = storiesOf("Overview|Utils", module);
+const stories = storiesOf("Utilities|Color", module);
 
 const Wrap = styled.div`
   display: grid;
@@ -45,21 +45,22 @@ const TestDiv = styled.figure`
 
 const TestHueDiv = styled(TestDiv)`
   border-radius: 1000em;
-  width: 12rem;
-  height: 12rem;
+  width: 11rem;
+  height: 11rem;
+  margin: 0;
 
   &:after {
     content: '';
     z-index: 10;
-    font-size: 6em;
+    font-size: 4em;
     width: 1em;
     height: 1em;
     border-radius: inherit;
     position: absolute;
     top: 50%;
+    left: 50%;
     background: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
     box-shadow: inset 0 0 4px -2px;
-    left: 50%;
     transform: translate(-50%, -50%);
   }
   background-image: conic-gradient(
@@ -124,27 +125,84 @@ const TestOpacityDiv = styled(TestDiv)`
   );
 `;
 
+const PaletteWrap = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  place-items: center;
+  place-content: center;
+`;
+
+const PaletteItem = styled.div`
+  width: 4em;
+  height: 4em;
+  border-radius: ${({ theme }) => theme.CORNER_RADIUS_INPUT};
+  background: ${props => props.color};
+`;
+
+const ColorPalette = ({ mainColor, info, warning, danger, space }) => {
+  const main = c.setHue(mainColor, 138, space);
+  const infoColor = c.setHue(mainColor, info, space);
+  const warningColor = c.setHue(mainColor, warning, space);
+  const dangerColor = c.setHue(mainColor, danger, space);
+
+  const dangerColorHue = c.getProperty(dangerColor, 'h');
+  console.log({ dangerColorHue });
+
+  return (
+    <PaletteWrap>
+      <PaletteItem color={main} />
+      <PaletteItem color={infoColor} />
+      <PaletteItem color={warningColor} />
+      <PaletteItem color={dangerColor} title={(danger)} />
+    </PaletteWrap>
+  )
+}
+
 stories.add("Color", () => {
   let testColor = color("color", "#4A90E2");
+  let info = number("info", 270);
+  let warning = number("warning", 90);
+  let danger = number("danger", 360);
   return (
     <>
-      <Heading>HCL</Heading>
+      <ColorPalette mainColor="#00b42b"
+        space={lch}
+        info={info}
+        warning={warning}
+        danger={danger}
+      />
+      <hr />
+      <ColorPalette mainColor="#00b42b"
+        space={cubehelix}
+        info={info}
+        warning={warning}
+        danger={danger}
+      />
+      <hr />
+      <ColorPalette mainColor="#00b42b"
+        space={hsl}
+        info={info}
+        warning={warning}
+        danger={danger}
+      />
+      <Heading>LCH</Heading>
       <Wrap>
-        <TestHueDiv color={testColor} colorSpace={lch}><figcaption>hue circle</figcaption></TestHueDiv>
-        <TestChromaDiv color={testColor} colorSpace={lch}><figcaption>saturation scale</figcaption></TestChromaDiv>
-        <TestLightnessDiv color={testColor} colorSpace={lch}><figcaption>brightness scale</figcaption></TestLightnessDiv>
+        <TestHueDiv color={testColor} colorSpace={lch}><figcaption>hue</figcaption></TestHueDiv>
+        <TestChromaDiv color={testColor} colorSpace={lch}><figcaption>saturation</figcaption></TestChromaDiv>
+        <TestLightnessDiv color={testColor} colorSpace={lch}><figcaption>brightness</figcaption></TestLightnessDiv>
       </Wrap>
       <Heading>cubehelix</Heading>
       <Wrap>
-        <TestHueDiv color={testColor} colorSpace={cubehelix}><figcaption>hue circle</figcaption></TestHueDiv>
-        <TestChromaDiv color={testColor} colorSpace={cubehelix}><figcaption>saturation scale</figcaption></TestChromaDiv>
-        <TestLightnessDiv color={testColor} colorSpace={cubehelix}><figcaption>brightness scale</figcaption></TestLightnessDiv>
+        <TestHueDiv color={testColor} colorSpace={cubehelix}><figcaption>hue</figcaption></TestHueDiv>
+        <TestChromaDiv color={testColor} colorSpace={cubehelix}><figcaption>saturation</figcaption></TestChromaDiv>
+        <TestLightnessDiv color={testColor} colorSpace={cubehelix}><figcaption>brightness</figcaption></TestLightnessDiv>
       </Wrap>
       <Heading>HSL</Heading>
       <Wrap>
-        <TestHueDiv color={testColor} colorSpace={hsl}><figcaption>hue circle</figcaption></TestHueDiv>
-        <TestChromaDiv color={testColor} colorSpace={hsl}><figcaption>saturation scale</figcaption></TestChromaDiv>
-        <TestLightnessDiv color={testColor} colorSpace={hsl}><figcaption>brightness scale</figcaption></TestLightnessDiv>
+        <TestHueDiv color={testColor} colorSpace={hsl}><figcaption>hue</figcaption></TestHueDiv>
+        <TestChromaDiv color={testColor} colorSpace={hsl}><figcaption>saturation</figcaption></TestChromaDiv>
+        <TestLightnessDiv color={testColor} colorSpace={hsl}><figcaption>brightness</figcaption></TestLightnessDiv>
       </Wrap>
     </>
   );

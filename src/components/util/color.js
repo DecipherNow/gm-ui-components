@@ -1,5 +1,7 @@
 import { lch, hsl, cubehelix } from "d3-color";
 
+// Configuration
+let DEFAULT_COLORSPACE = lch;
 const PROPERTY_LIMITS = {
   lch: {
     h: [0, 360],
@@ -18,95 +20,122 @@ const PROPERTY_LIMITS = {
   }
 }
 
-// Configuration
-const COLORSPACE = lch;
-
-let propertyLimits;
-console.log({ propertyLimits });
-if (COLORSPACE === lch) {
-  propertyLimits = PROPERTY_LIMITS[lch.name];
-} else if (COLORSPACE === cubehelix) {
-  propertyLimits = PROPERTY_LIMITS[cubehelix];
-}
 
 // Utils
+// ------------------------------/
+
+// Linear interpolation
 const lerp = (v0, v1, t) => v0 * (1 - t) + v1 * t;
 
-function colorify(color, colorSpace = COLORSPACE) {
+
+
+// Core Functions
+// ------------------------------/
+
+// Lerp (brightness or saturation)
+function lerpValueInPropertyRange(value, property, colorSpace) {
+  return lerp(PROPERTY_LIMITS[colorSpace.name][property][0],
+    PROPERTY_LIMITS[colorSpace.name][property][1],
+    value);
+}
+
+// Convert the given color a new colorspace
+function colorify(color, colorSpace = DEFAULT_COLORSPACE) {
   return colorSpace(color);
 }
 
-const saturationProperty = colorSpace => {
-  if (colorSpace === lch) {
-    return 'c'
-  }
-  if (colorSpace === hsl) {
-    return 's'
-  } else if (colorSpace === cubehelix) {
-    return 's'
-  }
-}
+// Get the saturation-like property for a given colorspace
+const saturationProperty = colorSpace => (colorSpace === lch ? 'c' : 's')
 
-const colorPropertyAdjust = (color, property, adjust, colorSpace) => {
+// Adjust a given color by a value of a property, in a colorspace
+const adjustProperty = (color, property, adjust, colorSpace = DEFAULT_COLORSPACE) => {
   let result = colorify(color, colorSpace);
   result[property] += adjust;
   return result;
 };
 
-const colorPropertySet = (color, property, value, colorSpace) => {
+// Set a given color's property to a given value, in a colorspace
+const setProperty = (color, property, value, colorSpace = DEFAULT_COLORSPACE) => {
   let result = colorify(color, colorSpace);
   result[property] = value;
   return result;
 };
 
+// Set a given color's property to a given value, in a colorspace
+export const getProperty = (color, property, colorSpace = DEFAULT_COLORSPACE) => {
+  return colorify(color, colorSpace)[property];
+};
 
 
-// TODO: Needs testing
-export function adjustHue(color, adjustment, colorSpace) {
-  return colorPropertyAdjust(color, "h", adjustment, colorSpace);
+
+
+
+// Adjusting Values
+// ------------------------------/
+// Adjust Hue
+export function adjustHue(color, adjustment, colorSpace = DEFAULT_COLORSPACE) {
+  return adjustProperty(color, "h", adjustment, colorSpace);
 }
 
-export function adjustSaturation(color, adjustment, colorSpace) {
-  if (colorSpace) { propertyLimits = PROPERTY_LIMITS[colorSpace.name]; }
-  let property;
-  if (colorSpace === lch) {
-    property = 'c'
-  } else if (colorSpace === cubehelix) {
-    property = 's'
-  }
-  return colorPropertyAdjust(color, "c", adjustment, colorSpace);
-}
-
-export function adjustBrightness(color, adjustment, colorSpace) {
-  return colorPropertyAdjust(color, "l", adjustment, colorSpace);
-}
-
-export function adjustOpacity(color, adjustment, colorSpace) {
-  return colorPropertyAdjust(color, "opacity", adjustment, colorSpace);
-}
-
-export function setHue(color, hue, colorSpace) {
-  return colorPropertySet(color, "h", hue, colorSpace);
-}
-
-export function setSaturation(color, saturation, colorSpace) {
-  // colorSpace = colorSpace || lch;
-  propertyLimits = PROPERTY_LIMITS[colorSpace.name];
+// Adjust Saturation (or chroma)
+export function adjustSaturation(color, adjustment, colorSpace = DEFAULT_COLORSPACE) {
   const property = saturationProperty(colorSpace);
-  saturation = lerp(propertyLimits[property][0],
-    propertyLimits[property][1],
-    saturation);
-  return colorPropertySet(color, property, saturation, colorSpace);
+  return adjustProperty(color, property, adjustment, colorSpace);
 }
 
-export function setBrightness(color, brightness, colorSpace) {
-  if (colorSpace) { propertyLimits = PROPERTY_LIMITS[colorSpace.name]; }
-  brightness = lerp(propertyLimits.l[0], propertyLimits.l[1], brightness);
-  return colorPropertySet(color, "l", brightness, colorSpace);
+// Adjust Brightness
+export function adjustBrightness(color, adjustment, colorSpace = DEFAULT_COLORSPACE) {
+  return adjustProperty(color, "l", adjustment, colorSpace);
 }
 
-export function setOpacity(color, opacity, colorSpace) {
-  return colorPropertySet(color, "opacity", opacity, colorSpace);
+// Adjust Opacity
+export function adjustOpacity(color, adjustment, colorSpace = DEFAULT_COLORSPACE) {
+  return adjustProperty(color, "opacity", adjustment, colorSpace);
+}
+
+
+// Setting Values
+// ------------------------------/
+// Set Hue
+export function setHue(color, hue, colorSpace = DEFAULT_COLORSPACE) {
+  return setProperty(color, "h", hue, colorSpace);
+}
+
+// Set Saturation (or chroma)
+export function setSaturation(color, saturation, colorSpace = DEFAULT_COLORSPACE) {
+  const property = saturationProperty(colorSpace);
+  saturation = lerpValueInPropertyRange(saturation, property, colorSpace);
+  return setProperty(color, property, saturation, colorSpace);
+}
+
+// Set Brightness
+export function setBrightness(color, brightness, colorSpace = DEFAULT_COLORSPACE) {
+  brightness = lerpValueInPropertyRange(brightness, 'l', colorSpace);
+  return setProperty(color, "l", brightness, colorSpace);
+}
+
+// Set Opacity
+export function setOpacity(color, opacity, colorSpace = DEFAULT_COLORSPACE) {
+  return setProperty(color, "opacity", opacity, colorSpace);
+}
+
+
+// Getting Values
+// ------------------------------/
+// Get Hue
+export function getHue(color, colorSpace = DEFAULT_COLORSPACE) {
+  return getProperty(color, 'h', colorSpace);
+}
+
+// Get Brightness
+export function getBrightness(color, colorSpace = DEFAULT_COLORSPACE) {
+  return getProperty(color, 'l', colorSpace);
+}
+
+// Get Saturation
+export function getSaturation(color, colorSpace = DEFAULT_COLORSPACE) {
+  const property = saturationProperty(colorSpace);
+  return getProperty(color, property, colorSpace);
 }
 
 
