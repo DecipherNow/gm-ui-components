@@ -12,6 +12,7 @@ const Wrap = styled.div`
   align-items: stretch;
   justify-content: stretch;
 
+
   > div {
     /* Header container */
     &:nth-child(1) {
@@ -26,6 +27,7 @@ const Wrap = styled.div`
       position: relative;
       padding: 2rem;
       background-color: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
+      border-radius: ${({ theme }) => theme.CORNER_RADIUS_CARD_LG};
       box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
       margin-left: auto;
       margin-right: auto;
