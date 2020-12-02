@@ -26,6 +26,7 @@
     "@popperjs/core": "^2"
   },
   "dependencies": {
+    "d3-interpolate": "^2.0.1",
     "polished": "^3.4.2"
   },
   "scripts": {
