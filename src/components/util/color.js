@@ -1,7 +1,12 @@
-import { lch, hsl, cubehelix } from "d3-color";
+import { lch, hsl, cubehelix, color as d3color } from "d3-color";
 
 // Configuration
+// ------------------------------/
+
+// Default Colorspace
 let DEFAULT_COLORSPACE = lch;
+
+// Colorspace property details
 const PROPERTY_LIMITS = {
   lch: {
     h: [0, 360],
@@ -29,6 +34,22 @@ const lerp = (v0, v1, t) => v0 * (1 - t) + v1 * t;
 
 
 
+
+export const color = (hue, saturation, brightness, colorSpace = DEFAULT_COLORSPACE) => {
+  saturation = lerpValueInPropertyRange(saturation, saturationProperty(colorSpace), colorSpace);
+  brightness = lerpValueInPropertyRange(brightness, 'l', colorSpace);
+
+  switch (colorSpace) {
+    case cubehelix:
+      return cubehelix(hue, saturation, brightness);
+    default:
+    case lch:
+      return lch(brightness, saturation, hue);
+  }
+}
+
+
+
 // Core Functions
 // ------------------------------/
 
@@ -40,7 +61,7 @@ function lerpValueInPropertyRange(value, property, colorSpace) {
 }
 
 // Convert the given color a new colorspace
-function colorify(color, colorSpace = DEFAULT_COLORSPACE) {
+export function colorify(color, colorSpace = DEFAULT_COLORSPACE) {
   return colorSpace(color);
 }
 
@@ -72,8 +93,10 @@ export const getProperty = (color, property, colorSpace = DEFAULT_COLORSPACE) =>
 
 // Adjusting Values
 // ------------------------------/
+
 // Adjust Hue
 export function adjustHue(color, adjustment, colorSpace = DEFAULT_COLORSPACE) {
+  adjustment = adjustment % 360;
   return adjustProperty(color, "h", adjustment, colorSpace);
 }
 
@@ -94,8 +117,11 @@ export function adjustOpacity(color, adjustment, colorSpace = DEFAULT_COLORSPACE
 }
 
 
+
+
 // Setting Values
 // ------------------------------/
+
 // Set Hue
 export function setHue(color, hue, colorSpace = DEFAULT_COLORSPACE) {
   return setProperty(color, "h", hue, colorSpace);
@@ -120,8 +146,10 @@ export function setOpacity(color, opacity, colorSpace = DEFAULT_COLORSPACE) {
 }
 
 
+
 // Getting Values
 // ------------------------------/
+
 // Get Hue
 export function getHue(color, colorSpace = DEFAULT_COLORSPACE) {
   return getProperty(color, 'h', colorSpace);
@@ -139,6 +167,36 @@ export function getSaturation(color, colorSpace = DEFAULT_COLORSPACE) {
 }
 
 
+
+// Matching Values
+// ------------------------------/
+
+// Match Hue
+export function matchHue(matchSource, matchDestination, colorSpace = DEFAULT_COLORSPACE) {
+  const sourceHue = getProperty(matchSource, 'h', colorSpace);
+  return setHue(matchDestination, sourceHue, colorSpace);
+}
+
+// Match Brightness
+export function matchBrightness(matchSource, matchDestination, colorSpace = DEFAULT_COLORSPACE) {
+  const sourceBrightness = getProperty(matchSource, 'l', colorSpace);
+  return setBrightness(matchDestination, sourceBrightness, colorSpace);
+}
+
+// Match Saturation
+export function matchSaturation(matchSource, matchDestination, colorSpace = DEFAULT_COLORSPACE) {
+  const property = saturationProperty(colorSpace);
+  const sourceSaturation = getProperty(matchSource, property, colorSpace);
+  return setSaturation(matchDestination, sourceSaturation, colorSpace);
+}
+
+
+
+
+// Readability
+// ------------------------------/
+
+// Get Readable Color
 // TODO: Needs testing
 export function readableColor(
   color,
@@ -154,3 +212,5 @@ export function readableColor(
     return colorIfDark;
   }
 }
+
+// Get Contrast Ratio

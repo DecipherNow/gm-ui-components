@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
-import { color, number } from "@storybook/addon-knobs";
+import { color, number, select } from "@storybook/addon-knobs";
 import { lch, cubehelix, hsl } from 'd3-color';
 
 import * as c from "../components/util/color";
@@ -63,20 +63,32 @@ const TestHueDiv = styled(TestDiv)`
     box-shadow: inset 0 0 4px -2px;
     transform: translate(-50%, -50%);
   }
+  &:before {
+    content: '';
+    z-index: 9;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    background: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
+    transform: translate(-50%,0) scaleX(0.75);
+  }
+
   background-image: conic-gradient(
-    ${props => c.setHue(props.color, 0, props.colorSpace)},
-    ${props => c.setHue(props.color, 30, props.colorSpace)},
-    ${props => c.setHue(props.color, 60, props.colorSpace)},
-    ${props => c.setHue(props.color, 90, props.colorSpace)},
-    ${props => c.setHue(props.color, 120, props.colorSpace)},
-    ${props => c.setHue(props.color, 150, props.colorSpace)},
-    ${props => c.setHue(props.color, 180, props.colorSpace)},
-    ${props => c.setHue(props.color, 210, props.colorSpace)},
-    ${props => c.setHue(props.color, 240, props.colorSpace)},
-    ${props => c.setHue(props.color, 270, props.colorSpace)},
-    ${props => c.setHue(props.color, 300, props.colorSpace)},
-    ${props => c.setHue(props.color, 330, props.colorSpace)},
-    ${props => c.setHue(props.color, 360, props.colorSpace)}
+    ${props => c.adjustHue(props.color, 0, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 30, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 60, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 90, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 120, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 150, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 180, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 210, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 240, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 270, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 300, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 330, props.colorSpace)},
+    ${props => c.adjustHue(props.color, 360, props.colorSpace)}
   );
 `;
 
@@ -140,51 +152,64 @@ const PaletteItem = styled.div`
   background: ${props => props.color};
 `;
 
-const ColorPalette = ({ mainColor, info, warning, danger, space }) => {
-  const main = c.setHue(mainColor, 138, space);
-  const infoColor = c.setHue(mainColor, info, space);
-  const warningColor = c.setHue(mainColor, warning, space);
-  const dangerColor = c.setHue(mainColor, danger, space);
+const Swatch = ({ color }) => {
+  const title =
+    "h: " + c.getHue(color) +
+    "\ns: " + c.getSaturation(color) +
+    "\nb: " + c.getBrightness(color);
 
-  const dangerColorHue = c.getProperty(dangerColor, 'h');
-  console.log({ dangerColorHue });
+  return (<PaletteItem color={color} title={title} />);
+}
 
+const PaletteName = styled.span`
+  text-transform: uppercase;
+  font-size: ${({ theme }) => theme.FONT_SIZE_TEXT_XS};
+  color: ${({ theme }) => theme.COLOR_CONTENT_MUTED};
+  letter-spacing: 0.03em;
+  width: 7em;
+  text-align: left;
+  align-self: flex-start;
+  justify-self: center;
+`;
+
+const ColorPalette = ({ sourceColor, colorSpace }) => {
+  sourceColor = c.matchHue('#00b42b', sourceColor, colorSpace);
+  var infoColor = c.matchHue('#1E6DF6', sourceColor, colorSpace);
+  var warningColor = c.matchHue('#F7CD45', sourceColor, colorSpace);
+  var dangerColor = c.matchHue('#D83D22', sourceColor, colorSpace);
   return (
     <PaletteWrap>
-      <PaletteItem color={main} />
-      <PaletteItem color={infoColor} />
-      <PaletteItem color={warningColor} />
-      <PaletteItem color={dangerColor} title={(danger)} />
+      <PaletteName>{colorSpace.name}</PaletteName>
+      <Swatch color={sourceColor} />
+      <Swatch color={infoColor} />
+      <Swatch color={warningColor} />
+      <Swatch color={dangerColor} />
     </PaletteWrap>
   )
 }
 
 stories.add("Color", () => {
-  let testColor = color("color", "#4A90E2");
-  let info = number("info", 270);
-  let warning = number("warning", 90);
-  let danger = number("danger", 360);
+  let controlColorSpace = select('controlcolorspace', [lch, cubehelix], lch);
+  let testHue = number("base hue", 270, { range: true, min: 0, max: 360 });
+  let testSat = number("base saturation", 0.5, { range: true, min: 0, max: 1, step: 0.005 });
+  let testBri = number("base brightness", 0.5, { range: true, min: 0, max: 1, step: 0.005 });
+  let testColor = c.color(testHue, testSat, testBri, controlColorSpace);
+
   return (
     <>
-      <ColorPalette mainColor="#00b42b"
-        space={lch}
-        info={info}
-        warning={warning}
-        danger={danger}
+      <ColorPalette
+        sourceColor={testColor}
+        colorSpace={lch}
       />
       <hr />
-      <ColorPalette mainColor="#00b42b"
-        space={cubehelix}
-        info={info}
-        warning={warning}
-        danger={danger}
+      <ColorPalette
+        sourceColor={testColor}
+        colorSpace={cubehelix}
       />
       <hr />
-      <ColorPalette mainColor="#00b42b"
-        space={hsl}
-        info={info}
-        warning={warning}
-        danger={danger}
+      <ColorPalette
+        sourceColor={testColor}
+        colorSpace={hsl}
       />
       <Heading>LCH</Heading>
       <Wrap>
