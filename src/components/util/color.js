@@ -2,6 +2,11 @@ import { lch, hsl, cubehelix, color as d3color } from "d3-color";
 
 // Configuration
 // ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
 
 // Default Colorspace
 let DEFAULT_COLORSPACE = lch;
@@ -27,13 +32,24 @@ const PROPERTY_LIMITS = {
 
 // Utils
 // ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
 
 // Linear interpolation
-const lerp = (v0, v1, t) => v0 * (1 - t) + v1 * t;
+export const lerp = (v0, v1, t) => v0 * (1 - t) + v1 * t;
 
-function clampProperties(color, colorSpace) {
-  return color;
-}
+// Clamp between values
+// Used for adjustments to opacity, saturation, and brightness
+export const clamp = (value, min = 0, max = 1) => {
+  return Math.min(Math.max(value, min), max);
+};
+
+// Get the saturation-like property for a given colorspace
+export const saturationProperty = colorSpace =>
+  colorSpace === lch || colorSpace === "lch" ? "c" : "s";
 
 // Create color from color's components
 export const color = (
@@ -60,49 +76,62 @@ export const color = (
 
 // Core Functions
 // ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
 
 // Lerp (brightness or saturation)
-function lerpValueInPropertyRange(value, property, colorSpace) {
-  return lerp(
+export function lerpValueInPropertyRange(
+  value,
+  property,
+  colorSpace = DEFAULT_COLORSPACE
+) {
+  if (property === "s") {
+    property = saturationProperty(colorSpace);
+  }
+  const result = lerp(
     PROPERTY_LIMITS[colorSpace.name][property][0],
     PROPERTY_LIMITS[colorSpace.name][property][1],
     value
   );
+
+  return result;
 }
+
+export const normalizeColor = (color, colorSpace = DEFAULT_COLORSPACE) => {
+  color.h = clamp(color.h, 0, PROPERTY_LIMITS[colorSpace.name].h);
+  color.c = clamp(color.c, 0, PROPERTY_LIMITS[colorSpace.name].c);
+  color.l = clamp(color.l, 0, PROPERTY_LIMITS[colorSpace.name].l);
+  return color;
+};
 
 // Convert the given color a new colorspace
 export function colorify(color, colorSpace = DEFAULT_COLORSPACE) {
   return colorSpace(color);
 }
 
-// Get the saturation-like property for a given colorspace
-const saturationProperty = colorSpace => (colorSpace === lch ? "c" : "s");
-
 // Adjust a given color by a value of a property, in a colorspace
-const adjustProperty = (
+export const adjustProperty = (
   color,
   property,
   adjust,
-  colorSpace = DEFAULT_COLORSPACE,
-  clamp = true
+  colorSpace = DEFAULT_COLORSPACE
 ) => {
   let result = colorify(color, colorSpace);
   result[property] += adjust;
-  console.log({ result });
-  result = clampProperties(result, result.name);
-  return result;
+  return normalizeColor(result, colorSpace);
 };
 
 // Set a given color's property to a given value, in a colorspace
-const setProperty = (
+export const setProperty = (
   color,
   property,
   value,
   colorSpace = DEFAULT_COLORSPACE
 ) => {
-  let result = colorify(color, colorSpace);
-  result[property] = value;
-  return result;
+  return colorify(color, colorSpace).copy({ [property]: value });
 };
 
 // Set a given color's property to a given value, in a colorspace
@@ -111,55 +140,62 @@ export const getProperty = (
   property,
   colorSpace = DEFAULT_COLORSPACE
 ) => {
+  if (property === "s") {
+    property = saturationProperty(colorSpace);
+  }
   return colorify(color, colorSpace)[property];
 };
 
 // Adjusting Values
 // ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
 
 // Adjust Hue
-export function adjustHue(
-  color,
-  adjustment,
-  colorSpace = DEFAULT_COLORSPACE,
-  clamp = true
-) {
-  adjustment = adjustment % 360;
-  return adjustProperty(color, "h", adjustment, colorSpace, clamp);
+export function adjustHue(color, adjustment, colorSpace = DEFAULT_COLORSPACE) {
+  adjustment = (adjustment % 360) * Math.sign(adjustment);
+  return adjustProperty(color, "h", adjustment, colorSpace);
 }
 
 // Adjust Saturation (or chroma)
 export function adjustSaturation(
   color,
   adjustment,
-  colorSpace = DEFAULT_COLORSPACE,
-  clamp = true
+  colorSpace = DEFAULT_COLORSPACE
 ) {
   const property = saturationProperty(colorSpace);
-  return adjustProperty(color, property, adjustment, colorSpace, clamp);
+  adjustment = lerpValueInPropertyRange(adjustment, property);
+  return adjustProperty(color, property, adjustment, colorSpace);
 }
 
 // Adjust Brightness
 export function adjustBrightness(
   color,
   adjustment,
-  colorSpace = DEFAULT_COLORSPACE,
-  clamp = true
+  colorSpace = DEFAULT_COLORSPACE
 ) {
-  return adjustProperty(color, "l", adjustment, colorSpace, clamp);
+  adjustment = lerpValueInPropertyRange(adjustment, "l");
+  return adjustProperty(color, "l", adjustment, colorSpace);
 }
 
 // Adjust Opacity
 export function adjustOpacity(
   color,
   adjustment,
-  colorSpace = DEFAULT_COLORSPACE,
-  clamp = true
+  colorSpace = DEFAULT_COLORSPACE
 ) {
-  return adjustProperty(color, "opacity", adjustment, colorSpace, clamp);
+  return adjustProperty(color, "opacity", adjustment, colorSpace);
 }
 
 // Setting Values
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
 // ------------------------------/
 
 // Set Hue
@@ -167,7 +203,7 @@ export function setHue(color, hue, colorSpace = DEFAULT_COLORSPACE) {
   return setProperty(color, "h", hue, colorSpace);
 }
 
-// Set Saturation (or chroma)
+// Set Saturation (Chroma)
 export function setSaturation(
   color,
   saturation,
@@ -195,6 +231,11 @@ export function setOpacity(color, opacity, colorSpace = DEFAULT_COLORSPACE) {
 
 // Getting Values
 // ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
 
 // Get Hue
 export function getHue(color, colorSpace = DEFAULT_COLORSPACE) {
@@ -213,6 +254,11 @@ export function getSaturation(color, colorSpace = DEFAULT_COLORSPACE) {
 }
 
 // Matching Values
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
 // ------------------------------/
 
 // Match Hue
@@ -247,6 +293,11 @@ export function matchSaturation(
 }
 
 // Readability
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
+// ------------------------------/
 // ------------------------------/
 
 // Get Readable Color
