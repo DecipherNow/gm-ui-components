@@ -1,5 +1,5 @@
 <svg width="64px" height="64px" viewBox="0 0 64 64">
   <g id="dash" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
-    <path id="border" fill-rule="nonzero" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M40,32 L24,32"/>
+    <path id="border" fill-rule="nonzero" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M40,32 L24,32.01"/>
   </g>
 </svg>

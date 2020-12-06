@@ -4,10 +4,10 @@ import Icon from "./Icon";
 
 let iconProps = {
   ariaLabelledby: "IconCog",
-  borderColor: "white",
-  borderOpacity: 1,
-  borderWidth: 1,
-  fillColor: "white",
+  stroke: "white",
+  strokeOpacity: 1,
+  strokeWidth: 1,
+  fill: "white",
   glyphName: "IconCog",
   size: "24px"
 };

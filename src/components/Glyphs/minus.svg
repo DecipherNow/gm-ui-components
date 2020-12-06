@@ -1,5 +1,5 @@
 <svg width="64px" height="64px" viewBox="0 0 64 64">
   <g id="minus" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
-    <path id="border" fill-rule="nonzero" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11,32.5 L52.5,32.5 L11,32.5 Z"/>
+    <polyline id="border" fill-rule="nonzero" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="11,32 53,32.001" />
   </g>
 </svg>

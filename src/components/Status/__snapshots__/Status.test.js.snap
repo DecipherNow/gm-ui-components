@@ -1,98 +1,626 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[` 1`] = `
-Object {
-  "$$typeof": Symbol(react.forward_ref),
-  "attrs": Array [],
-  "componentStyle": ComponentStyle {
-    "componentId": "Body-e0mu8o-0",
-    "isStatic": false,
-    "lastClassName": "jgwquo",
-    "rules": Array [
-      "grid-area:body;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;",
-      [Function],
-    ],
-  },
-  "displayName": "Body",
-  "foldedComponentIds": Array [],
-  "render": [Function],
-  "styledComponentId": "Body-e0mu8o-0",
-  "target": "div",
-  "toString": [Function],
-  "warnTooManyClasses": [Function],
-  "withComponent": [Function],
+.c3 {
+  -webkit-animation: cFLmvI 16s ease infinite;
+  animation: cFLmvI 16s ease infinite;
+  margin: calc(var(--SPACING_BASE) * 1 * 1px);
+  color: #00b42b;
+  overflow: visible;
+  height: calc(var(--SPACING_BASE) * 6 * 1px);
+  width: calc(var(--SPACING_BASE) * 6 * 1px);
+  height: calc(var(--SPACING_BASE) * 2 * 1px);
+  width: calc(var(--SPACING_BASE) * 2 * 1px);
 }
+
+.c4 {
+  grid-area: body;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-letter-spacing: unset;
+  -moz-letter-spacing: unset;
+  -ms-letter-spacing: unset;
+  letter-spacing: unset;
+}
+
+.c2 svg {
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+}
+
+.c0 {
+  display: grid;
+  grid-template-areas: "graphic body";
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: calc(var(--SPACING_BASE) * 2 * 1px);
+}
+
+.c0 .c1 {
+  font-size: calc(var(--SPACING_BASE) * 2.5 * 1px);
+  margin: calc(var(--SPACING_BASE) * 0.25 * 1px);
+}
+
+<Wrap
+  isBlock={false}
+>
+  <div
+    className="c0"
+  >
+    <Graphic
+      graphicColor={[Function]}
+    >
+      <div
+        className="c1 c2"
+      >
+        <GraphicStatusIndeterminate
+          isBlock={false}
+        >
+          <LoadingSpinner
+            size="
+    calc(var(--SPACING_BASE) * 2 * 1px)"
+          >
+            <SpinnerSVG
+              height="100"
+              orientation="vertical"
+              size="
+    calc(var(--SPACING_BASE) * 2 * 1px)"
+              theme={
+                Object {
+                  "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
+                  "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
+                  "COLOR_BACKGROUND_TWO": "#FDFDFE",
+                  "COLOR_BRAND_PRIMARY": "#00b42b",
+                  "COLOR_BRAND_SECONDARY": "#00b42b",
+                  "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
+                  "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
+                  "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
+                  "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
+                  "COLOR_INTENT_DANGER": "#D83D22",
+                  "COLOR_INTENT_HIGHLIGHT": "#00b42b",
+                  "COLOR_INTENT_INFO": "#1E6DF6",
+                  "COLOR_INTENT_SUCCESS": "#00b42b",
+                  "COLOR_INTENT_WARNING": "#F7CD45",
+                  "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
+                  "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
+                  "CORNER_RADIUS_CARD_DEFAULT": "6px",
+                  "CORNER_RADIUS_CARD_LG": "8px",
+                  "CORNER_RADIUS_CARD_SM": "4px",
+                  "CORNER_RADIUS_INPUT": "4px",
+                  "CORNER_RADIUS_MAX": "90000px",
+                  "CORNER_RADIUS_SHARP": "2px",
+                  "FONT_SIZE_HEADING_DEFAULT": "36px",
+                  "FONT_SIZE_HEADING_LG": "38px",
+                  "FONT_SIZE_HEADING_SM": "32px",
+                  "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
+                  "FONT_SIZE_ITEM_TITLE_LG": "16px",
+                  "FONT_SIZE_ITEM_TITLE_SM": "12px",
+                  "FONT_SIZE_PAGE_TITLE": "40px",
+                  "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
+                  "FONT_SIZE_SUBHEADING_LG": "18px",
+                  "FONT_SIZE_SUBHEADING_SM": "14px",
+                  "FONT_SIZE_TEXT_DEFAULT": "14px",
+                  "FONT_SIZE_TEXT_LG": "16px",
+                  "FONT_SIZE_TEXT_SM": "12px",
+                  "FONT_SIZE_TEXT_XL": "18px",
+                  "FONT_SIZE_TEXT_XS": "10px",
+                  "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
+                  "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
+                  "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                  "FONT_WEIGHT_BOLD": 700,
+                  "FONT_WEIGHT_DEFAULT": 400,
+                  "FONT_WEIGHT_MEDIUM": 500,
+                  "FONT_WEIGHT_SEMIBOLD": 600,
+                  "LETTER_SPACING_DEFAULT": "normal",
+                  "LINE_HEIGHT_DEFAULT": 1.4,
+                  "LINE_HEIGHT_LOOSE": 1.6,
+                  "LINE_HEIGHT_TIGHT": 1.2,
+                  "OPACITY_FULL": "1",
+                  "OPACITY_LIGHT": "0.7",
+                  "OPACITY_LIGHTER": "0.5",
+                  "OPACITY_LIGHTEST": "0.15",
+                  "SPACING_BASE": 8,
+                  "ZINDEX_ABYSS": "-9999",
+                  "ZINDEX_DROPDOWN": "1010",
+                  "ZINDEX_FIXED": "1030",
+                  "ZINDEX_FLOOR": "1",
+                  "ZINDEX_MODAL": "1050",
+                  "ZINDEX_POPOVER": "1060",
+                  "ZINDEX_SCRIM": "1040",
+                  "ZINDEX_STICKY": "1020",
+                  "ZINDEX_TOOLTIP": "1070",
+                  "name": "Keen",
+                }
+              }
+              viewBox="0 0 100 100"
+              width="100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <svg
+                className="c3"
+                height="100"
+                orientation="vertical"
+                size="
+    calc(var(--SPACING_BASE) * 2 * 1px)"
+                viewBox="0 0 100 100"
+                width="100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    x2="0%"
+                    y1="0%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      stopColor="currentColor"
+                      stopOpacity="0.15"
+                    />
+                    <stop
+                      offset="33%"
+                      stopColor="currentColor"
+                      stopOpacity="0.15"
+                    />
+                    <stop
+                      offset="100%"
+                      stopColor="currentColor"
+                    />
+                  </linearGradient>
+                </defs>
+                <circle
+                  cx="50"
+                  cy="50"
+                  fill="none"
+                  r="47"
+                  stroke="url(#gradient)"
+                  strokeWidth="1.0001"
+                  transform="rotate(90 50 50)"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+            </SpinnerSVG>
+          </LoadingSpinner>
+        </GraphicStatusIndeterminate>
+      </div>
+    </Graphic>
+    <Body
+      isBlock={false}
+    >
+      <div
+        className="c4"
+      />
+    </Body>
+  </div>
+</Wrap>
 `;
 
 exports[` 2`] = `
-Object {
-  "$$typeof": Symbol(react.forward_ref),
-  "attrs": Array [],
-  "componentStyle": ComponentStyle {
-    "componentId": "Detail-sc-1h8mdse-0",
-    "isStatic": false,
-    "rules": Array [
-      "display:block;grid-area:detail;color:",
-      [Function],
-      ";font-size:",
-      [Function],
-      ";margin:0 0 auto;",
-    ],
-  },
-  "displayName": "Detail",
-  "foldedComponentIds": Array [],
-  "render": [Function],
-  "styledComponentId": "Detail-sc-1h8mdse-0",
-  "target": "span",
-  "toString": [Function],
-  "warnTooManyClasses": [Function],
-  "withComponent": [Function],
+.c3 {
+  -webkit-animation: cFLmvI 16s ease infinite;
+  animation: cFLmvI 16s ease infinite;
+  margin: calc(var(--SPACING_BASE) * 1 * 1px);
+  color: #00b42b;
+  overflow: visible;
+  height: calc(var(--SPACING_BASE) * 6 * 1px);
+  width: calc(var(--SPACING_BASE) * 6 * 1px);
+  height: calc(var(--SPACING_BASE) * 5 * 1px);
+  width: calc(var(--SPACING_BASE) * 5 * 1px);
 }
+
+.c4 {
+  grid-area: body;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-letter-spacing: unset;
+  -moz-letter-spacing: unset;
+  -ms-letter-spacing: unset;
+  letter-spacing: unset;
+}
+
+.c2 svg {
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+}
+
+.c5 .c1 {
+  font-size: calc(var(--SPACING_BASE) * 2.5 * 1px);
+  margin: calc(var(--SPACING_BASE) * 0.25 * 1px);
+}
+
+.c0 {
+  display: grid;
+  grid-template-areas: "graphic body";
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: calc(var(--SPACING_BASE) * 2 * 1px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+.c0 .c1 {
+  grid-area: graphic;
+  font-size: calc(var(--SPACING_BASE) * 5 * 1px);
+  margin: calc(var(--SPACING_BASE) * -0.5 * 1px);
+}
+
+<Wrap
+  isBlock={true}
+>
+  <div
+    className="c0"
+  >
+    <Graphic
+      graphicColor={[Function]}
+    >
+      <div
+        className="c1 c2"
+      >
+        <GraphicStatusIndeterminate
+          isBlock={true}
+        >
+          <LoadingSpinner
+            size="
+    calc(var(--SPACING_BASE) * 5 * 1px)"
+          >
+            <SpinnerSVG
+              height="100"
+              orientation="vertical"
+              size="
+    calc(var(--SPACING_BASE) * 5 * 1px)"
+              theme={
+                Object {
+                  "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
+                  "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
+                  "COLOR_BACKGROUND_TWO": "#FDFDFE",
+                  "COLOR_BRAND_PRIMARY": "#00b42b",
+                  "COLOR_BRAND_SECONDARY": "#00b42b",
+                  "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
+                  "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
+                  "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
+                  "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
+                  "COLOR_INTENT_DANGER": "#D83D22",
+                  "COLOR_INTENT_HIGHLIGHT": "#00b42b",
+                  "COLOR_INTENT_INFO": "#1E6DF6",
+                  "COLOR_INTENT_SUCCESS": "#00b42b",
+                  "COLOR_INTENT_WARNING": "#F7CD45",
+                  "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
+                  "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
+                  "CORNER_RADIUS_CARD_DEFAULT": "6px",
+                  "CORNER_RADIUS_CARD_LG": "8px",
+                  "CORNER_RADIUS_CARD_SM": "4px",
+                  "CORNER_RADIUS_INPUT": "4px",
+                  "CORNER_RADIUS_MAX": "90000px",
+                  "CORNER_RADIUS_SHARP": "2px",
+                  "FONT_SIZE_HEADING_DEFAULT": "36px",
+                  "FONT_SIZE_HEADING_LG": "38px",
+                  "FONT_SIZE_HEADING_SM": "32px",
+                  "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
+                  "FONT_SIZE_ITEM_TITLE_LG": "16px",
+                  "FONT_SIZE_ITEM_TITLE_SM": "12px",
+                  "FONT_SIZE_PAGE_TITLE": "40px",
+                  "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
+                  "FONT_SIZE_SUBHEADING_LG": "18px",
+                  "FONT_SIZE_SUBHEADING_SM": "14px",
+                  "FONT_SIZE_TEXT_DEFAULT": "14px",
+                  "FONT_SIZE_TEXT_LG": "16px",
+                  "FONT_SIZE_TEXT_SM": "12px",
+                  "FONT_SIZE_TEXT_XL": "18px",
+                  "FONT_SIZE_TEXT_XS": "10px",
+                  "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
+                  "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
+                  "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                  "FONT_WEIGHT_BOLD": 700,
+                  "FONT_WEIGHT_DEFAULT": 400,
+                  "FONT_WEIGHT_MEDIUM": 500,
+                  "FONT_WEIGHT_SEMIBOLD": 600,
+                  "LETTER_SPACING_DEFAULT": "normal",
+                  "LINE_HEIGHT_DEFAULT": 1.4,
+                  "LINE_HEIGHT_LOOSE": 1.6,
+                  "LINE_HEIGHT_TIGHT": 1.2,
+                  "OPACITY_FULL": "1",
+                  "OPACITY_LIGHT": "0.7",
+                  "OPACITY_LIGHTER": "0.5",
+                  "OPACITY_LIGHTEST": "0.15",
+                  "SPACING_BASE": 8,
+                  "ZINDEX_ABYSS": "-9999",
+                  "ZINDEX_DROPDOWN": "1010",
+                  "ZINDEX_FIXED": "1030",
+                  "ZINDEX_FLOOR": "1",
+                  "ZINDEX_MODAL": "1050",
+                  "ZINDEX_POPOVER": "1060",
+                  "ZINDEX_SCRIM": "1040",
+                  "ZINDEX_STICKY": "1020",
+                  "ZINDEX_TOOLTIP": "1070",
+                  "name": "Keen",
+                }
+              }
+              viewBox="0 0 100 100"
+              width="100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <svg
+                className="c3"
+                height="100"
+                orientation="vertical"
+                size="
+    calc(var(--SPACING_BASE) * 5 * 1px)"
+                viewBox="0 0 100 100"
+                width="100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    x2="0%"
+                    y1="0%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      stopColor="currentColor"
+                      stopOpacity="0.15"
+                    />
+                    <stop
+                      offset="33%"
+                      stopColor="currentColor"
+                      stopOpacity="0.15"
+                    />
+                    <stop
+                      offset="100%"
+                      stopColor="currentColor"
+                    />
+                  </linearGradient>
+                </defs>
+                <circle
+                  cx="50"
+                  cy="50"
+                  fill="none"
+                  r="47"
+                  stroke="url(#gradient)"
+                  strokeWidth="1.0001"
+                  transform="rotate(90 50 50)"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+            </SpinnerSVG>
+          </LoadingSpinner>
+        </GraphicStatusIndeterminate>
+      </div>
+    </Graphic>
+    <Body
+      isBlock={true}
+    >
+      <div
+        className="c4"
+      />
+    </Body>
+  </div>
+</Wrap>
 `;
 
 exports[` 3`] = `
-Object {
-  "$$typeof": Symbol(react.forward_ref),
-  "attrs": Array [],
-  "componentStyle": ComponentStyle {
-    "componentId": "Graphic-sc-1emua2x-0",
-    "isStatic": false,
-    "lastClassName": "dyiQiQ",
-    "rules": Array [
-      "display:flex;align-items:center;justify-content:center;flex:0 0 auto;color:",
-      [Function],
-      ";letter-spacing:unset;svg{letter-spacing:normal;}",
-    ],
-  },
-  "displayName": "Graphic",
-  "foldedComponentIds": Array [],
-  "render": [Function],
-  "styledComponentId": "Graphic-sc-1emua2x-0",
-  "target": "div",
-  "toString": [Function],
-  "warnTooManyClasses": [Function],
-  "withComponent": [Function],
+.c3 {
+  grid-area: body;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-letter-spacing: unset;
+  -moz-letter-spacing: unset;
+  -ms-letter-spacing: unset;
+  letter-spacing: unset;
+}
+
+.c2 svg {
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+}
+
+.c0 {
+  display: grid;
+  grid-template-areas: "graphic body";
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: calc(var(--SPACING_BASE) * 2 * 1px);
+}
+
+.c0 .c1 {
+  font-size: calc(var(--SPACING_BASE) * 2.5 * 1px);
+  margin: calc(var(--SPACING_BASE) * 0.25 * 1px);
+}
+
+.c4 .c1 {
+  grid-area: graphic;
+  font-size: calc(var(--SPACING_BASE) * 5 * 1px);
+  margin: calc(var(--SPACING_BASE) * -0.5 * 1px);
+}
+
+<Wrap
+  isBlock={false}
+>
+  <div
+    className="c0"
+  >
+    <Graphic
+      graphicColor={[Function]}
+    >
+      <div
+        className="c1 c2"
+      >
+        <GraphicStatusError>
+          <icon-mock
+            fillOpacity="1"
+            strokeWidth="0"
+          />
+        </GraphicStatusError>
+      </div>
+    </Graphic>
+    <Body
+      isBlock={false}
+    >
+      <div
+        className="c3"
+      />
+    </Body>
+  </div>
+</Wrap>
 `;
 
 exports[` 4`] = `
 Object {
   "$$typeof": Symbol(react.forward_ref),
   "attrs": Array [],
-  "componentStyle": ComponentStyle {
-    "componentId": "Message-sc-6slmuq-0",
+  "componentStyle": e {
+    "baseHash": -896292855,
+    "baseStyle": undefined,
+    "componentId": "Body-e0mu8o-0",
     "isStatic": false,
     "rules": Array [
-      "grid-area:message;line-height:",
+      "grid-area:body;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;",
       [Function],
-      ";margin:auto 0 0;display:block;&:last-of-type{margin:auto 0;}",
     ],
+    "staticRulesId": "",
   },
-  "displayName": "Message",
+  "displayName": "Body",
   "foldedComponentIds": Array [],
   "render": [Function],
-  "styledComponentId": "Message-sc-6slmuq-0",
-  "target": "span",
+  "shouldForwardProp": undefined,
+  "styledComponentId": "Body-e0mu8o-0",
+  "target": "div",
   "toString": [Function],
   "warnTooManyClasses": [Function],
   "withComponent": [Function],
@@ -103,10 +631,97 @@ exports[` 5`] = `
 Object {
   "$$typeof": Symbol(react.forward_ref),
   "attrs": Array [],
-  "componentStyle": ComponentStyle {
+  "componentStyle": e {
+    "baseHash": 904149841,
+    "baseStyle": undefined,
+    "componentId": "Detail-sc-1h8mdse-0",
+    "isStatic": false,
+    "rules": Array [
+      "display:block;grid-area:detail;color:",
+      [Function],
+      ";font-size:",
+      [Function],
+      ";margin:0 0 auto;",
+    ],
+    "staticRulesId": "",
+  },
+  "displayName": "Detail",
+  "foldedComponentIds": Array [],
+  "render": [Function],
+  "shouldForwardProp": undefined,
+  "styledComponentId": "Detail-sc-1h8mdse-0",
+  "target": "span",
+  "toString": [Function],
+  "warnTooManyClasses": [Function],
+  "withComponent": [Function],
+}
+`;
+
+exports[` 6`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": e {
+    "baseHash": -1056806401,
+    "baseStyle": undefined,
+    "componentId": "Graphic-sc-1emua2x-0",
+    "isStatic": false,
+    "rules": Array [
+      "display:flex;align-items:center;justify-content:center;flex:0 0 auto;color:",
+      [Function],
+      ";letter-spacing:unset;svg{letter-spacing:normal;}",
+    ],
+    "staticRulesId": "",
+  },
+  "displayName": "Graphic",
+  "foldedComponentIds": Array [],
+  "render": [Function],
+  "shouldForwardProp": undefined,
+  "styledComponentId": "Graphic-sc-1emua2x-0",
+  "target": "div",
+  "toString": [Function],
+  "warnTooManyClasses": [Function],
+  "withComponent": [Function],
+}
+`;
+
+exports[` 7`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": e {
+    "baseHash": -1664101611,
+    "baseStyle": undefined,
+    "componentId": "Message-sc-6slmuq-0",
+    "isStatic": false,
+    "rules": Array [
+      "grid-area:message;line-height:",
+      [Function],
+      ";margin:auto 0 0;display:block;&:last-of-type{margin:auto 0;}",
+    ],
+    "staticRulesId": "",
+  },
+  "displayName": "Message",
+  "foldedComponentIds": Array [],
+  "render": [Function],
+  "shouldForwardProp": undefined,
+  "styledComponentId": "Message-sc-6slmuq-0",
+  "target": "span",
+  "toString": [Function],
+  "warnTooManyClasses": [Function],
+  "withComponent": [Function],
+}
+`;
+
+exports[` 8`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": e {
+    "baseHash": 1003129407,
+    "baseStyle": undefined,
     "componentId": "Wrap-vog3nk-0",
     "isStatic": false,
-    "lastClassName": "drLxix",
     "rules": Array [
       "display:grid;grid-template-areas:\\"graphic body\\";align-items:center;justify-content:center;padding:",
       "
@@ -116,10 +731,12 @@ Object {
       " ",
       [Function],
     ],
+    "staticRulesId": "",
   },
   "displayName": "Wrap",
   "foldedComponentIds": Array [],
   "render": [Function],
+  "shouldForwardProp": undefined,
   "styledComponentId": "Wrap-vog3nk-0",
   "target": "div",
   "toString": [Function],

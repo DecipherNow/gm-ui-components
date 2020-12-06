@@ -195,790 +195,190 @@ exports[`Collapse matches snapshot 1`] = `
       }
     }
   >
-    <StyledComponent
-      forwardedComponent={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "_foldedDefaultProps": Object {
-            "theme": Object {
-              "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
-              "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
-              "COLOR_BACKGROUND_TWO": "#FDFDFE",
-              "COLOR_BRAND_PRIMARY": "#00b42b",
-              "COLOR_BRAND_SECONDARY": "#00b42b",
-              "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
-              "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
-              "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
-              "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
-              "COLOR_INTENT_DANGER": "#D83D22",
-              "COLOR_INTENT_HIGHLIGHT": "#00b42b",
-              "COLOR_INTENT_INFO": "#1E6DF6",
-              "COLOR_INTENT_SUCCESS": "#00b42b",
-              "COLOR_INTENT_WARNING": "#F7CD45",
-              "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
-              "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
-              "CORNER_RADIUS_CARD_DEFAULT": "6px",
-              "CORNER_RADIUS_CARD_LG": "8px",
-              "CORNER_RADIUS_CARD_SM": "4px",
-              "CORNER_RADIUS_INPUT": "4px",
-              "CORNER_RADIUS_MAX": "90000px",
-              "CORNER_RADIUS_SHARP": "2px",
-              "FONT_SIZE_HEADING_DEFAULT": "36px",
-              "FONT_SIZE_HEADING_LG": "38px",
-              "FONT_SIZE_HEADING_SM": "32px",
-              "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
-              "FONT_SIZE_ITEM_TITLE_LG": "16px",
-              "FONT_SIZE_ITEM_TITLE_SM": "12px",
-              "FONT_SIZE_PAGE_TITLE": "40px",
-              "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
-              "FONT_SIZE_SUBHEADING_LG": "18px",
-              "FONT_SIZE_SUBHEADING_SM": "14px",
-              "FONT_SIZE_TEXT_DEFAULT": "14px",
-              "FONT_SIZE_TEXT_LG": "16px",
-              "FONT_SIZE_TEXT_SM": "12px",
-              "FONT_SIZE_TEXT_XL": "18px",
-              "FONT_SIZE_TEXT_XS": "10px",
-              "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
-              "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
-              "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-              "FONT_WEIGHT_BOLD": 700,
-              "FONT_WEIGHT_DEFAULT": 400,
-              "FONT_WEIGHT_MEDIUM": 500,
-              "FONT_WEIGHT_SEMIBOLD": 600,
-              "LETTER_SPACING_DEFAULT": "normal",
-              "LINE_HEIGHT_DEFAULT": 1.4,
-              "LINE_HEIGHT_LOOSE": 1.6,
-              "LINE_HEIGHT_TIGHT": 1.2,
-              "OPACITY_FULL": "1",
-              "OPACITY_LIGHT": "0.7",
-              "OPACITY_LIGHTER": "0.5",
-              "OPACITY_LIGHTEST": "0.15",
-              "SPACING_BASE": 8,
-              "ZINDEX_ABYSS": "-9999",
-              "ZINDEX_DROPDOWN": "1010",
-              "ZINDEX_FIXED": "1030",
-              "ZINDEX_FLOOR": "1",
-              "ZINDEX_MODAL": "1050",
-              "ZINDEX_POPOVER": "1060",
-              "ZINDEX_SCRIM": "1040",
-              "ZINDEX_STICKY": "1020",
-              "ZINDEX_TOOLTIP": "1070",
-              "name": "Keen",
-            },
-          },
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "Wrapper-sc-11kgyvl-0",
-            "isStatic": false,
-            "lastClassName": "c0",
-            "rules": Array [
-              "width:100%;transition:all 0.25s ease;font-family:",
-              [Function],
-              ";border-top:1px solid ",
-              [Function],
-              ";",
-              [Function],
-              ";",
-            ],
-          },
-          "displayName": "Wrapper",
-          "foldedComponentIds": Array [],
-          "render": [Function],
-          "styledComponentId": "Wrapper-sc-11kgyvl-0",
-          "target": "section",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        }
-      }
-      forwardedRef={null}
-      isOpen={false}
-      theme={
-        Object {
-          "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
-          "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
-          "COLOR_BACKGROUND_TWO": "#FDFDFE",
-          "COLOR_BRAND_PRIMARY": "#00b42b",
-          "COLOR_BRAND_SECONDARY": "#00b42b",
-          "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
-          "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
-          "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
-          "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
-          "COLOR_INTENT_DANGER": "#D83D22",
-          "COLOR_INTENT_HIGHLIGHT": "#00b42b",
-          "COLOR_INTENT_INFO": "#1E6DF6",
-          "COLOR_INTENT_SUCCESS": "#00b42b",
-          "COLOR_INTENT_WARNING": "#F7CD45",
-          "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
-          "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
-          "CORNER_RADIUS_CARD_DEFAULT": "6px",
-          "CORNER_RADIUS_CARD_LG": "8px",
-          "CORNER_RADIUS_CARD_SM": "4px",
-          "CORNER_RADIUS_INPUT": "4px",
-          "CORNER_RADIUS_MAX": "90000px",
-          "CORNER_RADIUS_SHARP": "2px",
-          "FONT_SIZE_HEADING_DEFAULT": "36px",
-          "FONT_SIZE_HEADING_LG": "38px",
-          "FONT_SIZE_HEADING_SM": "32px",
-          "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
-          "FONT_SIZE_ITEM_TITLE_LG": "16px",
-          "FONT_SIZE_ITEM_TITLE_SM": "12px",
-          "FONT_SIZE_PAGE_TITLE": "40px",
-          "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
-          "FONT_SIZE_SUBHEADING_LG": "18px",
-          "FONT_SIZE_SUBHEADING_SM": "14px",
-          "FONT_SIZE_TEXT_DEFAULT": "14px",
-          "FONT_SIZE_TEXT_LG": "16px",
-          "FONT_SIZE_TEXT_SM": "12px",
-          "FONT_SIZE_TEXT_XL": "18px",
-          "FONT_SIZE_TEXT_XS": "10px",
-          "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
-          "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
-          "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-          "FONT_WEIGHT_BOLD": 700,
-          "FONT_WEIGHT_DEFAULT": 400,
-          "FONT_WEIGHT_MEDIUM": 500,
-          "FONT_WEIGHT_SEMIBOLD": 600,
-          "LETTER_SPACING_DEFAULT": "normal",
-          "LINE_HEIGHT_DEFAULT": 1.4,
-          "LINE_HEIGHT_LOOSE": 1.6,
-          "LINE_HEIGHT_TIGHT": 1.2,
-          "OPACITY_FULL": "1",
-          "OPACITY_LIGHT": "0.7",
-          "OPACITY_LIGHTER": "0.5",
-          "OPACITY_LIGHTEST": "0.15",
-          "SPACING_BASE": 8,
-          "ZINDEX_ABYSS": "-9999",
-          "ZINDEX_DROPDOWN": "1010",
-          "ZINDEX_FIXED": "1030",
-          "ZINDEX_FLOOR": "1",
-          "ZINDEX_MODAL": "1050",
-          "ZINDEX_POPOVER": "1060",
-          "ZINDEX_SCRIM": "1040",
-          "ZINDEX_STICKY": "1020",
-          "ZINDEX_TOOLTIP": "1070",
-          "name": "Keen",
-        }
-      }
+    <section
+      className="c0"
     >
-      <section
-        className="c0"
+      <Header
+        onClick={[Function]}
+        onKeyDown={[Function]}
       >
-        <Header
+        <div
+          className="c1"
           onClick={[Function]}
           onKeyDown={[Function]}
         >
-          <StyledComponent
-            forwardedComponent={
+          <Opener
+            isOpen={false}
+            tabIndex={0}
+            theme={
               Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "attrs": Array [],
-                "componentStyle": ComponentStyle {
-                  "componentId": "Header-sc-1rlwrhx-0",
-                  "isStatic": true,
-                  "lastClassName": "c1",
-                  "rules": Array [
-                    "cursor:pointer;width:100%;display:flex;justify-content:space-between;align-items:center;padding:",
-                    "
-    calc(var(--SPACING_BASE) * 1 * 1px)",
-                    " 0;",
-                  ],
-                },
-                "displayName": "Header",
-                "foldedComponentIds": Array [],
-                "render": [Function],
-                "styledComponentId": "Header-sc-1rlwrhx-0",
-                "target": "div",
-                "toString": [Function],
-                "warnTooManyClasses": [Function],
-                "withComponent": [Function],
-              }
-            }
-            forwardedRef={null}
-            onClick={[Function]}
-            onKeyDown={[Function]}
-          >
-            <div
-              className="c1"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-            >
-              <Opener
-                isOpen={false}
-                tabIndex={0}
-                theme={
-                  Object {
-                    "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
-                    "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
-                    "COLOR_BACKGROUND_TWO": "#FDFDFE",
-                    "COLOR_BRAND_PRIMARY": "#00b42b",
-                    "COLOR_BRAND_SECONDARY": "#00b42b",
-                    "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
-                    "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
-                    "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
-                    "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
-                    "COLOR_INTENT_DANGER": "#D83D22",
-                    "COLOR_INTENT_HIGHLIGHT": "#00b42b",
-                    "COLOR_INTENT_INFO": "#1E6DF6",
-                    "COLOR_INTENT_SUCCESS": "#00b42b",
-                    "COLOR_INTENT_WARNING": "#F7CD45",
-                    "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
-                    "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
-                    "CORNER_RADIUS_CARD_DEFAULT": "6px",
-                    "CORNER_RADIUS_CARD_LG": "8px",
-                    "CORNER_RADIUS_CARD_SM": "4px",
-                    "CORNER_RADIUS_INPUT": "4px",
-                    "CORNER_RADIUS_MAX": "90000px",
-                    "CORNER_RADIUS_SHARP": "2px",
-                    "FONT_SIZE_HEADING_DEFAULT": "36px",
-                    "FONT_SIZE_HEADING_LG": "38px",
-                    "FONT_SIZE_HEADING_SM": "32px",
-                    "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
-                    "FONT_SIZE_ITEM_TITLE_LG": "16px",
-                    "FONT_SIZE_ITEM_TITLE_SM": "12px",
-                    "FONT_SIZE_PAGE_TITLE": "40px",
-                    "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
-                    "FONT_SIZE_SUBHEADING_LG": "18px",
-                    "FONT_SIZE_SUBHEADING_SM": "14px",
-                    "FONT_SIZE_TEXT_DEFAULT": "14px",
-                    "FONT_SIZE_TEXT_LG": "16px",
-                    "FONT_SIZE_TEXT_SM": "12px",
-                    "FONT_SIZE_TEXT_XL": "18px",
-                    "FONT_SIZE_TEXT_XS": "10px",
-                    "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
-                    "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
-                    "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-                    "FONT_WEIGHT_BOLD": 700,
-                    "FONT_WEIGHT_DEFAULT": 400,
-                    "FONT_WEIGHT_MEDIUM": 500,
-                    "FONT_WEIGHT_SEMIBOLD": 600,
-                    "LETTER_SPACING_DEFAULT": "normal",
-                    "LINE_HEIGHT_DEFAULT": 1.4,
-                    "LINE_HEIGHT_LOOSE": 1.6,
-                    "LINE_HEIGHT_TIGHT": 1.2,
-                    "OPACITY_FULL": "1",
-                    "OPACITY_LIGHT": "0.7",
-                    "OPACITY_LIGHTER": "0.5",
-                    "OPACITY_LIGHTEST": "0.15",
-                    "SPACING_BASE": 8,
-                    "ZINDEX_ABYSS": "-9999",
-                    "ZINDEX_DROPDOWN": "1010",
-                    "ZINDEX_FIXED": "1030",
-                    "ZINDEX_FLOOR": "1",
-                    "ZINDEX_MODAL": "1050",
-                    "ZINDEX_POPOVER": "1060",
-                    "ZINDEX_SCRIM": "1040",
-                    "ZINDEX_STICKY": "1020",
-                    "ZINDEX_TOOLTIP": "1070",
-                    "name": "Keen",
-                  }
-                }
-              >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "_foldedDefaultProps": Object {
-                        "theme": Object {
-                          "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
-                          "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
-                          "COLOR_BACKGROUND_TWO": "#FDFDFE",
-                          "COLOR_BRAND_PRIMARY": "#00b42b",
-                          "COLOR_BRAND_SECONDARY": "#00b42b",
-                          "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
-                          "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
-                          "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
-                          "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
-                          "COLOR_INTENT_DANGER": "#D83D22",
-                          "COLOR_INTENT_HIGHLIGHT": "#00b42b",
-                          "COLOR_INTENT_INFO": "#1E6DF6",
-                          "COLOR_INTENT_SUCCESS": "#00b42b",
-                          "COLOR_INTENT_WARNING": "#F7CD45",
-                          "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
-                          "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
-                          "CORNER_RADIUS_CARD_DEFAULT": "6px",
-                          "CORNER_RADIUS_CARD_LG": "8px",
-                          "CORNER_RADIUS_CARD_SM": "4px",
-                          "CORNER_RADIUS_INPUT": "4px",
-                          "CORNER_RADIUS_MAX": "90000px",
-                          "CORNER_RADIUS_SHARP": "2px",
-                          "FONT_SIZE_HEADING_DEFAULT": "36px",
-                          "FONT_SIZE_HEADING_LG": "38px",
-                          "FONT_SIZE_HEADING_SM": "32px",
-                          "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
-                          "FONT_SIZE_ITEM_TITLE_LG": "16px",
-                          "FONT_SIZE_ITEM_TITLE_SM": "12px",
-                          "FONT_SIZE_PAGE_TITLE": "40px",
-                          "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
-                          "FONT_SIZE_SUBHEADING_LG": "18px",
-                          "FONT_SIZE_SUBHEADING_SM": "14px",
-                          "FONT_SIZE_TEXT_DEFAULT": "14px",
-                          "FONT_SIZE_TEXT_LG": "16px",
-                          "FONT_SIZE_TEXT_SM": "12px",
-                          "FONT_SIZE_TEXT_XL": "18px",
-                          "FONT_SIZE_TEXT_XS": "10px",
-                          "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
-                          "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
-                          "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-                          "FONT_WEIGHT_BOLD": 700,
-                          "FONT_WEIGHT_DEFAULT": 400,
-                          "FONT_WEIGHT_MEDIUM": 500,
-                          "FONT_WEIGHT_SEMIBOLD": 600,
-                          "LETTER_SPACING_DEFAULT": "normal",
-                          "LINE_HEIGHT_DEFAULT": 1.4,
-                          "LINE_HEIGHT_LOOSE": 1.6,
-                          "LINE_HEIGHT_TIGHT": 1.2,
-                          "OPACITY_FULL": "1",
-                          "OPACITY_LIGHT": "0.7",
-                          "OPACITY_LIGHTER": "0.5",
-                          "OPACITY_LIGHTEST": "0.15",
-                          "SPACING_BASE": 8,
-                          "ZINDEX_ABYSS": "-9999",
-                          "ZINDEX_DROPDOWN": "1010",
-                          "ZINDEX_FIXED": "1030",
-                          "ZINDEX_FLOOR": "1",
-                          "ZINDEX_MODAL": "1050",
-                          "ZINDEX_POPOVER": "1060",
-                          "ZINDEX_SCRIM": "1040",
-                          "ZINDEX_STICKY": "1020",
-                          "ZINDEX_TOOLTIP": "1070",
-                          "name": "Keen",
-                        },
-                      },
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "Opener-sc-1lfxnlm-0",
-                        "isStatic": false,
-                        "lastClassName": "c2",
-                        "rules": Array [
-                          "margin-right:",
-                          "
-    calc(var(--SPACING_BASE) * 0.75 * 1px)",
-                          ";&:focus,&:active,&:focus:active{outline:none;",
-                          [Function],
-                          ";}",
-                          [Function],
-                        ],
-                      },
-                      "displayName": "Opener",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "Opener-sc-1lfxnlm-0",
-                      "target": "div",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
-                  isOpen={false}
-                  tabIndex={0}
-                  theme={
-                    Object {
-                      "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
-                      "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
-                      "COLOR_BACKGROUND_TWO": "#FDFDFE",
-                      "COLOR_BRAND_PRIMARY": "#00b42b",
-                      "COLOR_BRAND_SECONDARY": "#00b42b",
-                      "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
-                      "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
-                      "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
-                      "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
-                      "COLOR_INTENT_DANGER": "#D83D22",
-                      "COLOR_INTENT_HIGHLIGHT": "#00b42b",
-                      "COLOR_INTENT_INFO": "#1E6DF6",
-                      "COLOR_INTENT_SUCCESS": "#00b42b",
-                      "COLOR_INTENT_WARNING": "#F7CD45",
-                      "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
-                      "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
-                      "CORNER_RADIUS_CARD_DEFAULT": "6px",
-                      "CORNER_RADIUS_CARD_LG": "8px",
-                      "CORNER_RADIUS_CARD_SM": "4px",
-                      "CORNER_RADIUS_INPUT": "4px",
-                      "CORNER_RADIUS_MAX": "90000px",
-                      "CORNER_RADIUS_SHARP": "2px",
-                      "FONT_SIZE_HEADING_DEFAULT": "36px",
-                      "FONT_SIZE_HEADING_LG": "38px",
-                      "FONT_SIZE_HEADING_SM": "32px",
-                      "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
-                      "FONT_SIZE_ITEM_TITLE_LG": "16px",
-                      "FONT_SIZE_ITEM_TITLE_SM": "12px",
-                      "FONT_SIZE_PAGE_TITLE": "40px",
-                      "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
-                      "FONT_SIZE_SUBHEADING_LG": "18px",
-                      "FONT_SIZE_SUBHEADING_SM": "14px",
-                      "FONT_SIZE_TEXT_DEFAULT": "14px",
-                      "FONT_SIZE_TEXT_LG": "16px",
-                      "FONT_SIZE_TEXT_SM": "12px",
-                      "FONT_SIZE_TEXT_XL": "18px",
-                      "FONT_SIZE_TEXT_XS": "10px",
-                      "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
-                      "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
-                      "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-                      "FONT_WEIGHT_BOLD": 700,
-                      "FONT_WEIGHT_DEFAULT": 400,
-                      "FONT_WEIGHT_MEDIUM": 500,
-                      "FONT_WEIGHT_SEMIBOLD": 600,
-                      "LETTER_SPACING_DEFAULT": "normal",
-                      "LINE_HEIGHT_DEFAULT": 1.4,
-                      "LINE_HEIGHT_LOOSE": 1.6,
-                      "LINE_HEIGHT_TIGHT": 1.2,
-                      "OPACITY_FULL": "1",
-                      "OPACITY_LIGHT": "0.7",
-                      "OPACITY_LIGHTER": "0.5",
-                      "OPACITY_LIGHTEST": "0.15",
-                      "SPACING_BASE": 8,
-                      "ZINDEX_ABYSS": "-9999",
-                      "ZINDEX_DROPDOWN": "1010",
-                      "ZINDEX_FIXED": "1030",
-                      "ZINDEX_FLOOR": "1",
-                      "ZINDEX_MODAL": "1050",
-                      "ZINDEX_POPOVER": "1060",
-                      "ZINDEX_SCRIM": "1040",
-                      "ZINDEX_STICKY": "1020",
-                      "ZINDEX_TOOLTIP": "1070",
-                      "name": "Keen",
-                    }
-                  }
-                >
-                  <div
-                    className="c2"
-                    tabIndex={0}
-                  >
-                    <icon-mock />
-                  </div>
-                </StyledComponent>
-              </Opener>
-              <Title>
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "Title-sc-7sx9ra-0",
-                        "isStatic": true,
-                        "lastClassName": "c3",
-                        "rules": Array [
-                          "margin-right:auto;",
-                        ],
-                      },
-                      "displayName": "Title",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "Title-sc-7sx9ra-0",
-                      "target": "div",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
-                >
-                  <div
-                    className="c3"
-                  >
-                    Collapse title
-                  </div>
-                </StyledComponent>
-              </Title>
-              <Detail
-                theme={
-                  Object {
-                    "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
-                    "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
-                    "COLOR_BACKGROUND_TWO": "#FDFDFE",
-                    "COLOR_BRAND_PRIMARY": "#00b42b",
-                    "COLOR_BRAND_SECONDARY": "#00b42b",
-                    "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
-                    "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
-                    "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
-                    "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
-                    "COLOR_INTENT_DANGER": "#D83D22",
-                    "COLOR_INTENT_HIGHLIGHT": "#00b42b",
-                    "COLOR_INTENT_INFO": "#1E6DF6",
-                    "COLOR_INTENT_SUCCESS": "#00b42b",
-                    "COLOR_INTENT_WARNING": "#F7CD45",
-                    "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
-                    "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
-                    "CORNER_RADIUS_CARD_DEFAULT": "6px",
-                    "CORNER_RADIUS_CARD_LG": "8px",
-                    "CORNER_RADIUS_CARD_SM": "4px",
-                    "CORNER_RADIUS_INPUT": "4px",
-                    "CORNER_RADIUS_MAX": "90000px",
-                    "CORNER_RADIUS_SHARP": "2px",
-                    "FONT_SIZE_HEADING_DEFAULT": "36px",
-                    "FONT_SIZE_HEADING_LG": "38px",
-                    "FONT_SIZE_HEADING_SM": "32px",
-                    "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
-                    "FONT_SIZE_ITEM_TITLE_LG": "16px",
-                    "FONT_SIZE_ITEM_TITLE_SM": "12px",
-                    "FONT_SIZE_PAGE_TITLE": "40px",
-                    "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
-                    "FONT_SIZE_SUBHEADING_LG": "18px",
-                    "FONT_SIZE_SUBHEADING_SM": "14px",
-                    "FONT_SIZE_TEXT_DEFAULT": "14px",
-                    "FONT_SIZE_TEXT_LG": "16px",
-                    "FONT_SIZE_TEXT_SM": "12px",
-                    "FONT_SIZE_TEXT_XL": "18px",
-                    "FONT_SIZE_TEXT_XS": "10px",
-                    "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
-                    "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
-                    "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-                    "FONT_WEIGHT_BOLD": 700,
-                    "FONT_WEIGHT_DEFAULT": 400,
-                    "FONT_WEIGHT_MEDIUM": 500,
-                    "FONT_WEIGHT_SEMIBOLD": 600,
-                    "LETTER_SPACING_DEFAULT": "normal",
-                    "LINE_HEIGHT_DEFAULT": 1.4,
-                    "LINE_HEIGHT_LOOSE": 1.6,
-                    "LINE_HEIGHT_TIGHT": 1.2,
-                    "OPACITY_FULL": "1",
-                    "OPACITY_LIGHT": "0.7",
-                    "OPACITY_LIGHTER": "0.5",
-                    "OPACITY_LIGHTEST": "0.15",
-                    "SPACING_BASE": 8,
-                    "ZINDEX_ABYSS": "-9999",
-                    "ZINDEX_DROPDOWN": "1010",
-                    "ZINDEX_FIXED": "1030",
-                    "ZINDEX_FLOOR": "1",
-                    "ZINDEX_MODAL": "1050",
-                    "ZINDEX_POPOVER": "1060",
-                    "ZINDEX_SCRIM": "1040",
-                    "ZINDEX_STICKY": "1020",
-                    "ZINDEX_TOOLTIP": "1070",
-                    "name": "Keen",
-                  }
-                }
-              >
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "_foldedDefaultProps": Object {
-                        "theme": Object {
-                          "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
-                          "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
-                          "COLOR_BACKGROUND_TWO": "#FDFDFE",
-                          "COLOR_BRAND_PRIMARY": "#00b42b",
-                          "COLOR_BRAND_SECONDARY": "#00b42b",
-                          "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
-                          "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
-                          "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
-                          "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
-                          "COLOR_INTENT_DANGER": "#D83D22",
-                          "COLOR_INTENT_HIGHLIGHT": "#00b42b",
-                          "COLOR_INTENT_INFO": "#1E6DF6",
-                          "COLOR_INTENT_SUCCESS": "#00b42b",
-                          "COLOR_INTENT_WARNING": "#F7CD45",
-                          "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
-                          "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
-                          "CORNER_RADIUS_CARD_DEFAULT": "6px",
-                          "CORNER_RADIUS_CARD_LG": "8px",
-                          "CORNER_RADIUS_CARD_SM": "4px",
-                          "CORNER_RADIUS_INPUT": "4px",
-                          "CORNER_RADIUS_MAX": "90000px",
-                          "CORNER_RADIUS_SHARP": "2px",
-                          "FONT_SIZE_HEADING_DEFAULT": "36px",
-                          "FONT_SIZE_HEADING_LG": "38px",
-                          "FONT_SIZE_HEADING_SM": "32px",
-                          "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
-                          "FONT_SIZE_ITEM_TITLE_LG": "16px",
-                          "FONT_SIZE_ITEM_TITLE_SM": "12px",
-                          "FONT_SIZE_PAGE_TITLE": "40px",
-                          "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
-                          "FONT_SIZE_SUBHEADING_LG": "18px",
-                          "FONT_SIZE_SUBHEADING_SM": "14px",
-                          "FONT_SIZE_TEXT_DEFAULT": "14px",
-                          "FONT_SIZE_TEXT_LG": "16px",
-                          "FONT_SIZE_TEXT_SM": "12px",
-                          "FONT_SIZE_TEXT_XL": "18px",
-                          "FONT_SIZE_TEXT_XS": "10px",
-                          "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
-                          "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
-                          "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-                          "FONT_WEIGHT_BOLD": 700,
-                          "FONT_WEIGHT_DEFAULT": 400,
-                          "FONT_WEIGHT_MEDIUM": 500,
-                          "FONT_WEIGHT_SEMIBOLD": 600,
-                          "LETTER_SPACING_DEFAULT": "normal",
-                          "LINE_HEIGHT_DEFAULT": 1.4,
-                          "LINE_HEIGHT_LOOSE": 1.6,
-                          "LINE_HEIGHT_TIGHT": 1.2,
-                          "OPACITY_FULL": "1",
-                          "OPACITY_LIGHT": "0.7",
-                          "OPACITY_LIGHTER": "0.5",
-                          "OPACITY_LIGHTEST": "0.15",
-                          "SPACING_BASE": 8,
-                          "ZINDEX_ABYSS": "-9999",
-                          "ZINDEX_DROPDOWN": "1010",
-                          "ZINDEX_FIXED": "1030",
-                          "ZINDEX_FLOOR": "1",
-                          "ZINDEX_MODAL": "1050",
-                          "ZINDEX_POPOVER": "1060",
-                          "ZINDEX_SCRIM": "1040",
-                          "ZINDEX_STICKY": "1020",
-                          "ZINDEX_TOOLTIP": "1070",
-                          "name": "Keen",
-                        },
-                      },
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "Detail-sc-7sx9ra-1",
-                        "isStatic": false,
-                        "lastClassName": "c4",
-                        "rules": Array [
-                          "font-size:",
-                          [Function],
-                          ";",
-                        ],
-                      },
-                      "displayName": "Detail",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "Detail-sc-7sx9ra-1",
-                      "target": "div",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
-                  theme={
-                    Object {
-                      "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
-                      "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
-                      "COLOR_BACKGROUND_TWO": "#FDFDFE",
-                      "COLOR_BRAND_PRIMARY": "#00b42b",
-                      "COLOR_BRAND_SECONDARY": "#00b42b",
-                      "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
-                      "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
-                      "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
-                      "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
-                      "COLOR_INTENT_DANGER": "#D83D22",
-                      "COLOR_INTENT_HIGHLIGHT": "#00b42b",
-                      "COLOR_INTENT_INFO": "#1E6DF6",
-                      "COLOR_INTENT_SUCCESS": "#00b42b",
-                      "COLOR_INTENT_WARNING": "#F7CD45",
-                      "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
-                      "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
-                      "CORNER_RADIUS_CARD_DEFAULT": "6px",
-                      "CORNER_RADIUS_CARD_LG": "8px",
-                      "CORNER_RADIUS_CARD_SM": "4px",
-                      "CORNER_RADIUS_INPUT": "4px",
-                      "CORNER_RADIUS_MAX": "90000px",
-                      "CORNER_RADIUS_SHARP": "2px",
-                      "FONT_SIZE_HEADING_DEFAULT": "36px",
-                      "FONT_SIZE_HEADING_LG": "38px",
-                      "FONT_SIZE_HEADING_SM": "32px",
-                      "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
-                      "FONT_SIZE_ITEM_TITLE_LG": "16px",
-                      "FONT_SIZE_ITEM_TITLE_SM": "12px",
-                      "FONT_SIZE_PAGE_TITLE": "40px",
-                      "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
-                      "FONT_SIZE_SUBHEADING_LG": "18px",
-                      "FONT_SIZE_SUBHEADING_SM": "14px",
-                      "FONT_SIZE_TEXT_DEFAULT": "14px",
-                      "FONT_SIZE_TEXT_LG": "16px",
-                      "FONT_SIZE_TEXT_SM": "12px",
-                      "FONT_SIZE_TEXT_XL": "18px",
-                      "FONT_SIZE_TEXT_XS": "10px",
-                      "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
-                      "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
-                      "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-                      "FONT_WEIGHT_BOLD": 700,
-                      "FONT_WEIGHT_DEFAULT": 400,
-                      "FONT_WEIGHT_MEDIUM": 500,
-                      "FONT_WEIGHT_SEMIBOLD": 600,
-                      "LETTER_SPACING_DEFAULT": "normal",
-                      "LINE_HEIGHT_DEFAULT": 1.4,
-                      "LINE_HEIGHT_LOOSE": 1.6,
-                      "LINE_HEIGHT_TIGHT": 1.2,
-                      "OPACITY_FULL": "1",
-                      "OPACITY_LIGHT": "0.7",
-                      "OPACITY_LIGHTER": "0.5",
-                      "OPACITY_LIGHTEST": "0.15",
-                      "SPACING_BASE": 8,
-                      "ZINDEX_ABYSS": "-9999",
-                      "ZINDEX_DROPDOWN": "1010",
-                      "ZINDEX_FIXED": "1030",
-                      "ZINDEX_FLOOR": "1",
-                      "ZINDEX_MODAL": "1050",
-                      "ZINDEX_POPOVER": "1060",
-                      "ZINDEX_SCRIM": "1040",
-                      "ZINDEX_STICKY": "1020",
-                      "ZINDEX_TOOLTIP": "1070",
-                      "name": "Keen",
-                    }
-                  }
-                >
-                  <div
-                    className="c4"
-                  />
-                </StyledComponent>
-              </Detail>
-            </div>
-          </StyledComponent>
-        </Header>
-        <Body>
-          <StyledComponent
-            forwardedComponent={
-              Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "attrs": Array [],
-                "componentStyle": ComponentStyle {
-                  "componentId": "Body-sc-8bwebj-0",
-                  "isStatic": true,
-                  "lastClassName": "c5",
-                  "rules": Array [
-                    "width:100%;transition:all 0.25s ease;overflow:hidden;",
-                  ],
-                },
-                "displayName": "Body",
-                "foldedComponentIds": Array [],
-                "render": [Function],
-                "styledComponentId": "Body-sc-8bwebj-0",
-                "target": "div",
-                "toString": [Function],
-                "warnTooManyClasses": [Function],
-                "withComponent": [Function],
-              }
-            }
-            forwardedRef={
-              Object {
-                "current": .c0 {
-  width: 100%;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-  overflow: hidden;
-}
-
-<div
-                  class="c0"
-                  style="height: 0px;"
-                >
-                  <div
-                    height="300px"
-                  >
-                    Collapse children
-                  </div>
-                </div>,
+                "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
+                "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
+                "COLOR_BACKGROUND_TWO": "#FDFDFE",
+                "COLOR_BRAND_PRIMARY": "#00b42b",
+                "COLOR_BRAND_SECONDARY": "#00b42b",
+                "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
+                "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
+                "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
+                "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
+                "COLOR_INTENT_DANGER": "#D83D22",
+                "COLOR_INTENT_HIGHLIGHT": "#00b42b",
+                "COLOR_INTENT_INFO": "#1E6DF6",
+                "COLOR_INTENT_SUCCESS": "#00b42b",
+                "COLOR_INTENT_WARNING": "#F7CD45",
+                "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
+                "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
+                "CORNER_RADIUS_CARD_DEFAULT": "6px",
+                "CORNER_RADIUS_CARD_LG": "8px",
+                "CORNER_RADIUS_CARD_SM": "4px",
+                "CORNER_RADIUS_INPUT": "4px",
+                "CORNER_RADIUS_MAX": "90000px",
+                "CORNER_RADIUS_SHARP": "2px",
+                "FONT_SIZE_HEADING_DEFAULT": "36px",
+                "FONT_SIZE_HEADING_LG": "38px",
+                "FONT_SIZE_HEADING_SM": "32px",
+                "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
+                "FONT_SIZE_ITEM_TITLE_LG": "16px",
+                "FONT_SIZE_ITEM_TITLE_SM": "12px",
+                "FONT_SIZE_PAGE_TITLE": "40px",
+                "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
+                "FONT_SIZE_SUBHEADING_LG": "18px",
+                "FONT_SIZE_SUBHEADING_SM": "14px",
+                "FONT_SIZE_TEXT_DEFAULT": "14px",
+                "FONT_SIZE_TEXT_LG": "16px",
+                "FONT_SIZE_TEXT_SM": "12px",
+                "FONT_SIZE_TEXT_XL": "18px",
+                "FONT_SIZE_TEXT_XS": "10px",
+                "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
+                "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
+                "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                "FONT_WEIGHT_BOLD": 700,
+                "FONT_WEIGHT_DEFAULT": 400,
+                "FONT_WEIGHT_MEDIUM": 500,
+                "FONT_WEIGHT_SEMIBOLD": 600,
+                "LETTER_SPACING_DEFAULT": "normal",
+                "LINE_HEIGHT_DEFAULT": 1.4,
+                "LINE_HEIGHT_LOOSE": 1.6,
+                "LINE_HEIGHT_TIGHT": 1.2,
+                "OPACITY_FULL": "1",
+                "OPACITY_LIGHT": "0.7",
+                "OPACITY_LIGHTER": "0.5",
+                "OPACITY_LIGHTEST": "0.15",
+                "SPACING_BASE": 8,
+                "ZINDEX_ABYSS": "-9999",
+                "ZINDEX_DROPDOWN": "1010",
+                "ZINDEX_FIXED": "1030",
+                "ZINDEX_FLOOR": "1",
+                "ZINDEX_MODAL": "1050",
+                "ZINDEX_POPOVER": "1060",
+                "ZINDEX_SCRIM": "1040",
+                "ZINDEX_STICKY": "1020",
+                "ZINDEX_TOOLTIP": "1070",
+                "name": "Keen",
               }
             }
           >
             <div
-              className="c5"
+              className="c2"
+              tabIndex={0}
             >
-              <div
-                height="300px"
-              >
-                Collapse children
-              </div>
+              <icon-mock />
             </div>
-          </StyledComponent>
-        </Body>
-      </section>
-    </StyledComponent>
+          </Opener>
+          <Title>
+            <div
+              className="c3"
+            >
+              Collapse title
+            </div>
+          </Title>
+          <Detail
+            theme={
+              Object {
+                "COLOR_BACKGROUND_DEFAULT": "hsl(0, 0%, 100%)",
+                "COLOR_BACKGROUND_THREE": "hsl(0, 0%, 94%)",
+                "COLOR_BACKGROUND_TWO": "#FDFDFE",
+                "COLOR_BRAND_PRIMARY": "#00b42b",
+                "COLOR_BRAND_SECONDARY": "#00b42b",
+                "COLOR_CONTENT_CONTRAST": "hsl(0, 0%, 0%)",
+                "COLOR_CONTENT_DEFAULT": "hsla(0, 0%, 0%, 0.85)",
+                "COLOR_CONTENT_MUTED": "hsla(0, 0%, 0%, 0.6)",
+                "COLOR_CONTENT_NONESSENTIAL": "hsla(0, 0%, 0%, 0.3)",
+                "COLOR_INTENT_DANGER": "#D83D22",
+                "COLOR_INTENT_HIGHLIGHT": "#00b42b",
+                "COLOR_INTENT_INFO": "#1E6DF6",
+                "COLOR_INTENT_SUCCESS": "#00b42b",
+                "COLOR_INTENT_WARNING": "#F7CD45",
+                "COLOR_KEYLINE_DEFAULT": "hsla(0, 0%, 0%, 0.08)",
+                "COLOR_KEYLINE_SOLID": "hsl(0, 0%, 92%)",
+                "CORNER_RADIUS_CARD_DEFAULT": "6px",
+                "CORNER_RADIUS_CARD_LG": "8px",
+                "CORNER_RADIUS_CARD_SM": "4px",
+                "CORNER_RADIUS_INPUT": "4px",
+                "CORNER_RADIUS_MAX": "90000px",
+                "CORNER_RADIUS_SHARP": "2px",
+                "FONT_SIZE_HEADING_DEFAULT": "36px",
+                "FONT_SIZE_HEADING_LG": "38px",
+                "FONT_SIZE_HEADING_SM": "32px",
+                "FONT_SIZE_ITEM_TITLE_DEFAULT": "14px",
+                "FONT_SIZE_ITEM_TITLE_LG": "16px",
+                "FONT_SIZE_ITEM_TITLE_SM": "12px",
+                "FONT_SIZE_PAGE_TITLE": "40px",
+                "FONT_SIZE_SUBHEADING_DEFAULT": "16px",
+                "FONT_SIZE_SUBHEADING_LG": "18px",
+                "FONT_SIZE_SUBHEADING_SM": "14px",
+                "FONT_SIZE_TEXT_DEFAULT": "14px",
+                "FONT_SIZE_TEXT_LG": "16px",
+                "FONT_SIZE_TEXT_SM": "12px",
+                "FONT_SIZE_TEXT_XL": "18px",
+                "FONT_SIZE_TEXT_XS": "10px",
+                "FONT_STACK_BRAND": "\\"Metropolis\\", \\"Helvetica Neue\\", Arial, sans-serif",
+                "FONT_STACK_CODE": "\\"SFMono-Regular\\", Consolas, \\"Liberation Mono\\", Menlo, Courier, monospace",
+                "FONT_STACK_DEFAULT": "Inter var, Inter, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                "FONT_WEIGHT_BOLD": 700,
+                "FONT_WEIGHT_DEFAULT": 400,
+                "FONT_WEIGHT_MEDIUM": 500,
+                "FONT_WEIGHT_SEMIBOLD": 600,
+                "LETTER_SPACING_DEFAULT": "normal",
+                "LINE_HEIGHT_DEFAULT": 1.4,
+                "LINE_HEIGHT_LOOSE": 1.6,
+                "LINE_HEIGHT_TIGHT": 1.2,
+                "OPACITY_FULL": "1",
+                "OPACITY_LIGHT": "0.7",
+                "OPACITY_LIGHTER": "0.5",
+                "OPACITY_LIGHTEST": "0.15",
+                "SPACING_BASE": 8,
+                "ZINDEX_ABYSS": "-9999",
+                "ZINDEX_DROPDOWN": "1010",
+                "ZINDEX_FIXED": "1030",
+                "ZINDEX_FLOOR": "1",
+                "ZINDEX_MODAL": "1050",
+                "ZINDEX_POPOVER": "1060",
+                "ZINDEX_SCRIM": "1040",
+                "ZINDEX_STICKY": "1020",
+                "ZINDEX_TOOLTIP": "1070",
+                "name": "Keen",
+              }
+            }
+          >
+            <div
+              className="c4"
+            />
+          </Detail>
+        </div>
+      </Header>
+      <Body>
+        <div
+          className="c5"
+        >
+          <div
+            height="300px"
+          >
+            Collapse children
+          </div>
+        </div>
+      </Body>
+    </section>
   </Wrapper>
 </Collapse>
 `;

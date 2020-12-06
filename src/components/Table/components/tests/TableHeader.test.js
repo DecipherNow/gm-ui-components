@@ -33,9 +33,7 @@ describe("TableHeader", () => {
   });
 
   test("invokes the onSort prop onClick", () => {
-    TableHeaderWrap.find("TableHeaderCell")
-      .at(0)
-      .simulate("click");
+    TableHeaderWrap.find("TableHeaderCell").at(0).simulate("click");
     expect(jestSpy).toHaveBeenCalled();
   });
 });

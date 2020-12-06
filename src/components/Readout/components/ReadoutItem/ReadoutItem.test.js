@@ -42,29 +42,20 @@ describe("ReadoutItem", () => {
   });
   it("renders a value if provided, and a - if not", () => {
     let aReadoutItem = shallow(<ReadoutItem value="100" />);
-    expect(
-      aReadoutItem
-        .find("ReadoutItemValue")
-        .html()
-        .includes("100")
-    ).toBe(true);
+    expect(aReadoutItem.find("ReadoutItemValue").html().includes("100")).toBe(
+      true
+    );
     aReadoutItem = shallow(<ReadoutItem />);
-    expect(
-      aReadoutItem
-        .find("ReadoutItemValue")
-        .html()
-        .includes("100")
-    ).toBe(false);
+    expect(aReadoutItem.find("ReadoutItemValue").html().includes("100")).toBe(
+      false
+    );
   });
   it("renders a detail if provided, and nothing if not", () => {
     let aReadoutItem = shallow(
       <ReadoutItem detail="Is Justin Ely a better developer than Sean McBride?" />
     );
     expect(
-      aReadoutItem
-        .find("ReadoutItemDetail")
-        .html()
-        .includes("Justin Ely")
+      aReadoutItem.find("ReadoutItemDetail").html().includes("Justin Ely")
     ).toBe(true);
     aReadoutItem = shallow(<ReadoutItem />);
     expect(aReadoutItem.find("ReadoutItemDetail")).toHaveLength(0);

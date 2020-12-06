@@ -21,17 +21,6 @@ exports[`Breadcrumb matches snapshot 1`] = `
   flex-shrink: 0;
 }
 
-.c0:before {
-  display: inline-block;
-  visibility: auto;
-  color: hsla(0,0%,0%,0.3);
-  padding: 0  calc(var(--SPACING_BASE) * 0.5 * 1px);
-  content: ">";
-  -webkit-transform: scaleX(0.5);
-  -ms-transform: scaleX(0.5);
-  transform: scaleX(0.5);
-}
-
 .c0 > * {
   color: inherit;
   -webkit-text-decoration: none;
@@ -41,10 +30,6 @@ exports[`Breadcrumb matches snapshot 1`] = `
 .c0 > *:link:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-}
-
-.c0:first-child:before {
-  content: none;
 }
 
 <li
@@ -123,7 +108,6 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   }
 >
   <Breadcrumb
-    hideDelimiter={false}
     key="Test 1|0"
     theme={
       Object {
@@ -195,8 +179,10 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   >
     Test 1
   </Breadcrumb>
+  <DefaultDelimiter
+    key="delimiter1"
+  />
   <Breadcrumb
-    hideDelimiter={false}
     key="Test 2|1"
     theme={
       Object {
@@ -268,8 +254,10 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   >
     Test 2
   </Breadcrumb>
+  <DefaultDelimiter
+    key="delimiter2"
+  />
   <Breadcrumb
-    hideDelimiter={false}
     key="Test 3|2"
     theme={
       Object {
@@ -341,8 +329,10 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   >
     Test 3
   </Breadcrumb>
+  <DefaultDelimiter
+    key="delimiter3"
+  />
   <Breadcrumb
-    hideDelimiter={false}
     key="Testing a really long breadcrumb item|3"
     theme={
       Object {

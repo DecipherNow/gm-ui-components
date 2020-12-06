@@ -1,3 +1,26 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/greymatter-io/gm-ui-components/compare/v1.4.4...v2.0.0) (2020-12-02)
+
+### Breaking Changes
+
+* add inter as a dev dep and set peer deps to major versions only ([#599](https://github.com/greymatter-io/gm-ui-components/issues/599)) ([2f7a8e6](https://github.com/greymatter-io/gm-ui-components/commit/2f7a8e6))
+* deprecate nonstandard svg terms in icon API ([#595](https://github.com/greymatter-io/gm-ui-components/issues/595)) ([5e7708f](https://github.com/greymatter-io/gm-ui-components/commit/5e7708f))
+* add react-popper and @popperjs/core as peer dependencies ([4af2b73](https://github.com/greymatter-io/gm-ui-components/commit/4af2b73cee4893c596223b9db9ada8f9a2db3ede))
+  
+### Bug Fixes
+
+* solve cause of buttons having too-solid text color ([#596](https://github.com/greymatter-io/gm-ui-components/issues/596)) ([12d8554](https://github.com/greymatter-io/gm-ui-components/commit/12d8554))
+* update footer social links ([#600](https://github.com/greymatter-io/gm-ui-components/issues/600)) ([78d5c45](https://github.com/greymatter-io/gm-ui-components/commit/78d5c45))
+
+### Features
+
+* icons can now be presented in negative ([#533](https://github.com/greymatter-io/gm-ui-components/issues/533)) ([1955398](https://github.com/greymatter-io/gm-ui-components/commit/1955398))
+* update svgr ([#612](https://github.com/greymatter-io/gm-ui-components/issues/612)) ([c6db69c](https://github.com/greymatter-io/gm-ui-components/commit/c6db69c))
+* better default breadcrumb delimiter (or custom, or none) ([4e426fc](https://github.com/greymatter-io/gm-ui-components/commit/4e426fc87b02c20ef32522fcf05a4fb2fa7e2aca))
+
+
+
+
 <a name="1.4.4"></a>
 ## [1.4.4](https://github.com/greymatter-io/gm-ui-components/compare/v1.4.3...v1.4.4) (2020-09-23)
 

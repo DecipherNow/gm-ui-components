@@ -64,7 +64,7 @@ const ButtonWrap = styled.button`
       props.outline
     )}
     ${generateButtonSize(props.size)} 
-    ${generateButtonOrientation(props.orientation)} 
+    ${generateButtonOrientation(props.orientation)}
   `};
 `;
 

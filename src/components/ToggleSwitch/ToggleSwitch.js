@@ -34,6 +34,21 @@ const ToggleSwitchElement = styled.input.attrs(props => ({
   --spring-medium-press: calc((30% + ${({ theme }) => theme.CONTROL_BORDER_WIDTH}) + var(--inset));
 
   /* Default before element */
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: ${({ theme }) => theme.OPACITY_LIGHTER};
+  }
+
+  &,
+  &:focus,
+  &:focus:active {
+    border-color: ${({ color, theme }) =>
+      color ? color : theme.COLOR_INTENT_HIGHLIGHT};
+  }
+
   &:before {
     content: "";
     position: absolute;

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavCardGroup matches snapshot 1`] = `
-<ThemeProvider
+<Component
   theme={[Function]}
 >
   <NavCardGroupWrap />
-</ThemeProvider>
+</Component>
 `;

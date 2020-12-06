@@ -29,11 +29,11 @@ const StyledSVG = styled.svg.attrs(() => ({
   }
 
   .glyph * {
-    fill: ${props => props.fillColor};
+    fill: ${props => props.fill};
     fill-opacity: ${props => props.fillOpacity};
-    stroke-width: ${props => props.borderWidth};
-    stroke-opacity: ${props => props.borderOpacity};
-    stroke: ${props => props.borderColor};
+    stroke-width: ${props => props.strokeWidth};
+    stroke-opacity: ${props => props.strokeOpacity};
+    stroke: ${props => props.stroke};
     vector-effect: non-scaling-stroke;
   }
 

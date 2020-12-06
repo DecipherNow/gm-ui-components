@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { darken, lighten, readableColor, getLuminance } from "polished";
+import { darken, readableColor, getLuminance, setLightness } from "polished";
 
 // Maps button types to a particular color
 function generateButtonTypeColors(theme, type) {
@@ -36,8 +36,12 @@ function generateButtonStyle(theme, type, dangerouslySetColor, renderBorder) {
 
   const colorStyles = css`
     background-color: ${baseColor};
-    border-color: ${renderBorder ? lighten(0.1, baseColor) : `transparent`};
-    color: ${readableColor(darken(0.1, baseColor))};
+    border-color: ${renderBorder ? darken(0.1, baseColor) : `transparent`};
+    color: ${readableColor(
+      darken(0.1, baseColor),
+      setLightness(0, theme.COLOR_CONTENT_DEFAULT),
+      setLightness(1, theme.COLOR_CONTENT_DEFAULT)
+    )};
     /* darkening the color first gives a more appealing result */
   `;
 

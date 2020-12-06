@@ -53,25 +53,25 @@ function AppFooter({
           href="http://github.com/greymatter-io"
           rel="noopener noreferrer"
           target="_blank"
-          title="Decipher Technology Studios Github"
+          title="Grey Matter Github"
         >
-          <IconGitHub fillOpacity="1" borderWidth="0" />
+          <IconGitHub fillOpacity="1" strokeWidth="0" />
         </Link>
         <Link
-          href="http://twitter.com/greymatter-io"
+          href="http://twitter.com/greymatterio"
           rel="noopener noreferrer"
           target="_blank"
-          title="Decipher Technology Studios Twitter"
+          title="Grey Matter Twitter"
         >
-          <IconTwitter fillOpacity="1" borderWidth="0" />
+          <IconTwitter fillOpacity="1" strokeWidth="0" />
         </Link>
         <Link
-          href="http://www.linkedin.com/company/decipher-technology-studios"
+          href="https://www.linkedin.com/company/greymatterio"
           rel="noopener noreferrer"
           target="_blank"
-          title="Decipher Technology Studios LinkedIn"
+          title="Grey Matter LinkedIn"
         >
-          <IconLinkedIn fillOpacity="1" borderWidth="0" />
+          <IconLinkedIn fillOpacity="1" strokeWidth="0" />
         </Link>
       </Links>
     ));

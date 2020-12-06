@@ -22,7 +22,7 @@ const CustomGraphic = styled.div`
 
 const CustomGraphicElement = (
   <CustomGraphic>
-    <IconLock borderColor="#fff" borderWidth="1.5px" />
+    <IconLock stroke="#fff" borderWidth="1.5px" />
   </CustomGraphic>
 );
 

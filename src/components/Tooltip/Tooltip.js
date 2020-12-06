@@ -1,58 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Manager, Reference, Popper } from "react-popper";
+import { usePopper } from "react-popper";
+
 import TooltipContent from "./components/TooltipContent";
 import TooltipWrap from "./components/TooltipWrap";
-import { theme } from "style/theme";
+import { keen } from "style/theme";
+export default function Tooltip({
+  children,
+  content,
+  position,
+  hideTooltip,
+  tooltipStyle,
+  theme,
+  popperOptions,
+  ...props
+}) {
+  const [referenceElement, setReferenceElement] = useState(null);
+  const [popperElement, setPopperElement] = useState(null);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: position,
+    ...popperOptions
+  });
+  const [isVisible, setVisibility] = useState(false);
 
-export default class Tooltip extends React.Component {
-  state = {
-    visible: false
-  };
+  // Always hide the tooltip if the content is empty
+  if (!content) hideTooltip = true;
+  return (
+    <>
+      <TooltipWrap
+        ref={isVisible ? setReferenceElement : null}
+        onMouseEnter={() => setVisibility(true)}
+        onMouseLeave={() => setVisibility(false)}
+        {...props}
+      >
+        {children}
+      </TooltipWrap>
 
-  toggleVisibility = () => this.setState({ visible: !this.state.visible });
-
-  render() {
-    let {
-      children,
-      content,
-      position,
-      hideTooltip,
-      tooltipStyle = {},
-      ...props
-    } = this.props;
-    // Always hide the tooltip if the content is empty
-    if (!content) hideTooltip = true;
-    return (
-      <Manager>
-        <Reference>
-          {({ ref }) => (
-            <TooltipWrap
-              ref={this.state.visible && ref}
-              onMouseEnter={this.toggleVisibility}
-              onMouseLeave={this.toggleVisibility}
-              {...props}
-            >
-              {children}
-            </TooltipWrap>
-          )}
-        </Reference>
-        <Popper placement={position} usePortal={false}>
-          {({ ref, style, placement }) => {
-            return (
-              <TooltipContent
-                ref={this.state.visible && ref}
-                style={{ ...style, ...tooltipStyle }}
-                visible={!hideTooltip && this.state.visible}
-              >
-                {content}
-              </TooltipContent>
-            );
-          }}
-        </Popper>
-      </Manager>
-    );
-  }
+      <TooltipContent
+        ref={isVisible ? setPopperElement : null}
+        style={{
+          zIndex: theme.ZINDEX_TOOLTIP,
+          ...styles.popper,
+          ...tooltipStyle
+        }}
+        visible={!hideTooltip && isVisible}
+        {...attributes.popper}
+      >
+        {content}
+      </TooltipContent>
+    </>
+  );
 }
 
 Tooltip.propTypes = {
@@ -64,7 +61,25 @@ Tooltip.propTypes = {
   ]).isRequired,
   content: PropTypes.string,
   hideTooltip: PropTypes.bool,
-  position: PropTypes.oneOf(["top", "bottom", "left", "right"]),
+  popperOptions: PropTypes.object, // https://popper.js.org/docs/v2/constructors/#options
+  position: PropTypes.oneOf([
+    "auto",
+    "auto-start",
+    "auto-end",
+    "top",
+    "top-start",
+    "top-end",
+    "bottom",
+    "bottom-start",
+    "bottom-end",
+    "right",
+    "right-start",
+    "right-end",
+    "left",
+    "left-start",
+    "left-end"
+  ]), // https://popper.js.org/docs/v2/constructors/#placement
+  theme: PropTypes.object,
   tooltipStyle: PropTypes.object
 };
 

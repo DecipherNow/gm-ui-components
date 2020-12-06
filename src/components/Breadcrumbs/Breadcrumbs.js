@@ -1,9 +1,8 @@
-import React from "react";
+import React, { cloneElement } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { theme } from "style/theme";
-import { spacingScale } from "style/styleFunctions";
+import { IconChevronRight } from "components/Glyphs";
 
 export const BreadcrumbsWrap = styled.ol`
   font-family: ${({ theme }) => theme.FONT_STACK_DEFAULT};
@@ -35,15 +34,6 @@ export const Breadcrumb = styled.li`
     flex-shrink: 0;
   }
 
-  &:before {
-    display: inline-block;
-    visibility: ${({ hideDelimiter }) => (hideDelimiter ? "hidden" : "auto")};
-    color: ${({ theme }) => theme.COLOR_CONTENT_NONESSENTIAL};
-    padding: 0 ${spacingScale(0.5)};
-    content: ">";
-    transform: scaleX(0.5);
-  }
-
   > * {
     color: inherit;
     text-decoration: none;
@@ -52,24 +42,44 @@ export const Breadcrumb = styled.li`
       text-decoration: underline;
     }
   }
-
-  &:first-child {
-    &:before {
-      content: none;
-    }
-  }
 `;
 
 Breadcrumb.defaultProps = {
 };
 
-function Breadcrumbs({ crumbs, hideDelimiter, ...props }) {
+const DefaultDelimiter = styled(IconChevronRight).attrs({
+  preserveAspectRatio: "none"
+})`
+  pointer-events: none;
+  color: ${({ theme }) => theme.COLOR_CONTENT_NONESSENTIAL};
+  width: 0.5em;
+  height: 1em;
+  margin: auto 0.25em;
+`;
+
+const EmptyDelimiter = styled.span`
+  flex: 0 0 0.5em;
+`;
+
+function makeDelimiter(delimiter, i) {
+  switch (delimiter) {
+    case false:
+      return <EmptyDelimiter key={"delimiter" + i} />;
+    case undefined:
+      return <DefaultDelimiter key={"delimiter" + i} />;
+    default:
+      return cloneElement(delimiter, { key: "delimiter" + i });
+  }
+}
+
+function Breadcrumbs({ crumbs, delimiter, ...props }) {
   return (
     <BreadcrumbsWrap {...props}>
       {crumbs.map((crumb, i) => (
-        <Breadcrumb hideDelimiter={hideDelimiter} key={`${crumb}|${i}`}>
-          {crumb}
-        </Breadcrumb>
+        <React.Fragment key={i}>
+          {i > 0 && makeDelimiter(delimiter, i)}
+          <Breadcrumb key={`${crumb}|${i}`}>{crumb}</Breadcrumb>
+        </React.Fragment>
       ))}
     </BreadcrumbsWrap>
   );
@@ -77,12 +87,11 @@ function Breadcrumbs({ crumbs, hideDelimiter, ...props }) {
 
 Breadcrumbs.propTypes = {
   crumbs: PropTypes.array,
-  hideDelimiter: PropTypes.bool
+  delimiter: PropTypes.oneOf([PropTypes.element, false])
 };
 
 Breadcrumbs.defaultProps = {
-  crumbs: [],
-  hideDelimiter: false
+  crumbs: []
 };
 
 export default Breadcrumbs;

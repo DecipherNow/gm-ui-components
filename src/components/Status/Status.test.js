@@ -20,17 +20,17 @@ describe("Status", () => {
 
   describe("Layout", () => {
     const aDefaultStatus = mount(<Status theme={keen} />);
-    expect(aDefaultStatus.find("Wrap")).toHaveStyleRule("display", "grid");
+    expect(aDefaultStatus.find("Wrap")).toMatchSnapshot();
     expect(aDefaultStatus.find("Graphic").html()).toContain(
       "color",
       keen.COLOR_INTENT_HIGHLIGHT
     );
 
     const aBlockComponent = mount(<Status isBlock />);
-    expect(aBlockComponent.find("Wrap")).toHaveStyleRule("display", "flex");
+    expect(aBlockComponent.find("Wrap")).toMatchSnapshot();
 
     const anErrorStatus = mount(<Status statusType="error" />);
-    expect(anErrorStatus.find("Wrap")).toHaveStyleRule("display", "grid");
+    expect(anErrorStatus.find("Wrap")).toMatchSnapshot();
   });
 
   describe("Props", () => {
@@ -90,10 +90,7 @@ describe("Status", () => {
         aStatus = mount(<Status statusType={t.statusType} />);
         expect(aStatus.find(t.visual)).toHaveLength(1);
         expect(
-          aStatus
-            .find("Graphic")
-            .props()
-            .graphicColor({ theme: keen })
+          aStatus.find("Graphic").props().graphicColor({ theme: keen })
         ).toBe(t.color);
       });
     });

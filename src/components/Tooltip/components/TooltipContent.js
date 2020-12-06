@@ -17,7 +17,6 @@ const TooltipContent = styled.div`
   transition: opacity 0.5s, visibility 0.5s;
   white-space: normal;
   font-family: ${({ theme }) => theme.FONT_STACK_DEFAULT};
-  margin: ${spacingScale(1)};
   word-wrap: break-word;
 
   ${props =>

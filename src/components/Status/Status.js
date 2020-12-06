@@ -105,17 +105,17 @@ GraphicStatusIndeterminate.propTypes = {
 };
 
 function GraphicStatusSuccess() {
-  return <IconCheckcircleChecked fillOpacity="0" borderWidth="2px" />;
+  return <IconCheckcircleChecked fillOpacity="0" strokeWidth="2px" />;
 }
 
 function GraphicStatusInfo() {
-  return <IconInfo fillOpacity="0" borderWidth="2px" />;
+  return <IconInfo fillOpacity="0" strokeWidth="2px" />;
 }
 
 function GraphicStatusError() {
-  return <IconAlertTriangle fillOpacity="1" borderWidth="0" />;
+  return <IconAlertTriangle fillOpacity="1" strokeWidth="0" />;
 }
 
 function GraphicStatusWarning() {
-  return <IconAlertTriangle fillOpacity="0" borderWidth="2px" />;
+  return <IconAlertTriangle fillOpacity="0" strokeWidth="2px" />;
 }

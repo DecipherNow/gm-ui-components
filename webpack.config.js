@@ -22,7 +22,9 @@ module.exports = {
     react: "react",
     "react-dom": "react-dom",
     "styled-components": "styled-components",
-    "inter-ui/inter.css": "inter-ui/inter.css"
+    "inter-ui/inter.css": "inter-ui/inter.css",
+    "@popperjs/core": "@popperjs/core",
+    "react-popper": "react-popper"
   },
   module: {
     rules: [
@@ -76,15 +78,17 @@ module.exports = {
           {
             loader: "postcss-loader",
             options: {
-              // Necessary for external CSS imports to work
-              ident: "postcss",
-              // sourceMap: true,
-              plugins: () => [
-                require("postcss-flexbugs-fixes"),
-                autoprefixer({
-                  flexbox: "no-2009"
-                })
-              ]
+              postcssOptions: {
+                // Necessary for external CSS imports to work
+                ident: "postcss",
+                // sourceMap: true,
+                plugins: () => [
+                  require("postcss-flexbugs-fixes"),
+                  autoprefixer({
+                    flexbox: "no-2009"
+                  })
+                ]
+              }
             }
           }
         ]

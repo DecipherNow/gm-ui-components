@@ -46,6 +46,8 @@ const DemoCanvas = styled.div`
   background-color: ${({ theme }) => theme.COLOR_BACKGROUND_DEFAULT};
   border: 1px solid ${({ theme }) => theme.COLOR_KEYLINE_SOLID};
   border-radius: ${({ theme }) => theme.CORNER_RADIUS_CARD_LG};
+  color: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
+  position: relative;
 
   h1 {
     margin-bottom: 0;
@@ -54,21 +56,39 @@ const DemoCanvas = styled.div`
       margin-top: 0;
     }
   }
-
 `;
 
-const StyledFieldset = styled(Fieldset)`
-  background-color: ${({ theme }) => theme.COLOR_BACKGROUND_TWO};
-`;
-
-const StyledFieldset2 = styled(Fieldset)`
-  background-color: ${({ theme }) => theme.COLOR_BACKGROUND_THREE};
+const DemoFieldset = styled(Fieldset)`
+  position: relative;
 `;
 
 const Space = styled.span`
   display: inline-block;
   height: ${space(1)};
   width: ${space(1)};
+`;
+
+const BackgroundAreaTwo = styled(Fieldset)`
+  background-color: ${({ theme }) => theme.COLOR_BACKGROUND_TWO};
+  position: relative;
+  overflow: hidden;
+`;
+
+const BackgroundAreaThree = styled(Fieldset)`
+  background-color: ${({ theme }) => theme.COLOR_BACKGROUND_THREE};
+  position: relative;
+  overflow: hidden;
+`;
+
+const Note = styled.span`
+  display: block;
+  text-transform: uppercase;
+  font-size: ${({ theme }) => theme.FONT_SIZE_TEXT_XS};
+  letter-spacing: 0.03em;
+  color: ${({ theme }) => theme.COLOR_CONTENT_NONESSENTIAL};
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
 `;
 
 const DocumentationLink = styled.h2`
@@ -91,6 +111,8 @@ const Grid = styled.div`
 function DemoContent({ heading, description }) {
   return (
     <DemoCanvas>
+      <Note>Background level one</Note>
+      <Breadcrumbs crumbs={["Overview", "Themes", "Theme"]} />
       <Space />
       <h1>{heading}</h1>
       <p>{description}</p>
@@ -102,7 +124,8 @@ function DemoContent({ heading, description }) {
         <Tab label="Label" />
         <Tab label="Disabled" disabled />
       </TabGroup>
-      <Fieldset>
+      <DemoFieldset>
+        <Note>Background level three</Note>
         <Textarea
           autoFocus={false}
           label="Textarea"
@@ -137,22 +160,31 @@ function DemoContent({ heading, description }) {
           <Radio labelPosition="right" label={"Radio"} disabled />
           <Radio labelPosition="right" label={"Radio"} defaultChecked={true} disabled />
         </Grid>
-      </Fieldset>
+      </DemoFieldset>
+
       <Space />
-      <StyledFieldset>
+      <BackgroundAreaTwo>
+        <Note>Background level two</Note>
         <ButtonGroup>
           <Button label={"Plain Button"} outline />
           <Space />
           <Button type={"primary"} label={"Primary Button"} />
         </ButtonGroup>
-      </StyledFieldset>
+      </BackgroundAreaTwo>
       <Space />
-      <Space />
-      <StyledFieldset2>
+      <BackgroundAreaTwo>
         <ToggleSwitch label={"ToggleSwitch"} />
         <ToggleSwitch label={"ToggleSwitch"} defaultChecked={true} />
-      </StyledFieldset2>
+      </BackgroundAreaTwo>
       <Space />
+      <BackgroundAreaThree>
+        <Note>Background level three</Note>
+        <ButtonGroup>
+          <Button label={"Plain Button"} />
+          <Space />
+          <Button type={"primary"} label={"Primary Button"} />
+        </ButtonGroup>
+      </BackgroundAreaThree>
     </DemoCanvas>
   );
 }

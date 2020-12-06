@@ -6,10 +6,8 @@
 # Set defaults for all jobs
 defaults: &defaults
   working_directory: ~/repo
-  environment:
-    CC_TEST_REPORTER_ID: c54354c67485869b121e5dcdb231ceefcbe890a99864521430f328118fb9fa4d
   docker:
-    - image: circleci/node:carbon
+    - image: circleci/node:14
 
 version: 2
 jobs:
