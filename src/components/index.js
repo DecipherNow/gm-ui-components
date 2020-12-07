@@ -10,6 +10,7 @@ export { default as Icon } from "./Icon";
 export { default as InputField } from "./InputField";
 export { default as InputRange } from "./InputRange";
 export { default as LayoutSection } from "./LayoutSection";
+export { default as NativeDialogButtonOrder } from "./NativeDialogButtonOrder";
 export { default as NavCard } from "./NavCard";
 export { default as NavCardGroup } from "./NavCardGroup";
 export { default as Radio } from "./Radio";
