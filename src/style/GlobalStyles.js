@@ -3,6 +3,10 @@ import { keen } from "style/theme";
 
 import "inter-ui/inter.css";
 
+const themeVarsToCSSVars = (theme) => {
+  return (Object.keys(theme).map(key => ('--' + key + ': ' + theme[key] + ';')));
+}
+
 const NORMALIZE = css`
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -357,97 +361,15 @@ const NORMALIZE = css`
   }
 `;
 
-const CSS_CUSTOM_PROPERTIES = css`
-  :root {
-    --COLOR_BRAND_PRIMARY: ${({ theme }) => theme.COLOR_BRAND_PRIMARY};
-    --COLOR_BRAND_SECONDARY: ${({ theme }) => theme.COLOR_BRAND_SECONDARY};
 
-    --COLOR_BACKGROUND_DEFAULT: ${({ theme }) =>
-      theme.COLOR_BACKGROUND_DEFAULT};
-    --COLOR_BACKGROUND_TWO: ${({ theme }) => theme.COLOR_BACKGROUND_TWO};
-    --COLOR_BACKGROUND_THREE: ${({ theme }) => theme.COLOR_BACKGROUND_THREE};
-
-    --COLOR_CONTENT_DEFAULT: ${({ theme }) => theme.COLOR_CONTENT_DEFAULT};
-    --COLOR_CONTENT_CONTRAST: ${({ theme }) => theme.COLOR_CONTENT_CONTRAST};
-    --COLOR_CONTENT_MUTED: ${({ theme }) => theme.COLOR_CONTENT_MUTED};
-    --COLOR_CONTENT_NONESSENTIAL: ${({ theme }) =>
-      theme.COLOR_CONTENT_NONESSENTIAL};
-
-    --COLOR_INTENT_HIGHLIGHT: ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT};
-    --COLOR_INTENT_SUCCESS: ${({ theme }) => theme.COLOR_INTENT_SUCCESS};
-    --COLOR_INTENT_DANGER: ${({ theme }) => theme.COLOR_INTENT_DANGER};
-    --COLOR_INTENT_WARNING: ${({ theme }) => theme.COLOR_INTENT_WARNING};
-    --COLOR_INTENT_INFO: ${({ theme }) => theme.COLOR_INTENT_INFO};
-
-    --COLOR_KEYLINE_DEFAULT: ${({ theme }) => theme.COLOR_KEYLINE_DEFAULT};
-    --COLOR_KEYLINE_SOLID: ${({ theme }) => theme.COLOR_KEYLINE_SOLID};
-
-    --OPACITY_FULL: ${({ theme }) => theme.OPACITY_FULL};
-    --OPACITY_LIGHT: ${({ theme }) => theme.OPACITY_LIGHT};
-    --OPACITY_LIGHTER: ${({ theme }) => theme.OPACITY_LIGHTER};
-    --OPACITY_LIGHTEST: ${({ theme }) => theme.OPACITY_LIGHTEST};
-
-    --SPACING_BASE: ${({ theme }) => theme.SPACING_BASE};
-
-    --ZINDEX_ABYSS: ${({ theme }) => theme.ZINDEX_ABYSS}
-    --ZINDEX_FLOOR: ${({ theme }) => theme.ZINDEX_FLOOR}
-    --ZINDEX_DROPDOWN: ${({ theme }) => theme.ZINDEX_DROPDWN};
-    --ZINDEX_STICKY: ${({ theme }) => theme.ZINDEX_STICK};
-    --ZINDEX_FIXED: ${({ theme }) => theme.ZINDEX_FIXED}
-    --ZINDEX_SCRIM: ${({ theme }) => theme.ZINDEX_SCRIM}
-    --ZINDEX_MODAL: ${({ theme }) => theme.ZINDEX_MODAL}
-    --ZINDEX_POPOVER: ${({ theme }) => theme.ZINDEX_POPOVER}
-    --ZINDEX_TOOLTIP: ${({ theme }) => theme.ZINDEX_TOOLTIP};
-
-    --CORNER_RADIUS_SHARP: ${({ theme }) => theme.CORNER_RADIUS_SHARP};
-    --CORNER_RADIUS_INPUT: ${({ theme }) => theme.CORNER_RADIUS_INPUT};
-    --CORNER_RADIUS_CARD_LG: ${({ theme }) => theme.CORNER_RADIUS_CARD_LG};
-    --CORNER_RADIUS_CARD_DEFAULT: ${({ theme }) =>
-      theme.CORNER_RADIUS_CARD_DEFAULT};
-    --CORNER_RADIUS_CARD_SM: ${({ theme }) => theme.CORNER_RADIUS_CARD_SM};
-    --CORNER_RADIUS_MAX: ${({ theme }) => theme.CORNER_RADIUS_MAX};
-
-    --FONT_SIZE_PAGE_TITLE: ${({ theme }) => theme.FONT_SIZE_PAGE_TITLE};
-
-    --FONT_SIZE_HEADING_LG: ${({ theme }) => theme.FONT_SIZE_HEADING_LG};
-    --FONT_SIZE_HEADING_DEFAULT: ${({ theme }) =>
-      theme.FONT_SIZE_HEADING_DEFAULT};
-    --FONT_SIZE_HEADING_SM: ${({ theme }) => theme.FONT_SIZE_HEADING_SM};
-
-    --FONT_SIZE_SUBHEADING_LG: ${({ theme }) => theme.FONT_SIZE_SUBHEADING_LG};
-    --FONT_SIZE_SUBHEADING_DEFAULT: ${({ theme }) =>
-      theme.FONT_SIZE_SUBHEADING_DEFAULT};
-    --FONT_SIZE_SUBHEADING_SM: ${({ theme }) => theme.FONT_SIZE_SUBHEADING_SM};
-
-    --FONT_SIZE_ITEM_TITLE_LG: ${({ theme }) => theme.FONT_SIZE_ITEM_TITLE_LG};
-    --FONT_SIZE_ITEM_TITLE_DEFAULT: ${({ theme }) =>
-      theme.FONT_SIZE_ITEM_TITLE_DEFAULT};
-    --FONT_SIZE_ITEM_TITLE_SM: ${({ theme }) => theme.FONT_SIZE_ITEM_TITLE_SM};
-
-    --FONT_SIZE_TEXT_XL: ${({ theme }) => theme.FONT_SIZE_TEXT_XL};
-    --FONT_SIZE_TEXT_LG: ${({ theme }) => theme.FONT_SIZE_TEXT_LG};
-    --FONT_SIZE_TEXT_DEFAULT: ${({ theme }) => theme.FONT_SIZE_TEXT_DEFAULT};
-    --FONT_SIZE_TEXT_SM: ${({ theme }) => theme.FONT_SIZE_TEXT_SM};
-    --FONT_SIZE_TEXT_XS: ${({ theme }) => theme.FONT_SIZE_TEXT_XS};
-
-    --LINE_HEIGHT_LOOSE: ${({ theme }) => theme.LINE_HEIGHT_LOOSE};
-    --LINE_HEIGHT_DEFAULT: ${({ theme }) => theme.LINE_HEIGHT_DEFAULT};
-    --LINE_HEIGHT_TIGHT: ${({ theme }) => theme.LINE_HEIGHT_TIGHT};
-
-    --FONT_WEIGHT_DEFAULT: ${({ theme }) => theme.FONT_WEIGHT_DEFAULT};
-    --FONT_WEIGHT_MEDIUM: ${({ theme }) => theme.FONT_WEIGHT_MEDIUM};
-    --FONT_WEIGHT_SEMIBOLD: ${({ theme }) => theme.FONT_WEIGHT_SEMIBOLD};
-    --FONT_WEIGHT_BOLD: ${({ theme }) => theme.FONT_WEIGHT_BOLD};
-
-    --LETTER_SPACING_DEFAULT: ${({ theme }) => theme.LETTER_SPACING_DEFAULT};
-  }
-`;
 
 const GlobalStyles = createGlobalStyle`
 
   ${NORMALIZE};
 
-  ${CSS_CUSTOM_PROPERTIES};
+  :root {
+    ${({ theme }) => themeVarsToCSSVars(theme)}
+  }
 
   html {
     font-family: ${({ theme }) => theme.FONT_STACK_DEFAULT};
