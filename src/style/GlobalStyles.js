@@ -1,5 +1,6 @@
 import { css, createGlobalStyle } from "styled-components";
 import { keen } from "style/theme";
+import SpaceGrotesk from "./fonts/space-grotesk/SpaceGrotesk-VariableFont_wght.ttf";
 
 import "inter-ui/inter.css";
 
@@ -448,6 +449,12 @@ const GlobalStyles = createGlobalStyle`
   ${NORMALIZE};
 
   ${CSS_CUSTOM_PROPERTIES};
+
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: 300 700;
+    src: url(${SpaceGrotesk});
+  }
 
   html {
     font-family: ${({ theme }) => theme.FONT_STACK_DEFAULT};
