@@ -74,7 +74,8 @@ exports[`InputBox should render 1`] = `
 }
 
 .c0:focus,
-.c0:focus:active {
+.c0:focus:active,
+.c0.isFocusVisible {
   outline: none;
   border: 1px solid #00b42b;
   box-shadow: 0 0 0 2.5px rgba(0,180,43,0.5);

@@ -45,7 +45,7 @@ stories
             color={color("color", "", groupIdComponent)}
             innerLabelOff={text("innerLabelOff", "", groupIdComponent)}
             innerLabelOn={text("innerLabelOn", "", groupIdComponent)}
-            disabled={boolean("disabled", "", groupIdComponent)}
+            isDisabled={boolean("isDisabled", false)}
             label={text("label", "Toggle Switch Label", groupIdComponent)}
             labelPosition={select(
               "labelPosition",
@@ -74,7 +74,7 @@ stories
               color={color("color")}
               innerLabelOff={text("innerLabelOff", "off")}
               innerLabelOn={text("innerLabelOn", "on")}
-              disabled={boolean("disabled")}
+              isDisabled={boolean("isDisabled", false)}
               label="With 0.5em wrapper"
               labelPosition={select(
                 "labelPosition",
@@ -88,7 +88,7 @@ stories
               color={color("color")}
               innerLabelOff={text("innerLabelOff", "off")}
               innerLabelOn={text("innerLabelOn", "on")}
-              disabled={boolean("disabled")}
+              isDisabled={boolean("isDisabled", false)}
               label="Default size"
               labelPosition={select(
                 "labelPosition",
@@ -102,14 +102,16 @@ stories
               color={color("color")}
               innerLabelOff={text("innerLabelOff", "off")}
               innerLabelOn={text("innerLabelOn", "on")}
-              disabled={boolean("disabled")}
+              isDisabled={boolean("isDisabled", false)}
               label="With 2em wrapper"
               labelPosition={select(
                 "labelPosition",
                 labelPositionOptions,
                 "right"
               )}
-            />
+            >
+              With 2em wrapper
+            </ToggleSwitch>
           </Wrap>
         </>
       );
@@ -134,7 +136,7 @@ stories
             color={color("color")}
             innerLabelOff={text("innerLabelOff", "")}
             innerLabelOn={text("innerLabelOn", "")}
-            disabled={boolean("disabled")}
+            isDisabled={boolean("isDisabled", false)}
             label={text("label", "Toggle Switch Label")}
             labelPosition={select(
               "labelPosition",
@@ -146,8 +148,121 @@ stories
             color={color("color")}
             innerLabelOff={text("innerLabelOff", "")}
             innerLabelOn={text("innerLabelOn", "")}
-            disabled={boolean("disabled")}
+            isDisabled={boolean("isDisabled", false)}
             label={text("label", "Toggle Switch Label")}
+            labelPosition={select(
+              "labelPosition",
+              labelPositionOptions,
+              "right"
+            )}
+          />
+        </TypicalWrapper>
+      );
+    },
+    {
+      info: {
+        text:
+          "Toggle switches in a list of controls, where one causes a dangerous action."
+      }
+    }
+  )
+  .add(
+    "Controlled, default selected",
+    () => {
+      return (
+        <TypicalWrapper>
+          <ToggleSwitch
+            color={color("color")}
+            isSelected={boolean("isSelected", true)}
+            innerLabelOff={text("innerLabelOff", "")}
+            innerLabelOn={text("innerLabelOn", "")}
+            isDisabled={boolean("isDisabled", false)}
+            labelPosition={select(
+              "labelPosition",
+              labelPositionOptions,
+              "right"
+            )}
+          >
+            {text("label", "Toggle Switch Label")}
+          </ToggleSwitch>
+        </TypicalWrapper>
+      );
+    },
+    {
+      info: {
+        text:
+          "Toggle switches in a list of controls, where one causes a dangerous action."
+      }
+    }
+  )
+  .add(
+    "Uncontrolled, default selected",
+    () => {
+      return (
+        <TypicalWrapper>
+          <ToggleSwitch
+            color={color("color")}
+            defaultSelected={true}
+            innerLabelOff={text("innerLabelOff", "")}
+            innerLabelOn={text("innerLabelOn", "")}
+            isDisabled={boolean("isDisabled", false)}
+            labelPosition={select(
+              "labelPosition",
+              labelPositionOptions,
+              "right"
+            )}
+          >
+            {text("label", "Toggle Switch Label")}
+          </ToggleSwitch>
+        </TypicalWrapper>
+      );
+    },
+    {
+      info: {
+        text:
+          "Toggle switches in a list of controls, where one causes a dangerous action."
+      }
+    }
+  )
+  .add(
+    "Child as Label",
+    () => {
+      return (
+        <TypicalWrapper>
+          <ToggleSwitch
+            color={color("color")}
+            innerLabelOff={text("innerLabelOff", "")}
+            innerLabelOn={text("innerLabelOn", "")}
+            isDisabled={boolean("isDisabled", false)}
+            labelPosition={select(
+              "labelPosition",
+              labelPositionOptions,
+              "right"
+            )}
+          >
+            {text("label", "Toggle Switch Label")}
+          </ToggleSwitch>
+        </TypicalWrapper>
+      );
+    },
+    {
+      info: {
+        text:
+          "Toggle switches in a list of controls, where one causes a dangerous action."
+      }
+    }
+  )
+  .add(
+    "Test with no child and aria-label",
+    () => {
+      return (
+        <TypicalWrapper>
+          <ToggleSwitch
+            // label="Toggle Switch Label"
+            color={color("color")}
+            innerLabelOff={text("innerLabelOff", undefined)}
+            innerLabelOn={text("innerLabelOn", undefined)}
+            isDisabled={boolean("isDisabled", false)}
             labelPosition={select(
               "labelPosition",
               labelPositionOptions,

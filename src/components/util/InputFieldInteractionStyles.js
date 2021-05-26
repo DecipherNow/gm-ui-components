@@ -59,7 +59,8 @@ export function formInteractionStyles() {
     }
 
     &:focus,
-    &:focus:active {
+    &:focus:active,
+    &.isFocusVisible {
       outline: none;
       border: ${css`1px solid ${({ theme }) => theme.COLOR_INTENT_HIGHLIGHT}`};
       box-shadow: ${css`0 0 0 ${FORM_HIGHLIGHT_SIZE}px ${({ theme }) =>

@@ -74,7 +74,8 @@ exports[`CheckboxBox should render 1`] = `
 }
 
 .c1:focus,
-.c1:focus:active {
+.c1:focus:active,
+.c1.isFocusVisible {
   outline: none;
   border: 1px solid #00b42b;
   box-shadow: 0 0 0 2.5px rgba(0,180,43,0.5);

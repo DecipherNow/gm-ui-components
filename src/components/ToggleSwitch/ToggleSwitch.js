@@ -1,14 +1,19 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import { classnames } from "../../util/classnames";
+
+import { useSwitch } from "@react-aria/switch";
+import { useHover, usePress } from "@react-aria/interactions";
+import { useToggleState } from "@react-stately/toggle";
+import { useFocusRing } from "@react-aria/focus";
+
 import styled from "styled-components";
 import { readableColor } from "polished";
 import { formInteractionStyles } from "components/util/InputFieldInteractionStyles";
 import InputWrap from "components/util/InputWrap";
 import InputLabelText from "components/util/InputLabelText";
 
-const ToggleSwitchElement = styled.input.attrs(props => ({
-  type: "checkbox"
-}))`
+const ToggleSwitchElement = styled.input`
   ${formInteractionStyles()};
   appearance: none;
   border-radius: 10em;
@@ -16,7 +21,10 @@ const ToggleSwitchElement = styled.input.attrs(props => ({
   width: 1.615em;
   display: flex;
   transition: all 0.3s ease;
-  border: 1px solid;
+  border: 1px solid cornflowerblue;
+  border-color: yellow;
+  border-color: ${({ color, theme }) =>
+    color ? color : theme.COLOR_INTENT_HIGHLIGHT};
   position: relative;
   outline: none;
   box-sizing: content-box;
@@ -29,9 +37,7 @@ const ToggleSwitchElement = styled.input.attrs(props => ({
     opacity: ${({ theme }) => theme.OPACITY_LIGHTER};
   }
 
-  &,
-  &:focus,
-  &:focus:active {
+  .isFocusVisible & {
     border-color: ${({ color, theme }) =>
       color ? color : theme.COLOR_INTENT_HIGHLIGHT};
   }
@@ -74,7 +80,7 @@ const ToggleSwitchElement = styled.input.attrs(props => ({
       right: 0;
     }
 
-    &:not(:disabled):hover:before {
+    .isHovered &:not(:disabled):before {
       left: 30%;
     }
 
@@ -112,21 +118,34 @@ const ToggleSwitchElement = styled.input.attrs(props => ({
 /**
  * Description of your component
  */
-export default function ToggleSwitch({
-  color,
-  innerLabelOn,
-  innerLabelOff,
-  labelPosition,
-  label,
-  ...props
-}) {
+export default function ToggleSwitch({ children, ...props }) {
+  let ref = React.useRef();
+  let state = useToggleState(props);
+  let { inputProps } = useSwitch(props, state, ref);
+  let { isFocusVisible, focusProps } = useFocusRing();
+  let { hoverProps, isHovered } = useHover({});
+  let { pressProps, isPressed } = usePress({});
+
   return (
-    <InputWrap labelPosition={labelPosition}>
-      {label && <InputLabelText>{label}</InputLabelText>}
+    <InputWrap
+      {...hoverProps}
+      {...pressProps}
+      className={classnames(
+        isHovered && "isHovered",
+        isPressed && "isPressed",
+        isFocusVisible && "isFocusVisible",
+        props.isDisabled && "isDisabled"
+      )}
+      labelPosition={props.labelPosition}
+    >
+      <InputLabelText>{children || props.label}</InputLabelText>
       <ToggleSwitchElement
-        color={color}
-        innerLabelOn={innerLabelOn}
-        innerLabelOff={innerLabelOff}
+        color={props.color ? props.color : undefined}
+        innerLabelOn={props.innerLabelOn}
+        innerLabelOff={props.innerLabelOff}
+        ref={ref}
+        {...inputProps}
+        {...focusProps}
         {...props}
       />
     </InputWrap>
@@ -134,9 +153,12 @@ export default function ToggleSwitch({
 }
 
 ToggleSwitch.propTypes = {
+  children: PropTypes.any,
   color: PropTypes.string,
+  defaultChecked: PropTypes.bool,
   innerLabelOff: PropTypes.string,
   innerLabelOn: PropTypes.string,
+  isDisabled: PropTypes.bool,
   label: PropTypes.string,
   labelPosition: PropTypes.oneOf(["top", "bottom", "left", "right"])
 };

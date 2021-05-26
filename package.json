@@ -26,6 +26,10 @@
     "@popperjs/core": "^2"
   },
   "dependencies": {
+    "@react-aria/focus": "^3.2.3",
+    "@react-aria/switch": "^3.1.1",
+    "@react-aria/visually-hidden": "^3.2.1",
+    "@react-stately/toggle": "^3.2.1",
     "polished": "^3.4.2"
   },
   "scripts": {
