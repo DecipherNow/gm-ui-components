@@ -1,5 +1,5 @@
 <svg width="64px" height="64px" viewBox="0 0 64 64">
   <g id="ekg-no" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
-    <path id="border" fill-rule="nonzero" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16,32 L24,32 L28,48 L36,16 L40,32 L48,32 M48,16 L16,48"/>
+    <path id="border" fill-rule="nonzero" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16,32 L24,32 L28,48 L36,16 L40,32 L48,32 M48,16 L16,48" transform="scale(1,-1)  translate(0,-64)"/>
   </g>
 </svg>

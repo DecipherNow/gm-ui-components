@@ -1,5 +1,5 @@
 <svg width="64px" height="64px" viewBox="0 0 64 64">
   <g id="ekg" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
-    <polyline id="border" fill-rule="nonzero" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="16 32 24 32 28 48 36 16 40 32 48 32"/>
+    <polyline id="border" fill-rule="nonzero" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="16 32 24 32 28 48 36 16 40 32 48 32" transform="scale(1,-1)  translate(0,-64)"/>
   </g>
 </svg>
